@@ -1,0 +1,1101 @@
+[
+    {
+        "id": "4e61bceb49cf66cf",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "df0d9ecf0af0f574",
+        "type": "tab",
+        "label": "플로우 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dbeae5430b4bc5a3",
+        "type": "serial-port",
+        "serialport": "/dev/tty.usbmodem14301",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "a3819a376e50b578",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "a20790fc4e8e0ca2",
+        "type": "ui_tab",
+        "name": "Parking Management",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6aeb6ccf14b443cd",
+        "type": "ui_group",
+        "name": "Controller",
+        "tab": "a20790fc4e8e0ca2",
+        "order": 1,
+        "disp": true,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f835c5eff995985c",
+        "type": "ui_group",
+        "name": "View",
+        "tab": "a20790fc4e8e0ca2",
+        "order": 2,
+        "disp": true,
+        "width": "14",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c77209e9eac23680",
+        "type": "ui_group",
+        "name": "Status",
+        "tab": "a20790fc4e8e0ca2",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8e403f6af717befd",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c569e95d.e2ea7",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "99b36f6.7a6d29",
+        "type": "ui_tab",
+        "name": "SVG LED",
+        "icon": "dashboard"
+    },
+    {
+        "id": "e4c8df5a.bc9048",
+        "type": "ui_tab",
+        "z": "4e61bceb49cf66cf",
+        "name": "tab2",
+        "icon": "dashboard"
+    },
+    {
+        "id": "3c22036ae1f84e8b",
+        "type": "ui_spacer",
+        "z": "4e61bceb49cf66cf",
+        "name": "spacer",
+        "group": "6aeb6ccf14b443cd",
+        "order": 17,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "8b2013191c96a8b9",
+        "type": "ui_spacer",
+        "z": "4e61bceb49cf66cf",
+        "name": "spacer",
+        "group": "6aeb6ccf14b443cd",
+        "order": 18,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "3410f3b571c03c22",
+        "type": "ui_spacer",
+        "z": "4e61bceb49cf66cf",
+        "name": "spacer",
+        "group": "6aeb6ccf14b443cd",
+        "order": 19,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "209189385f38e806",
+        "type": "serial in",
+        "z": "4e61bceb49cf66cf",
+        "name": "uno",
+        "serial": "dbeae5430b4bc5a3",
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "1e16f1f48d48308e"
+            ]
+        ]
+    },
+    {
+        "id": "c260b62793d6a8a6",
+        "type": "debug",
+        "z": "4e61bceb49cf66cf",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "0bd0228ef45eeb68",
+        "type": "ui_dropdown",
+        "z": "4e61bceb49cf66cf",
+        "name": "A01",
+        "label": "",
+        "tooltip": "",
+        "place": "default",
+        "group": "6aeb6ccf14b443cd",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "default",
+                "type": "str"
+            },
+            {
+                "label": "Student",
+                "value": "RED",
+                "type": "str"
+            },
+            {
+                "label": "Proffesor",
+                "value": "GREEN",
+                "type": "str"
+            },
+            {
+                "label": "Visitor",
+                "value": "BLUE",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "0",
+        "topicType": "str",
+        "className": "",
+        "x": 390,
+        "y": 380,
+        "wires": [
+            [
+                "22b06f50c2ce020d",
+                "8df4b1c4ae8faea6"
+            ]
+        ]
+    },
+    {
+        "id": "22b06f50c2ce020d",
+        "type": "ui_text",
+        "z": "4e61bceb49cf66cf",
+        "group": "6aeb6ccf14b443cd",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "name": "A01",
+        "label": "",
+        "format": "A01",
+        "layout": "col-center",
+        "className": "",
+        "x": 650,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "cbd5c6904ddf5e44",
+        "type": "ui_text",
+        "z": "4e61bceb49cf66cf",
+        "group": "6aeb6ccf14b443cd",
+        "order": 3,
+        "width": 2,
+        "height": 1,
+        "name": "A02",
+        "label": "",
+        "format": "A02",
+        "layout": "col-center",
+        "className": "",
+        "x": 650,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "81a5eed2278c5c8f",
+        "type": "ui_text",
+        "z": "4e61bceb49cf66cf",
+        "group": "6aeb6ccf14b443cd",
+        "order": 5,
+        "width": 2,
+        "height": 1,
+        "name": "A03",
+        "label": "",
+        "format": "A03",
+        "layout": "col-center",
+        "className": "",
+        "x": 650,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c60befd5dc251606",
+        "type": "ui_text",
+        "z": "4e61bceb49cf66cf",
+        "group": "6aeb6ccf14b443cd",
+        "order": 7,
+        "width": 2,
+        "height": 1,
+        "name": "A04",
+        "label": "",
+        "format": "A04",
+        "layout": "col-center",
+        "className": "",
+        "x": 650,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "298c58d6f39f02cf",
+        "type": "function",
+        "z": "4e61bceb49cf66cf",
+        "name": "Color Count",
+        "func": "var a = [];\nvar code = [];\nvar r = 0;\nvar g = 0;\nvar b = 0;\nvar d = 0;\n\nvar area = flow.get('area');\nfor(var i = 0; i<area.length; i++){\n    a[i] = area[i];\n}\n\nfor(var i = 0; i < a.length; i++){\n    if(a[i] == 'RED'){\n        r++;\n        code[i] = \"#ff0000\";\n    } else if (a[i] == 'BLUE') {\n        b++;\n        code[i] = \"#009dff\";\n    } else if (a[i] == 'GREEN') {\n        g++;\n        code[i] = \"#00c700\";\n    } else {\n        d++;\n        code[i] = \"#d3d3d3\";\n    }\n}\nmsg.red = r;\nmsg.green = g;\nmsg.blue = b;\nmsg.default = d;\nmsg.code = code;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 280,
+        "wires": [
+            [
+                "35b2a21057e32846",
+                "16d7ac8258eada24"
+            ]
+        ]
+    },
+    {
+        "id": "35b2a21057e32846",
+        "type": "ui_template",
+        "z": "4e61bceb49cf66cf",
+        "group": "c77209e9eac23680",
+        "name": "Status",
+        "order": 1,
+        "width": 6,
+        "height": 12,
+        "format": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>\n      <meta charset=\"utf-8\" /> <meta name=\"viewport\"\n      content=\"width=device-width, initial-scale=1\" />\n    </title>\n    <style>\n      .dot {\n        height: 50px;\n        width: 50px;\n        border-radius: 50%;\n        display: inline-block;\n      }\n      .text {\n        font-size: 30px;\n        margin: 10px;\n        float: right;\n      }\n      .row {\n        vertical-align: middle;\n        margin: 10px;\n      }\n    </style>\n  </head>\n  <body>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #ff0000\"></span>\n      <span class=\"text\">Student : {{msg.red}}</span>\n    </div>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #00c700\"></span>\n      <span class=\"text\">Professor : {{msg.green}}</span>\n    </div>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #009dff\"></span>\n      <span class=\"text\">Visitor : {{msg.blue}}</span>\n    </div>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #d3d3d3\"></span>\n      <span class=\"text\"> Not Selected : {{msg.default}}</span>\n    </div>\n  </body>\n</html>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1030,
+        "y": 300,
+        "wires": [
+            [
+                "0546112eb183f4a0"
+            ]
+        ]
+    },
+    {
+        "id": "16d7ac8258eada24",
+        "type": "ui_template",
+        "z": "4e61bceb49cf66cf",
+        "group": "f835c5eff995985c",
+        "name": "View",
+        "order": 1,
+        "width": 14,
+        "height": 12,
+        "format": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <title>Parking Management</title>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <link\n      rel=\"stylesheet\"\n      href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css\"\n    />\n    <script src=\"https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js\"></script>\n    <style>\n      .col {\n        margin: 10px;\n        padding: 10px;\n        border-radius: 15px;\n        height: 100%;\n      }\n\n      .col1 {\n        text-align: center;\n        font-size: 30px;\n      }\n\n      .col2 {\n        position: absolute;\n        left: 50%;\n        transform: translate(-50%, 0);\n        bottom: 15px;\n        font-size: 30px;\n      }\n    </style>\n  </head>\n  <body>\n    <div class=\"container-fluid\">\n      <div class=\"row\" style=\"margin-bottom: 3em; height: 15em\">\n        <div\n          id=\"A01\"\n          class=\"col border-bottom-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col1\">A01</div>\n        </div>\n        <div\n          id=\"A02\"\n          class=\"col border-bottom-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col1\">A02</div>\n        </div>\n        <div\n          id=\"A03\"\n          class=\"col border-bottom-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col1\">A03</div>\n        </div>\n        <div\n          id=\"A04\"\n          class=\"col border-bottom-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col1\">A04</div>\n        </div>\n      </div>\n      <div class=\"row\" style=\"margin-top: 8em; height: 15em\">\n        <div\n          id=\"A05\"\n          class=\"col border-top-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col2\">A05</div>\n        </div>\n        <div\n          id=\"A06\"\n          class=\"col border-top-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col2\">A06</div>\n        </div>\n        <div\n          id=\"A07\"\n          class=\"col border-top-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col2\">A07</div>\n        </div>\n        <div\n          id=\"A08\"\n          class=\"col border-top-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col2\">A08</div>\n        </div>\n      </div>\n    </div>\n    <script>\n      \n    (function(scope){ \n        scope.$watch('msg', function(msg) {\n            var areaCount = 8;\n            arr = msg.code;\n            \n            for (var i = 1; i <= areaCount; i++) {\n                var area = \"A0\" + i;\n                document.getElementById(area).style.backgroundColor = arr[i-1];\n            }\n        });\n    })(scope);\n    </script>\n  </body>\n</html>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1030,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d74001fe05ef9e2f",
+        "type": "ui_text",
+        "z": "4e61bceb49cf66cf",
+        "group": "6aeb6ccf14b443cd",
+        "order": 20,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 650,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "0546112eb183f4a0",
+        "type": "debug",
+        "z": "4e61bceb49cf66cf",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "04720c6607e23053",
+        "type": "ui_dropdown",
+        "z": "4e61bceb49cf66cf",
+        "name": "A02",
+        "label": "",
+        "tooltip": "",
+        "place": "default",
+        "group": "6aeb6ccf14b443cd",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "default",
+                "type": "str"
+            },
+            {
+                "label": "Student",
+                "value": "RED",
+                "type": "str"
+            },
+            {
+                "label": "Proffesor",
+                "value": "GREEN",
+                "type": "str"
+            },
+            {
+                "label": "Visitor",
+                "value": "BLUE",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "1",
+        "topicType": "str",
+        "className": "",
+        "x": 390,
+        "y": 440,
+        "wires": [
+            [
+                "cbd5c6904ddf5e44",
+                "8df4b1c4ae8faea6"
+            ]
+        ]
+    },
+    {
+        "id": "5608158e2259970f",
+        "type": "ui_dropdown",
+        "z": "4e61bceb49cf66cf",
+        "name": "A03",
+        "label": "",
+        "tooltip": "",
+        "place": "default",
+        "group": "6aeb6ccf14b443cd",
+        "order": 6,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "default",
+                "type": "str"
+            },
+            {
+                "label": "Student",
+                "value": "RED",
+                "type": "str"
+            },
+            {
+                "label": "Proffesor",
+                "value": "GREEN",
+                "type": "str"
+            },
+            {
+                "label": "Visitor",
+                "value": "BLUE",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "2",
+        "topicType": "str",
+        "className": "",
+        "x": 390,
+        "y": 500,
+        "wires": [
+            [
+                "81a5eed2278c5c8f",
+                "8df4b1c4ae8faea6"
+            ]
+        ]
+    },
+    {
+        "id": "683e2c5345b15bea",
+        "type": "ui_dropdown",
+        "z": "4e61bceb49cf66cf",
+        "name": "A04",
+        "label": "",
+        "tooltip": "",
+        "place": "default",
+        "group": "6aeb6ccf14b443cd",
+        "order": 8,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "default",
+                "type": "str"
+            },
+            {
+                "label": "Student",
+                "value": "RED",
+                "type": "str"
+            },
+            {
+                "label": "Proffesor",
+                "value": "GREEN",
+                "type": "str"
+            },
+            {
+                "label": "Visitor",
+                "value": "BLUE",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "3",
+        "topicType": "str",
+        "className": "",
+        "x": 390,
+        "y": 560,
+        "wires": [
+            [
+                "c60befd5dc251606",
+                "8df4b1c4ae8faea6"
+            ]
+        ]
+    },
+    {
+        "id": "8df4b1c4ae8faea6",
+        "type": "function",
+        "z": "4e61bceb49cf66cf",
+        "name": "A02",
+        "func": "var current = msg.payload;\nvar topic = Number(msg.topic);\nvar area = flow.get(\"area\");\n\nvar prev = area[topic];\n\nvar current_count = flow.get(current) || 0;\n\nvar prev_count = flow.get(prev) || 0;\n\nflow.set(current, current_count + 1);\nif(prev != 'default') {\n    flow.set(prev, prev_count - 1);\n}\n\narea[topic] = current;\n\nflow.set(\"area\", area);\nmsg.area = area;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 320,
+        "wires": [
+            [
+                "298c58d6f39f02cf",
+                "e6de571f23a738d6"
+            ]
+        ]
+    },
+    {
+        "id": "6a368fea72f3fabc",
+        "type": "function",
+        "z": "4e61bceb49cf66cf",
+        "name": "init",
+        "func": "var arr = ['default', 'default', 'default', 'default', 'default', 'default', 'default', 'default']\nflow.set('area', arr);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 280,
+        "wires": [
+            [
+                "0bd0228ef45eeb68",
+                "04720c6607e23053",
+                "5608158e2259970f",
+                "683e2c5345b15bea",
+                "298c58d6f39f02cf",
+                "725a73f1f2f33cc1",
+                "47810990648addd3",
+                "41981235ecb5c050",
+                "74795c73d12e239c"
+            ]
+        ]
+    },
+    {
+        "id": "16464f13b28e9e24",
+        "type": "inject",
+        "z": "4e61bceb49cf66cf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "default",
+        "payloadType": "str",
+        "x": 100,
+        "y": 280,
+        "wires": [
+            [
+                "6a368fea72f3fabc"
+            ]
+        ]
+    },
+    {
+        "id": "725a73f1f2f33cc1",
+        "type": "ui_dropdown",
+        "z": "4e61bceb49cf66cf",
+        "name": "A05",
+        "label": "",
+        "tooltip": "",
+        "place": "default",
+        "group": "6aeb6ccf14b443cd",
+        "order": 10,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "default",
+                "type": "str"
+            },
+            {
+                "label": "Student",
+                "value": "RED",
+                "type": "str"
+            },
+            {
+                "label": "Proffesor",
+                "value": "GREEN",
+                "type": "str"
+            },
+            {
+                "label": "Visitor",
+                "value": "BLUE",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "4",
+        "topicType": "str",
+        "className": "",
+        "x": 390,
+        "y": 620,
+        "wires": [
+            [
+                "ee62abf366e3b6e6",
+                "8df4b1c4ae8faea6"
+            ]
+        ]
+    },
+    {
+        "id": "ee62abf366e3b6e6",
+        "type": "ui_text",
+        "z": "4e61bceb49cf66cf",
+        "group": "6aeb6ccf14b443cd",
+        "order": 9,
+        "width": 2,
+        "height": 1,
+        "name": "A05",
+        "label": "",
+        "format": "A05",
+        "layout": "col-center",
+        "className": "",
+        "x": 650,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "96a54d66708b1f22",
+        "type": "ui_text",
+        "z": "4e61bceb49cf66cf",
+        "group": "6aeb6ccf14b443cd",
+        "order": 11,
+        "width": 2,
+        "height": 1,
+        "name": "A06",
+        "label": "",
+        "format": "A06",
+        "layout": "col-center",
+        "className": "",
+        "x": 650,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "3b209f759d3d0e7a",
+        "type": "ui_text",
+        "z": "4e61bceb49cf66cf",
+        "group": "6aeb6ccf14b443cd",
+        "order": 13,
+        "width": 2,
+        "height": 1,
+        "name": "A07",
+        "label": "",
+        "format": "A07",
+        "layout": "col-center",
+        "className": "",
+        "x": 650,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "636f191b5f41c4ab",
+        "type": "ui_text",
+        "z": "4e61bceb49cf66cf",
+        "group": "6aeb6ccf14b443cd",
+        "order": 15,
+        "width": 2,
+        "height": 1,
+        "name": "A08",
+        "label": "",
+        "format": "A08",
+        "layout": "col-center",
+        "className": "",
+        "x": 650,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "47810990648addd3",
+        "type": "ui_dropdown",
+        "z": "4e61bceb49cf66cf",
+        "name": "A06",
+        "label": "",
+        "tooltip": "",
+        "place": "default",
+        "group": "6aeb6ccf14b443cd",
+        "order": 12,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "default",
+                "type": "str"
+            },
+            {
+                "label": "Student",
+                "value": "RED",
+                "type": "str"
+            },
+            {
+                "label": "Proffesor",
+                "value": "GREEN",
+                "type": "str"
+            },
+            {
+                "label": "Visitor",
+                "value": "BLUE",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "5",
+        "topicType": "str",
+        "className": "",
+        "x": 390,
+        "y": 680,
+        "wires": [
+            [
+                "96a54d66708b1f22",
+                "8df4b1c4ae8faea6"
+            ]
+        ]
+    },
+    {
+        "id": "41981235ecb5c050",
+        "type": "ui_dropdown",
+        "z": "4e61bceb49cf66cf",
+        "name": "A07",
+        "label": "",
+        "tooltip": "",
+        "place": "default",
+        "group": "6aeb6ccf14b443cd",
+        "order": 14,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "default",
+                "type": "str"
+            },
+            {
+                "label": "Student",
+                "value": "RED",
+                "type": "str"
+            },
+            {
+                "label": "Proffesor",
+                "value": "GREEN",
+                "type": "str"
+            },
+            {
+                "label": "Visitor",
+                "value": "BLUE",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "6",
+        "topicType": "str",
+        "className": "",
+        "x": 390,
+        "y": 740,
+        "wires": [
+            [
+                "3b209f759d3d0e7a",
+                "8df4b1c4ae8faea6"
+            ]
+        ]
+    },
+    {
+        "id": "74795c73d12e239c",
+        "type": "ui_dropdown",
+        "z": "4e61bceb49cf66cf",
+        "name": "A08",
+        "label": "",
+        "tooltip": "",
+        "place": "default",
+        "group": "6aeb6ccf14b443cd",
+        "order": 16,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "default",
+                "type": "str"
+            },
+            {
+                "label": "Student",
+                "value": "RED",
+                "type": "str"
+            },
+            {
+                "label": "Proffesor",
+                "value": "GREEN",
+                "type": "str"
+            },
+            {
+                "label": "Visitor",
+                "value": "BLUE",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "7",
+        "topicType": "str",
+        "className": "",
+        "x": 390,
+        "y": 800,
+        "wires": [
+            [
+                "636f191b5f41c4ab",
+                "8df4b1c4ae8faea6"
+            ]
+        ]
+    },
+    {
+        "id": "963160b2ac865a44",
+        "type": "serial out",
+        "z": "4e61bceb49cf66cf",
+        "name": "",
+        "serial": "dbeae5430b4bc5a3",
+        "x": 1070,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e6de571f23a738d6",
+        "type": "function",
+        "z": "4e61bceb49cf66cf",
+        "name": "",
+        "func": "var area = flow.get('area');\nvar number = [];\n\nfor(var i = 0; i<area.length; i++){\n    if(area[i] == 'RED'){\n        number[i] = 1;\n    } else if (area[i] == 'GREEN') {\n        number[i] = 2;\n    } else if (area[i] == 'BLUE') {\n        number[i] = 3;\n    } else {\n        number[i] = 0;\n    }\n}\n\nvar result = number.join(\" \");\n\nmsg.payload = result;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 400,
+        "wires": [
+            [
+                "963160b2ac865a44"
+            ]
+        ]
+    },
+    {
+        "id": "9dd3f029fc78fd67",
+        "type": "http in",
+        "z": "4e61bceb49cf66cf",
+        "name": "",
+        "url": "/customer",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 400,
+        "y": 960,
+        "wires": [
+            [
+                "e23b679f95de48ad"
+            ]
+        ]
+    },
+    {
+        "id": "d85d51a3fa498142",
+        "type": "http response",
+        "z": "4e61bceb49cf66cf",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 930,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "23018ba38db562a9",
+        "type": "template",
+        "z": "4e61bceb49cf66cf",
+        "name": "HTML",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Dynamic Parking System</title>\n  <link href=\"https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500;600&family=Noto+Sans+KR&display=swap\" rel=\"stylesheet\">\n  <style>{{{payload.style}}}</style>\n</head>\n\n<body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n  <div id=\"container\">\n    <div id=\"startDiv\">\n      <img src=\".node-red/img/spider.png\">\n      <p id=\"title\">Dynamic Parking System</p>\n      <button id=\"startButton\" type=\"button\" name=\"button\">Start</button>\n    </div>\n    <div id=\"contents\">\n      <div id=\"row1\">\n        <div id=\"mapDiv\">\n          \n        </div>\n        <div id=\"parkingDiv\">\n          <ul id=\"inforOfPlace\">\n          </ul>\n          <p id=\"totalOfPlace\"></p>\n        </div>\n      </div>\n      <div id=\"row2\">\n        <button id=\"confirmButton\" type=\"button\" name=\"button\">OK</button>\n      </div>\n    </div>\n  </div>\n  <script>{{{payload.js}}}</script>\n</body>\n\n</html>\n",
+        "output": "str",
+        "x": 810,
+        "y": 960,
+        "wires": [
+            [
+                "d85d51a3fa498142"
+            ]
+        ]
+    },
+    {
+        "id": "93176b27a638a180",
+        "type": "template",
+        "z": "4e61bceb49cf66cf",
+        "name": "CSS",
+        "field": "payload.style",
+        "fieldType": "msg",
+        "format": "css",
+        "syntax": "mustache",
+        "template": "body {\n  background-color: #2c3e50;\n  font-family: 'Baloo Tammudu 2', 'Noto Sans KR', sans-serif;\n}\n\n#container {\n  text-align: center;\n}\n\n#contents {\n  display: none;\n}\n\n#startDiv {\n  text-align: center;\n  padding-top: 0;\n}\n\n#title {\n  line-height: 7vmin;\n  margin-top: 0px;\n  margin-bottom: 0px;\n  color: white;\n  font-size: 7vmin;\n}\n\n#totalOfPlace {\n  line-height: 7.2vmin;\n  font-weight: bold;\n  margin-top: 0px;\n  margin-bottom: 0px;\n  font-size: 7vmin;\n}\n\n#startDiv img {\n  width: 16vmin;\n  height: 16vmin;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n\n  to {\n    opacity: 1;\n  }\n}\n\n/*조정 필요*/\n.bgImage {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100vw;\n  height: 100vh;\n  z-index: -1;\n  animation: fadeIn 0.8s linear;\n  filter: brightness(60%);\n}\n\n#mapDiv {\n  margin-top: 3vmin;\n  width: 90vmin;\n  background-color: white;\n  border: solid #F5454C;\n  border-radius: 20px;\n  animation: fadeIn 1s linear;\n}\n\n#mapDiv img{\n  width: 85vmin;\n  height: 60vmin;\n  margin-top: 3vmin;\n}\n\n#startButton {\n  margin: auto;\n  width: 14vmin;\n  height: 7vmin;\n  border-radius: 30px;\n  border: none;\n  background-color: rgba(255, 255, 255, 0.4);\n  color: rgb(80, 80, 80);\n  font-size: 4vmin;\n  font-weight: 600;\n  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);\n  outline: none;\n  cursor: pointer;\n  transition: all, 0.4s;\n  animation: fadeIn 1s linear;\n}\n\n#startButton:hover, #confirmButton:hover {\n  background-color: rgba(255, 255, 255, 1);\n  color: rgb(50, 50, 50);\n}\n\n#confirmButton {\n  margin-top: 3vmin;\n  width: 14vmin;\n  height: 7vmin;\n  border-radius: 30px;\n  border: solid black;\n  background-color: #292726;\n  color: #FFFCFC;\n  font-size: 4vmin;\n  font-weight: 600;\n  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);\n  outline: none;\n  cursor: pointer;\n  transition: all, 0.4s;\n}\n\n#parkingDiv {\n  margin: auto;\n  text-align: center;\n  width: 90vmin;\n  background-color: white;\n  border: solid #F5454C;\n  border-radius: 20px;\n  animation: fadeIn 1s linear;\n}\n\n.colors{\n  border-radius: 20px;\n  float: left;\n  margin-top: 3vmin;\n  margin-right: 3vmin;\n  width: 6vmin;\n  height: 6vmin;\n}\n\n#inforOfPlace {\n  margin-top: 2vmin;\n  margin-bottom: 0px;\n  padding-left: 15vmin;\n  text-align: left;\n  list-style: none;\n  font-size: 7vmin;\n  font-weight: bold;\n}\n\n/*전체적인 case 고려해야 함, 비율 통일, 중복되는 쿼리 해결 고민*/\n\n/* PC , 테블릿 가로 (768px ~ 1023px)*/\n@media all and (min-width:1024px) {\n  #title {\n    font-size: 2vmax;\n  }\n\n  #startDiv{\n    padding-top: 1vmax;\n  }\n\n  #startDiv img {\n    width: 6vmax;\n    height: 6vmax;\n  }\n\n  #row1 {\n    display: inline-flex;\n  }\n\n  #mapDiv {\n    margin-top: 0px;\n    width: 45vmax;\n    height: 28vmax;\n  }\n\n/*vmin, vmax 일 때 정확한 비율 통일 필요*/\n  #mapDiv img{\n    margin-top: 0.5vmax;\n    width: 38vmax;\n    height: 27vmax;\n  }\n\n  #parkingDiv {\n    display: inline-flex;\n    width: 45vmax;\n    height: 28vmax;\n    margin-left: 3vmax;\n    margin-top: 0px;\n  }\n\n  .colors{\n    margin-top: 0.7vmax;\n    margin-right: 1vmax;\n    width: 2.5vmax;\n    height: 2.5vmax;\n  }\n\n  #confirmButton {\n    margin-top: 1vmax;\n    width: 7vmax;\n    height: 3vmax;\n    font-size: 2vmax;\n  }\n\n  #startButton{\n    width: 7vmax;\n    height: 3vmax;\n    font-size: 2vmax;\n  }\n\n  #inforOfPlace {\n    margin-top: 2vmax;\n    margin-left: 3vmax;\n    padding-left: 3vmax;\n    font-size: 2.2vmax;\n  }\n\n  #totalOfPlace {\n    margin-top: 13vmax;\n    margin-left: 6.5vmax;\n    font-size: 3vmax;\n  }\n}\n\n/* 테블릿 세로 (768px ~ 1023px)*/\n@media all and (min-width:768px) and (max-width:1023px) {\n  #row1 {\n    display: inline-block;\n  }\n\n  #parkingDiv {\n    margin-top: 4vmin;\n  }\n  \n}\n\n/* 모바일 가로, 테블릿 세로 (480px ~ 767px)*/\n  @media all and (min-width:480px) and (max-width:767px) {\n    #title {\n      font-size: 2vmax;\n    }\n\n    #startDiv{\n      padding-top: 1vmax;\n    }\n\n    #startDiv img {\n      width: 6vmax;\n      height: 6vmax;\n    }\n\n    #row1 {\n      display: inline-flex;\n    }\n\n    #mapDiv {\n      margin-top: 0px;\n      width: 45vmax;\n      height: 28vmax;\n    }\n\n  /*vmin, vmax 일 때 정확한 비율 통일 필요*/\n    #mapDiv img{\n      margin-top: 0.5vmax;\n      width: 38vmax;\n      height: 27vmax;\n    }\n\n    #parkingDiv {\n      display: inline-flex;\n      width: 45vmax;\n      height: 28vmax;\n      margin-left: 3vmax;\n      margin-top: 0px;\n    }\n\n    .colors{\n      margin-top: 0.7vmax;\n      margin-right: 1vmax;\n      width: 2.5vmax;\n      height: 2.5vmax;\n    }\n\n    #confirmButton {\n      margin-top: 1vmax;\n      width: 7vmax;\n      height: 3vmax;\n      font-size: 2vmax;\n    }\n\n    #startButton{\n      width: 7vmax;\n      height: 3vmax;\n      font-size: 2vmax;\n    }\n\n    #inforOfPlace {\n      margin-top: 2vmax;\n      margin-left: 3vmax;\n      padding-left: 3vmax;\n      font-size: 2.2vmax;\n    }\n\n    #totalOfPlace {\n      margin-top: 12vmax;\n      margin-left: 6.5vmax;\n      font-size: 3vmax;\n    }\n\n  }\n\n  /* 모바일 가로, 테블릿 세로 (~ 479px)*/\n  @media (max-width:479px) {\n    #row1 {\n      display: inline-block;\n    }\n\n    #parkingDiv {\n      margin-top: 4vmin;\n    }\n  }\n",
+        "output": "str",
+        "x": 690,
+        "y": 960,
+        "wires": [
+            [
+                "23018ba38db562a9"
+            ]
+        ]
+    },
+    {
+        "id": "e23b679f95de48ad",
+        "type": "template",
+        "z": "4e61bceb49cf66cf",
+        "name": "js",
+        "field": "payload.js",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "const parkingDiv = document.querySelector(\"#parkingDiv\");\nconst mapDiv = document.querySelector(\"#mapDiv\");\nconst contents = document.querySelector(\"#contents\");\nconst row1 = document.querySelector(\"#row1\");\nconst row2 = document.querySelector(\"#row2\");\nconst startButton = document.querySelector(\"#startButton\");\nconst confirmButton = document.querySelector(\"#confirmButton\");\nconst totalOfPlace = document.querySelector(\"#totalOfPlace\");\nlet inforOfPlace = document.querySelector(\"#inforOfPlace\");\n\nconst numberOfTotal = 300;\n\nlet nameOfPlace = new Array();\nlet numberOfPlace = new Array();\nlet colorOfPlace = new Array();\n\nstartButton.addEventListener('click', start);\nconfirmButton.addEventListener('click', confirm);\n\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location;\nconsole.log(loc);\nif (loc.protocol === \"https:\") {\n  wsUri = \"wss:\";\n}\n\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"customer\", \"ws/customer\");\n\nfunction wsConnect() {\n  console.log(\"connect\", wsUri);\n  ws = new WebSocket(wsUri);\n  ws.onmessage = function(msg) {\n    var data = JSON.parse(msg.data);\n    console.log(data);\n    //ws.send(JSON.stringify({data:data}));\n  }\n  ws.onopen = function() {\n    //ws.send(\"Open for data\");\n    console.log(\"connected\");\n  }\n  ws.onclose = function() {\n    setTimeout(wsConnect, 3000);\n  }\n}\n\nfunction doit(m) {\n  if (ws) {\n    ws.send(m);\n  }\n}\n\nfunction start() {\n  contents.style.display = \"inline-block\";\n  startButton.style.display = \"none\";\n  if(nameOfPlace.length == 0){\n    initialize();\n  }\n}\n\nfunction confirm() {\n  contents.style.display = \"none\";\n  startButton.style.display = \"block\";\n}\n\nfunction sum(){\n  var availablePlace = 0;\n  for(let i=0; i<nameOfPlace.length; i++){\n    availablePlace += numberOfPlace[nameOfPlace[i]];\n  }\n\n  return availablePlace + \" / \" + numberOfTotal;\n}\n\nfunction initialize() {\n  \n  nameOfPlace.push(\"Visitor\");\n  nameOfPlace.push(\"Student\");\n  nameOfPlace.push(\"President\");\n  nameOfPlace.push(\"Faculty\");\n  nameOfPlace.push(\"Patient\");\n  /*\n    for(let i = 0; i<nameOfPlace.length-1; i++){\n      numberOfPlace[nameOfPlace[0]] = 13\n    }\n  */\n  numberOfPlace[nameOfPlace[0]] = 50;\n  numberOfPlace[nameOfPlace[1]] = 23;\n  numberOfPlace[nameOfPlace[2]] = 17;\n  numberOfPlace[nameOfPlace[3]] = 13;\n  numberOfPlace[nameOfPlace[4]] = 77;\n\n  colorOfPlace[nameOfPlace[0]] = \"red\";\n  colorOfPlace[nameOfPlace[1]] = \"black\";\n  colorOfPlace[nameOfPlace[2]] = \"blue\";\n  colorOfPlace[nameOfPlace[3]] = \"green\";\n  colorOfPlace[nameOfPlace[4]] = \"skyblue\";\n\n  for (let i = 0; i < nameOfPlace.length; i++) {\n    let li = document.createElement(\"li\");\n    let colors = document.createElement(\"div\");\n    //let color = document.createTextNode(\"●  \");\n    let text = document.createTextNode(nameOfPlace[i] + \" : \" + numberOfPlace[nameOfPlace[i]]);\n    //colors.style.color = colorOfPlace[nameOfPlace[i]];\n    colors.classList.add(\"colors\");\n    colors.style.backgroundColor = colorOfPlace[nameOfPlace[i]];\n    //colors.appendChild(color);\n    li.appendChild(colors);\n    li.appendChild(text);\n    inforOfPlace.appendChild(li);\n  }\n  //추후 수정\n  let textOfTotal = sum();\n  totalOfPlace.appendChild(document.createTextNode(textOfTotal));\n}\n\nfunction changeInfor(){\n\n}\n",
+        "output": "str",
+        "x": 570,
+        "y": 960,
+        "wires": [
+            [
+                "93176b27a638a180"
+            ]
+        ]
+    },
+    {
+        "id": "1e16f1f48d48308e",
+        "type": "function",
+        "z": "4e61bceb49cf66cf",
+        "name": "",
+        "func": "var spot = msg.payload.split(\"\");\nvar area = flow.get(\"area\");\n\nvar redCount = 0;\nvar greenCount = 0;\nvar blueCount = 0;\nvar defaultCount = 0;\n\nfor(var i = 0; i < 8; i++){\n    if(spot[i] == \"0\"){\n        if(area[i] == \"RED\"){\n            redCount++;\n        } else if (area[i] == \"GREEN\"){\n            greenCount++;\n        } else if (area[i] == \"BLUE\"){\n            blueCount++;\n        } else {\n            defaultCount++;\n        }\n    }\n}\n\nmsg.redCount = redCount;\nmsg.greenCount = greenCount;\nmsg.blueCount = blueCount;\nmsg.defaultCount = defaultCount;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 120,
+        "wires": [
+            [
+                "c260b62793d6a8a6"
+            ]
+        ]
+    }
+]
