@@ -8,7 +8,7 @@
         "env": []
     },
     {
-        "id": "df0d9ecf0af0f574",
+        "id": "eba5cf6ce12ef8e4",
         "type": "tab",
         "label": "플로우 2",
         "disabled": false,
@@ -233,13 +233,23 @@
         "height": 1
     },
     {
+        "id": "63617354c4dfb6ed",
+        "type": "ui_group",
+        "z": "4e61bceb49cf66cf",
+        "name": "Default",
+        "tab": "e4c8df5a.bc9048",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
         "id": "209189385f38e806",
         "type": "serial in",
         "z": "4e61bceb49cf66cf",
         "name": "uno",
         "serial": "dbeae5430b4bc5a3",
-        "x": 290,
-        "y": 120,
+        "x": 350,
+        "y": 160,
         "wires": [
             [
                 "1e16f1f48d48308e"
@@ -385,7 +395,7 @@
         "type": "function",
         "z": "4e61bceb49cf66cf",
         "name": "Color Count",
-        "func": "var a = [];\nvar code = [];\nvar r = 0;\nvar g = 0;\nvar b = 0;\nvar d = 0;\n\nvar area = flow.get('area');\nfor(var i = 0; i<area.length; i++){\n    a[i] = area[i];\n}\n\nfor(var i = 0; i < a.length; i++){\n    if(a[i] == 'RED'){\n        r++;\n        code[i] = \"#ff0000\";\n    } else if (a[i] == 'BLUE') {\n        b++;\n        code[i] = \"#009dff\";\n    } else if (a[i] == 'GREEN') {\n        g++;\n        code[i] = \"#00c700\";\n    } else {\n        d++;\n        code[i] = \"#d3d3d3\";\n    }\n}\nmsg.red = r;\nmsg.green = g;\nmsg.blue = b;\nmsg.default = d;\nmsg.code = code;\nreturn msg;",
+        "func": "var a = [];\nvar code = [];\nvar r = 0;\nvar g = 0;\nvar b = 0;\nvar d = 0;\n\nvar area = flow.get('area');\nfor(var i = 0; i<area.length; i++){\n    a[i] = area[i];\n}\n\nfor(var i = 0; i < a.length; i++){\n    if(a[i] == 'RED'){\n        r++;\n        code[i] = \"#ff0000\";\n    } else if (a[i] == 'BLUE') {\n        b++;\n        code[i] = \"#009dff\";\n    } else if (a[i] == 'GREEN') {\n        g++;\n        code[i] = \"#00c700\";\n    } else {\n        d++;\n        code[i] = \"#d3d3d3\";\n    }\n}\n\nmsg.red = r;\nmsg.green = g;\nmsg.blue = b;\nmsg.default = d;\n\nmsg.code = code;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -396,7 +406,7 @@
         "wires": [
             [
                 "35b2a21057e32846",
-                "16d7ac8258eada24"
+                "d99a61bda16336fe"
             ]
         ]
     },
@@ -409,7 +419,7 @@
         "order": 1,
         "width": 6,
         "height": 12,
-        "format": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>\n      <meta charset=\"utf-8\" /> <meta name=\"viewport\"\n      content=\"width=device-width, initial-scale=1\" />\n    </title>\n    <style>\n      .dot {\n        height: 50px;\n        width: 50px;\n        border-radius: 50%;\n        display: inline-block;\n      }\n      .text {\n        font-size: 30px;\n        margin: 10px;\n        float: right;\n      }\n      .row {\n        vertical-align: middle;\n        margin: 10px;\n      }\n    </style>\n  </head>\n  <body>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #ff0000\"></span>\n      <span class=\"text\">Student : {{msg.red}}</span>\n    </div>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #00c700\"></span>\n      <span class=\"text\">Professor : {{msg.green}}</span>\n    </div>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #009dff\"></span>\n      <span class=\"text\">Visitor : {{msg.blue}}</span>\n    </div>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #d3d3d3\"></span>\n      <span class=\"text\"> Not Selected : {{msg.default}}</span>\n    </div>\n  </body>\n</html>\n",
+        "format": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>\n      <meta charset=\"utf-8\" /> <meta name=\"viewport\"\n      content=\"width=device-width, initial-scale=1\" />\n    </title>\n    <style>\n      .dot {\n        height: 50px;\n        width: 50px;\n        border-radius: 50%;\n        display: inline-block;\n      }\n      .text {\n        font-size: 30px;\n        margin: 10px;\n        float: right;\n      }\n      .row {\n        vertical-align: middle;\n        margin: 10px;\n      }\n    </style>\n  </head>\n  <body>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #ff0000\"></span>\n      <span class=\"text\">Student {{msg.redFull}}/{{msg.red}}</span>\n    </div>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #00c700\"></span>\n      <span class=\"text\">Professor {{msg.greenFull}}/{{msg.green}}</span>\n    </div>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #009dff\"></span>\n      <span class=\"text\">Visitor {{msg.blueFull}}/{{msg.blue}}</span>\n    </div>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #d3d3d3\"></span>\n      <span class=\"text\"> No Section {{msg.defaultFull}}/{{msg.default}}</span>\n    </div>\n  </body>\n</html>\n",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -427,7 +437,8 @@
         "id": "16d7ac8258eada24",
         "type": "ui_template",
         "z": "4e61bceb49cf66cf",
-        "group": "f835c5eff995985c",
+        "d": true,
+        "group": "63617354c4dfb6ed",
         "name": "View",
         "order": 1,
         "width": 14,
@@ -439,7 +450,7 @@
         "templateScope": "local",
         "className": "",
         "x": 1030,
-        "y": 360,
+        "y": 640,
         "wires": [
             []
         ]
@@ -650,7 +661,7 @@
         "type": "function",
         "z": "4e61bceb49cf66cf",
         "name": "init",
-        "func": "var arr = ['default', 'default', 'default', 'default', 'default', 'default', 'default', 'default']\nflow.set('area', arr);\nreturn msg;",
+        "func": "var arr = ['default', 'default', 'default', 'default', 'default', 'default', 'default', 'default']\nmsg.redFull = 0;\nmsg.greenFull = 0;\nmsg.blueFull = 0;\nmsg.defaultFull = 0;\nflow.set('area', arr);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -971,8 +982,8 @@
         "z": "4e61bceb49cf66cf",
         "name": "",
         "serial": "dbeae5430b4bc5a3",
-        "x": 1070,
-        "y": 460,
+        "x": 1090,
+        "y": 440,
         "wires": []
     },
     {
@@ -1004,7 +1015,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 400,
-        "y": 960,
+        "y": 940,
         "wires": [
             [
                 "e23b679f95de48ad"
@@ -1019,7 +1030,7 @@
         "statusCode": "",
         "headers": {},
         "x": 930,
-        "y": 960,
+        "y": 940,
         "wires": []
     },
     {
@@ -1034,7 +1045,7 @@
         "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Dynamic Parking System</title>\n  <link href=\"https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500;600&family=Noto+Sans+KR&display=swap\" rel=\"stylesheet\">\n  <style>{{{payload.style}}}</style>\n</head>\n\n<body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n  <div id=\"container\">\n    <div id=\"startDiv\">\n      <img src=\".node-red/img/spider.png\">\n      <p id=\"title\">Dynamic Parking System</p>\n      <button id=\"startButton\" type=\"button\" name=\"button\">Start</button>\n    </div>\n    <div id=\"contents\">\n      <div id=\"row1\">\n        <div id=\"mapDiv\">\n          \n        </div>\n        <div id=\"parkingDiv\">\n          <ul id=\"inforOfPlace\">\n          </ul>\n          <p id=\"totalOfPlace\"></p>\n        </div>\n      </div>\n      <div id=\"row2\">\n        <button id=\"confirmButton\" type=\"button\" name=\"button\">OK</button>\n      </div>\n    </div>\n  </div>\n  <script>{{{payload.js}}}</script>\n</body>\n\n</html>\n",
         "output": "str",
         "x": 810,
-        "y": 960,
+        "y": 940,
         "wires": [
             [
                 "d85d51a3fa498142"
@@ -1053,7 +1064,7 @@
         "template": "body {\n  background-color: #2c3e50;\n  font-family: 'Baloo Tammudu 2', 'Noto Sans KR', sans-serif;\n}\n\n#container {\n  text-align: center;\n}\n\n#contents {\n  display: none;\n}\n\n#startDiv {\n  text-align: center;\n  padding-top: 0;\n}\n\n#title {\n  line-height: 7vmin;\n  margin-top: 0px;\n  margin-bottom: 0px;\n  color: white;\n  font-size: 7vmin;\n}\n\n#totalOfPlace {\n  line-height: 7.2vmin;\n  font-weight: bold;\n  margin-top: 0px;\n  margin-bottom: 0px;\n  font-size: 7vmin;\n}\n\n#startDiv img {\n  width: 16vmin;\n  height: 16vmin;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n\n  to {\n    opacity: 1;\n  }\n}\n\n/*조정 필요*/\n.bgImage {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100vw;\n  height: 100vh;\n  z-index: -1;\n  animation: fadeIn 0.8s linear;\n  filter: brightness(60%);\n}\n\n#mapDiv {\n  margin-top: 3vmin;\n  width: 90vmin;\n  background-color: white;\n  border: solid #F5454C;\n  border-radius: 20px;\n  animation: fadeIn 1s linear;\n}\n\n#mapDiv img{\n  width: 85vmin;\n  height: 60vmin;\n  margin-top: 3vmin;\n}\n\n#startButton {\n  margin: auto;\n  width: 14vmin;\n  height: 7vmin;\n  border-radius: 30px;\n  border: none;\n  background-color: rgba(255, 255, 255, 0.4);\n  color: rgb(80, 80, 80);\n  font-size: 4vmin;\n  font-weight: 600;\n  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);\n  outline: none;\n  cursor: pointer;\n  transition: all, 0.4s;\n  animation: fadeIn 1s linear;\n}\n\n#startButton:hover, #confirmButton:hover {\n  background-color: rgba(255, 255, 255, 1);\n  color: rgb(50, 50, 50);\n}\n\n#confirmButton {\n  margin-top: 3vmin;\n  width: 14vmin;\n  height: 7vmin;\n  border-radius: 30px;\n  border: solid black;\n  background-color: #292726;\n  color: #FFFCFC;\n  font-size: 4vmin;\n  font-weight: 600;\n  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);\n  outline: none;\n  cursor: pointer;\n  transition: all, 0.4s;\n}\n\n#parkingDiv {\n  margin: auto;\n  text-align: center;\n  width: 90vmin;\n  background-color: white;\n  border: solid #F5454C;\n  border-radius: 20px;\n  animation: fadeIn 1s linear;\n}\n\n.colors{\n  border-radius: 20px;\n  float: left;\n  margin-top: 3vmin;\n  margin-right: 3vmin;\n  width: 6vmin;\n  height: 6vmin;\n}\n\n#inforOfPlace {\n  margin-top: 2vmin;\n  margin-bottom: 0px;\n  padding-left: 15vmin;\n  text-align: left;\n  list-style: none;\n  font-size: 7vmin;\n  font-weight: bold;\n}\n\n/*전체적인 case 고려해야 함, 비율 통일, 중복되는 쿼리 해결 고민*/\n\n/* PC , 테블릿 가로 (768px ~ 1023px)*/\n@media all and (min-width:1024px) {\n  #title {\n    font-size: 2vmax;\n  }\n\n  #startDiv{\n    padding-top: 1vmax;\n  }\n\n  #startDiv img {\n    width: 6vmax;\n    height: 6vmax;\n  }\n\n  #row1 {\n    display: inline-flex;\n  }\n\n  #mapDiv {\n    margin-top: 0px;\n    width: 45vmax;\n    height: 28vmax;\n  }\n\n/*vmin, vmax 일 때 정확한 비율 통일 필요*/\n  #mapDiv img{\n    margin-top: 0.5vmax;\n    width: 38vmax;\n    height: 27vmax;\n  }\n\n  #parkingDiv {\n    display: inline-flex;\n    width: 45vmax;\n    height: 28vmax;\n    margin-left: 3vmax;\n    margin-top: 0px;\n  }\n\n  .colors{\n    margin-top: 0.7vmax;\n    margin-right: 1vmax;\n    width: 2.5vmax;\n    height: 2.5vmax;\n  }\n\n  #confirmButton {\n    margin-top: 1vmax;\n    width: 7vmax;\n    height: 3vmax;\n    font-size: 2vmax;\n  }\n\n  #startButton{\n    width: 7vmax;\n    height: 3vmax;\n    font-size: 2vmax;\n  }\n\n  #inforOfPlace {\n    margin-top: 2vmax;\n    margin-left: 3vmax;\n    padding-left: 3vmax;\n    font-size: 2.2vmax;\n  }\n\n  #totalOfPlace {\n    margin-top: 13vmax;\n    margin-left: 6.5vmax;\n    font-size: 3vmax;\n  }\n}\n\n/* 테블릿 세로 (768px ~ 1023px)*/\n@media all and (min-width:768px) and (max-width:1023px) {\n  #row1 {\n    display: inline-block;\n  }\n\n  #parkingDiv {\n    margin-top: 4vmin;\n  }\n  \n}\n\n/* 모바일 가로, 테블릿 세로 (480px ~ 767px)*/\n  @media all and (min-width:480px) and (max-width:767px) {\n    #title {\n      font-size: 2vmax;\n    }\n\n    #startDiv{\n      padding-top: 1vmax;\n    }\n\n    #startDiv img {\n      width: 6vmax;\n      height: 6vmax;\n    }\n\n    #row1 {\n      display: inline-flex;\n    }\n\n    #mapDiv {\n      margin-top: 0px;\n      width: 45vmax;\n      height: 28vmax;\n    }\n\n  /*vmin, vmax 일 때 정확한 비율 통일 필요*/\n    #mapDiv img{\n      margin-top: 0.5vmax;\n      width: 38vmax;\n      height: 27vmax;\n    }\n\n    #parkingDiv {\n      display: inline-flex;\n      width: 45vmax;\n      height: 28vmax;\n      margin-left: 3vmax;\n      margin-top: 0px;\n    }\n\n    .colors{\n      margin-top: 0.7vmax;\n      margin-right: 1vmax;\n      width: 2.5vmax;\n      height: 2.5vmax;\n    }\n\n    #confirmButton {\n      margin-top: 1vmax;\n      width: 7vmax;\n      height: 3vmax;\n      font-size: 2vmax;\n    }\n\n    #startButton{\n      width: 7vmax;\n      height: 3vmax;\n      font-size: 2vmax;\n    }\n\n    #inforOfPlace {\n      margin-top: 2vmax;\n      margin-left: 3vmax;\n      padding-left: 3vmax;\n      font-size: 2.2vmax;\n    }\n\n    #totalOfPlace {\n      margin-top: 12vmax;\n      margin-left: 6.5vmax;\n      font-size: 3vmax;\n    }\n\n  }\n\n  /* 모바일 가로, 테블릿 세로 (~ 479px)*/\n  @media (max-width:479px) {\n    #row1 {\n      display: inline-block;\n    }\n\n    #parkingDiv {\n      margin-top: 4vmin;\n    }\n  }\n",
         "output": "str",
         "x": 690,
-        "y": 960,
+        "y": 940,
         "wires": [
             [
                 "23018ba38db562a9"
@@ -1072,7 +1083,7 @@
         "template": "const parkingDiv = document.querySelector(\"#parkingDiv\");\nconst mapDiv = document.querySelector(\"#mapDiv\");\nconst contents = document.querySelector(\"#contents\");\nconst row1 = document.querySelector(\"#row1\");\nconst row2 = document.querySelector(\"#row2\");\nconst startButton = document.querySelector(\"#startButton\");\nconst confirmButton = document.querySelector(\"#confirmButton\");\nconst totalOfPlace = document.querySelector(\"#totalOfPlace\");\nlet inforOfPlace = document.querySelector(\"#inforOfPlace\");\n\nconst numberOfTotal = 300;\n\nlet nameOfPlace = new Array();\nlet numberOfPlace = new Array();\nlet colorOfPlace = new Array();\n\nstartButton.addEventListener('click', start);\nconfirmButton.addEventListener('click', confirm);\n\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location;\nconsole.log(loc);\nif (loc.protocol === \"https:\") {\n  wsUri = \"wss:\";\n}\n\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"customer\", \"ws/customer\");\n\nfunction wsConnect() {\n  console.log(\"connect\", wsUri);\n  ws = new WebSocket(wsUri);\n  ws.onmessage = function(msg) {\n    var data = JSON.parse(msg.data);\n    console.log(data);\n    //ws.send(JSON.stringify({data:data}));\n  }\n  ws.onopen = function() {\n    //ws.send(\"Open for data\");\n    console.log(\"connected\");\n  }\n  ws.onclose = function() {\n    setTimeout(wsConnect, 3000);\n  }\n}\n\nfunction doit(m) {\n  if (ws) {\n    ws.send(m);\n  }\n}\n\nfunction start() {\n  contents.style.display = \"inline-block\";\n  startButton.style.display = \"none\";\n  if(nameOfPlace.length == 0){\n    initialize();\n  }\n}\n\nfunction confirm() {\n  contents.style.display = \"none\";\n  startButton.style.display = \"block\";\n}\n\nfunction sum(){\n  var availablePlace = 0;\n  for(let i=0; i<nameOfPlace.length; i++){\n    availablePlace += numberOfPlace[nameOfPlace[i]];\n  }\n\n  return availablePlace + \" / \" + numberOfTotal;\n}\n\nfunction initialize() {\n  \n  nameOfPlace.push(\"Visitor\");\n  nameOfPlace.push(\"Student\");\n  nameOfPlace.push(\"President\");\n  nameOfPlace.push(\"Faculty\");\n  nameOfPlace.push(\"Patient\");\n  /*\n    for(let i = 0; i<nameOfPlace.length-1; i++){\n      numberOfPlace[nameOfPlace[0]] = 13\n    }\n  */\n  numberOfPlace[nameOfPlace[0]] = 50;\n  numberOfPlace[nameOfPlace[1]] = 23;\n  numberOfPlace[nameOfPlace[2]] = 17;\n  numberOfPlace[nameOfPlace[3]] = 13;\n  numberOfPlace[nameOfPlace[4]] = 77;\n\n  colorOfPlace[nameOfPlace[0]] = \"red\";\n  colorOfPlace[nameOfPlace[1]] = \"black\";\n  colorOfPlace[nameOfPlace[2]] = \"blue\";\n  colorOfPlace[nameOfPlace[3]] = \"green\";\n  colorOfPlace[nameOfPlace[4]] = \"skyblue\";\n\n  for (let i = 0; i < nameOfPlace.length; i++) {\n    let li = document.createElement(\"li\");\n    let colors = document.createElement(\"div\");\n    //let color = document.createTextNode(\"●  \");\n    let text = document.createTextNode(nameOfPlace[i] + \" : \" + numberOfPlace[nameOfPlace[i]]);\n    //colors.style.color = colorOfPlace[nameOfPlace[i]];\n    colors.classList.add(\"colors\");\n    colors.style.backgroundColor = colorOfPlace[nameOfPlace[i]];\n    //colors.appendChild(color);\n    li.appendChild(colors);\n    li.appendChild(text);\n    inforOfPlace.appendChild(li);\n  }\n  //추후 수정\n  let textOfTotal = sum();\n  totalOfPlace.appendChild(document.createTextNode(textOfTotal));\n}\n\nfunction changeInfor(){\n\n}\n",
         "output": "str",
         "x": 570,
-        "y": 960,
+        "y": 940,
         "wires": [
             [
                 "93176b27a638a180"
@@ -1084,18 +1095,160 @@
         "type": "function",
         "z": "4e61bceb49cf66cf",
         "name": "",
-        "func": "var spot = msg.payload.split(\"\");\nvar area = flow.get(\"area\");\n\nvar redCount = 0;\nvar greenCount = 0;\nvar blueCount = 0;\nvar defaultCount = 0;\n\nfor(var i = 0; i < 8; i++){\n    if(spot[i] == \"0\"){\n        if(area[i] == \"RED\"){\n            redCount++;\n        } else if (area[i] == \"GREEN\"){\n            greenCount++;\n        } else if (area[i] == \"BLUE\"){\n            blueCount++;\n        } else {\n            defaultCount++;\n        }\n    }\n}\n\nmsg.redCount = redCount;\nmsg.greenCount = greenCount;\nmsg.blueCount = blueCount;\nmsg.defaultCount = defaultCount;\n\nreturn msg;",
+        "func": "var spot = msg.payload.split(\"\");\nvar area = flow.get(\"area\");\n\nvar redCount = 0;\nvar greenCount = 0;\nvar blueCount = 0;\nvar defaultCount = 0;\n\nfor(var i = 0; i < 8; i++){\n    if(spot[i] == \"0\"){\n        if(area[i] == \"RED\"){\n            redCount++;\n        } else if (area[i] == \"GREEN\"){\n            greenCount++;\n        } else if (area[i] == \"BLUE\"){\n            blueCount++;\n        } else {\n            defaultCount++;\n        }\n    }\n}\n\nmsg.redFull = redCount;\nmsg.greenFull = greenCount;\nmsg.blueFull = blueCount;\nmsg.defaultFull = defaultCount;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 120,
+        "x": 560,
+        "y": 160,
         "wires": [
             [
-                "c260b62793d6a8a6"
+                "c260b62793d6a8a6",
+                "298c58d6f39f02cf"
             ]
         ]
+    },
+    {
+        "id": "d99a61bda16336fe",
+        "type": "ui_template",
+        "z": "4e61bceb49cf66cf",
+        "group": "f835c5eff995985c",
+        "name": "",
+        "order": 22,
+        "width": 0,
+        "height": 0,
+        "format": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <title>Parking Management</title>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <link\n      rel=\"stylesheet\"\n      href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css\"\n    />\n    <script src=\"https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js\"></script>\n    <style>\n      .col {\n        margin: 10px;\n        padding: 10px;\n        border-radius: 15px;\n        height: 100%;\n        background-color: #d3d3d3;\n        color: white;\n        transition: all 0.2s ease-in-out;\n      }\n\n      .col1 {\n        text-align: center;\n        font-size: 30px;\n      }\n\n      .col2 {\n        position: absolute;\n        left: 50%;\n        transform: translate(-50%, 0);\n        bottom: 15px;\n        font-size: 30px;\n      }\n\n      .row input[type=\"checkbox\"] {\n        display: none;\n      }\n\n      .row input[type=\"checkbox\"]:checked + .whatever {\n        box-shadow: 0 0 0 8px orange inset;\n        color: orange;\n      }\n\n      .row input[type=\"checkbox\"]:hover + .whatever {\n        transition: all 0.2s ease-in-out;\n        transform: scale(1.05);\n      }\n\n      #snackbar {\n        visibility: hidden;\n        min-width: 250px;\n        margin-left: -125px;\n        background-color: #333;\n        color: #fff;\n        text-align: center;\n        border-radius: 2px;\n        padding: 16px;\n        position: fixed;\n        z-index: 1;\n        left: 50%;\n        bottom: 30px;\n        font-size: 17px;\n      }\n\n      #snackbar.show {\n        visibility: visible;\n        -webkit-animation: fadein 0.5s;\n        animation: fadein 0.5s;\n      }\n      #snackbar.hide {\n        visibility: visible;\n        -webkit-animation: fadeout 0.5s;\n        animation: fadeout 0.5s;\n      }\n\n      @-webkit-keyframes fadein {\n        from {\n          bottom: 0;\n          opacity: 0;\n        }\n        to {\n          bottom: 30px;\n          opacity: 1;\n        }\n      }\n\n      @keyframes fadein {\n        from {\n          bottom: 0;\n          opacity: 0;\n        }\n        to {\n          bottom: 30px;\n          opacity: 1;\n        }\n      }\n\n      @-webkit-keyframes fadeout {\n        from {\n          bottom: 30px;\n          opacity: 1;\n        }\n        to {\n          bottom: 0;\n          opacity: 0;\n        }\n      }\n\n      @keyframes fadeout {\n        from {\n          bottom: 30px;\n          opacity: 1;\n        }\n        to {\n          bottom: 0;\n          opacity: 0;\n        }\n      }\n    </style>\n  </head>\n  <body>\n    <div class=\"container-fluid\">\n      <div class=\"row\" style=\"margin-bottom: 3em; height: 15em\">\n        <input type=\"checkbox\" id=\"r1\" onclick=\"selectSpot()\" />\n        <label id=\"A01\" class=\"whatever col\" for=\"r1\"\n          ><div class=\"col1\">A01</div></label\n        >\n        <input\n          type=\"checkbox\"\n          name=\"rGroup\"\n          value=\"2\"\n          id=\"r2\"\n          onclick=\"selectSpot()\"\n        />\n        <label id=\"A02\" class=\"whatever col\" for=\"r2\"\n          ><div class=\"col1\">A02</div></label\n        >\n        <input\n          type=\"checkbox\"\n          name=\"rGroup\"\n          value=\"3\"\n          id=\"r3\"\n          onclick=\"selectSpot()\"\n        />\n        <label id=\"A03\" class=\"whatever col\" for=\"r3\"\n          ><div class=\"col1\">A03</div></label\n        >\n        <input\n          type=\"checkbox\"\n          name=\"rGroup\"\n          value=\"4\"\n          id=\"r4\"\n          onclick=\"selectSpot()\"\n        />\n        <label id=\"A04\" class=\"whatever col\" for=\"r4\"\n          ><div class=\"col1\">A04</div></label\n        >\n      </div>\n      <div class=\"row\" style=\"margin-top: 8em; height: 15em\">\n        <input type=\"checkbox\" id=\"r5\" onclick=\"selectSpot()\" />\n        <label id=\"A05\" class=\"whatever col\" for=\"r5\"\n          ><div class=\"col2\">A05</div></label\n        >\n        <input\n          type=\"checkbox\"\n          name=\"rGroup\"\n          value=\"2\"\n          id=\"r6\"\n          onclick=\"selectSpot()\"\n        />\n        <label id=\"A06\" class=\"whatever col\" for=\"r6\"\n          ><div class=\"col2\">A06</div></label\n        >\n        <input\n          type=\"checkbox\"\n          name=\"rGroup\"\n          value=\"3\"\n          id=\"r7\"\n          onclick=\"selectSpot()\"\n        />\n        <label id=\"A07\" class=\"whatever col\" for=\"r7\"\n          ><div class=\"col2\">A07</div></label\n        >\n        <input\n          type=\"checkbox\"\n          name=\"rGroup\"\n          value=\"4\"\n          id=\"r8\"\n          onclick=\"selectSpot()\"\n        />\n        <label id=\"A08\" class=\"whatever col\" for=\"r8\"\n          ><div class=\"col2\">A08</div></label\n        >\n      </div>\n      <br />\n      <div id=\"snackbar\">\n        <input type=\"text\" id=\"hihi\" />\n        <input type=\"button\" value=\"button\" onclick=\"changeColor()\" />\n      </div>\n    </div>\n    <script>\n      var areaCount = 8;\n      function changeColor() {\n        var color = document.getElementById(\"hihi\").value;\n        for (var i = 1; i <= areaCount; i++) {\n          var id = \"r\" + i;\n          var area = \"A0\" + i;\n          if (document.getElementById(id).checked) {\n            document.getElementById(area).style.backgroundColor = color;\n            document.getElementById(id).checked = false;\n          }\n        }\n        var x = document.getElementById(\"snackbar\");\n        x.className = \"hide\";\n        setTimeout(function () {\n          x.className = x.className.replace(\"hide\", \"\");\n        }, 500);\n      }\n      function selectSpot() {\n        var check = 0;\n        var x = document.getElementById(\"snackbar\");\n        for (var i = 1; i <= areaCount; i++) {\n          var id = \"r\" + i;\n          if (document.getElementById(id).checked) {\n            check = 1;\n          }\n        }\n        if (check == 1) {\n          x.className = \"show\";\n        } else {\n          x.className = \"hide\";\n          setTimeout(function () {\n            x.className = x.className.replace(\"hide\", \"\");\n          }, 500);\n        }\n      }\n    </script>\n  </body>\n</html>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1040,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fca96470a572316c",
+        "type": "ui_template",
+        "z": "eba5cf6ce12ef8e4",
+        "d": true,
+        "group": "6aeb6ccf14b443cd",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<h3>Testing template</h3>\n<p>{{msg.payload}}</p>\n<script>\n(function() {\n    var count = 0\n    function testit(msg,scope) {\n        count = count+1;\n        console.log(\"In testit \" + msg.payload + \"  count = \" + count);\n        scope.send({payload: \"from testit \" + msg.payload + \"  count = \" + count});\n    }\n    \n    (function(scope) {\n        scope.send({payload: \"preload\"});   // this gets sent when the view is opened in the browser\n        scope.$watch('msg', function(msg) {\n            if (msg) {\n                testit(msg, scope);\n            }\n        });\n    })(scope);\n})();\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 560,
+        "y": 140,
+        "wires": [
+            [
+                "686f426fd66ff6cd"
+            ]
+        ]
+    },
+    {
+        "id": "0448e5ec17e5986b",
+        "type": "inject",
+        "z": "eba5cf6ce12ef8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "One",
+        "payloadType": "str",
+        "x": 343,
+        "y": 140,
+        "wires": [
+            [
+                "fca96470a572316c"
+            ]
+        ]
+    },
+    {
+        "id": "a3b85356b2057c28",
+        "type": "ui_template",
+        "z": "eba5cf6ce12ef8e4",
+        "d": true,
+        "group": "6aeb6ccf14b443cd",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<h3>Testing template</h3>\n<p>{{msg.payload}}</p>\n<script>\n(function() {\n    var count = 0\n    function testit(msg,scope) {\n        count = count+1;\n        console.log(\"In testit \" + msg.payload + \"  count = \" + count);\n        scope.send({payload: \"from testit \" + msg.payload + \"  count = \" + count});\n    }\n    \n    (function(scope) {\n        scope.send({payload: \"preload\"});   // this gets sent when the view is opened in the browser\n        scope.$watch('msg', function(msg) {\n            if (msg) {\n                testit(msg, scope);\n            }\n        });\n    })(scope);\n})();\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 560.5,
+        "y": 252,
+        "wires": [
+            [
+                "bc24881485fc361e"
+            ]
+        ]
+    },
+    {
+        "id": "6797ffc86b39f0b2",
+        "type": "inject",
+        "z": "eba5cf6ce12ef8e4",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "Two",
+        "payloadType": "str",
+        "x": 341.5,
+        "y": 253,
+        "wires": [
+            [
+                "a3b85356b2057c28"
+            ]
+        ]
+    },
+    {
+        "id": "686f426fd66ff6cd",
+        "type": "debug",
+        "z": "eba5cf6ce12ef8e4",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 769,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "bc24881485fc361e",
+        "type": "debug",
+        "z": "eba5cf6ce12ef8e4",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 773,
+        "y": 252,
+        "wires": []
     }
 ]
