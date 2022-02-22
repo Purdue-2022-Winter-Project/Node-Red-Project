@@ -17,6 +17,7 @@ function wsConnect() {
     var line = ""; // or uncomment this to overwrite the existing message
     // parse the incoming message as a JSON object
     var data = msg.data;
+    parking(data);
     console.log(data);
     // build the output from the topic and payload parts of the object
     line += "<p>" + data + "</p>";
@@ -59,8 +60,8 @@ function changeColor(color) {
   //   setTimeout(function () {
   //     snackbar.className = snackbar.className.replace("hide", "");
   //   }, 500);
-  updateSectionCount();
   sendToNodered();
+  updateSectionCount();
 }
 
 function selectSpot() {
@@ -165,6 +166,19 @@ function reset() {
     document.getElementById(id).checked = false;
   }
   updateSectionCount();
+}
+
+function parking(receive) {
+  var car = document.getElementsByClassName("car");
+  var area = receive.split("");
+  for (var i = 0; i < areaCount; i++) {
+    var car = document.getElementsByClassName("car")[i];
+    if (area[i] == 1 && car.className == "car in") {
+      car.className = "car out";
+    } else if (area[i] == 0) {
+      car.className = "car in";
+    }
+  }
 }
 
 function sendToNodered() {

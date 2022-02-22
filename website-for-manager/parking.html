@@ -23,6 +23,16 @@
       <ul class="sidebar">
         <div class="sidebar-menu">
           <div class="section-ti">Section</div>
+          <!---->
+          <div class="sectionList-change">
+            <div id="section-add" onclick="addSection()">
+              <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+            </div>
+            <div id="section-modify" onclick="modifySection()">
+              <i class="fa fa-edit" aria-hidden="true"></i>
+            </div>
+          </div>
+          <!---->
           <div class="section-list">
             <div class="section-item">
               <div class="section-information">
@@ -58,6 +68,13 @@
             </div>
           </div>
         </div>
+        <div
+          class="edit"
+          id="sectionListChangeButton"
+          onclick="confirmSectionListModify()"
+        >
+          <i class="fa fa-check fa-2x editButton" aria-hidden="true"></i>
+        </div>
         <div class="separator"></div>
         <div class="sidebar-menu color-setting" onclick="openPalette()">
           Color Setting
@@ -74,13 +91,69 @@
           </div>
         </div>
         <div class="separator"></div>
-        <div class="sidebar-menu scale-setting">Scale Setting</div>
-        <div class="separator"></div>
         <div class="sidebar-menu reset" onclick="reset()">Reset</div>
         <div class="separator"></div>
-        <input type="text" id="temp-text" />
-        <button onclick="parking()">send</button>
       </ul>
+
+      <div class="sectionList-add-popmenu">
+        <div class="sectionList-add-popup-header">
+          <div class="sectionList-add-popup-title">Add Section</div>
+          <div class="close-button" onclick="closeAddPopMenu()">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </div>
+        </div>
+        <ul class="sectionList-add-popmenu-color">
+          <li
+            id="redSectionAdd"
+            style="background-color: #ff0000"
+            onclick="newColorSelect(event)"
+          >
+            <i class="fa fa-check fa-2x color-check" aria-hidden="true"></i>
+          </li>
+          <li
+            id="greenSectionAdd"
+            style="background-color: #00c700"
+            onclick="newColorSelect(event)"
+          >
+            <i class="fa fa-check fa-2x color-check" aria-hidden="true"></i>
+          </li>
+          <li
+            id="blueSectionAdd"
+            style="background-color: #009dff"
+            onclick="newColorSelect(event)"
+          >
+            <i class="fa fa-check fa-2x color-check" aria-hidden="true"></i>
+          </li>
+          <li
+            id="yellowSectionAdd"
+            style="background-color: #f0d264"
+            onclick="newColorSelect(event)"
+          >
+            <i class="fa fa-check fa-2x color-check" aria-hidden="true"></i>
+          </li>
+          <li
+            id="magentaSectionAdd"
+            style="background-color: #cb99c5"
+            onclick="newColorSelect(event)"
+          >
+            <i class="fa fa-check fa-2x color-check" aria-hidden="true"></i>
+          </li>
+          <li
+            id="cyanSectionAdd"
+            style="background-color: #7fccde"
+            onclick="newColorSelect(event)"
+          >
+            <i class="fa fa-check fa-2x color-check" aria-hidden="true"></i>
+          </li>
+        </ul>
+        <div class="sectionList-add-confirm">
+          <input type="text" id="newSectionName" placeholder="Section Name" />
+          <div id="sectionListAddButton" onclick="confirmSectionListAdd()">
+            <i class="fa fa-check fa-lg" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+
       <h1>Smart Parking Lot <i id="title-icon" class="fa fa-car"></i></h1>
       <div class="content">
         <i id="mode-icon" class="fa fa-eye"></i>

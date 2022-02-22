@@ -16,8 +16,12 @@
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
 
+    {{!--
     <link rel="stylesheet" href="parking.css" />
-    <!-- <style>{{{payload.css}}}</style> -->
+    --}}
+    <style>
+      {{{payload.css}}}
+    </style>
   </head>
   <body onload="wsConnect();" onunload="ws.disconnect();">
     <div class="">
@@ -79,44 +83,79 @@
         <div class="separator"></div>
         <div class="sidebar-menu reset" onclick="reset()">Reset</div>
         <div class="separator"></div>
+        <input type="text" id="temp-text" />
+        <button onclick="parking()">send</button>
+        <button onclick="parking2()">send2</button>
       </ul>
       <h1>Smart Parking Lot <i id="title-icon" class="fa fa-car"></i></h1>
       <div class="content">
         <i id="mode-icon" class="fa fa-eye"></i>
         <div class="view row">
           <input type="checkbox" id="r1" onclick="selectSpot()" disabled />
-          <label id="A01" class="viewmode col" for="r1"
-            ><div class="col1">A01</div></label
-          >
+          <label id="A01" class="viewmode col" for="r1">
+            <div class="col1">A01</div>
+            <img src="./car.png" class="car" alt="car" height="80%" width="80%"
+          /></label>
           <input type="checkbox" id="r2" onclick="selectSpot()" disabled />
           <label id="A02" class="viewmode col" for="r2"
-            ><div class="col1">A02</div></label
-          >
+            ><div class="col1">A02</div>
+            <img src="./car.png" class="car" alt="car" height="80%" width="80%"
+          /></label>
           <input type="checkbox" id="r3" onclick="selectSpot()" disabled />
           <label id="A03" class="viewmode col" for="r3"
-            ><div class="col1">A03</div></label
-          >
+            ><div class="col1">A03</div>
+            <img src="./car.png" class="car" alt="car" height="80%" width="80%"
+          /></label>
           <input type="checkbox" id="r4" onclick="selectSpot()" disabled />
           <label id="A04" class="viewmode col" for="r4"
-            ><div class="col1">A04</div></label
-          >
+            ><div class="col1">A04</div>
+            <img src="./car.png" class="car" alt="car" height="80%" width="80%"
+          /></label>
         </div>
         <div class="view row">
           <input type="checkbox" id="r5" onclick="selectSpot()" disabled />
           <label id="A05" class="viewmode col" for="r5"
-            ><div class="col2">A05</div></label
+            ><img
+              src="./car.png"
+              class="car"
+              alt="car"
+              height="80%"
+              width="80%"
+            />
+            <div class="col2">A05</div></label
           >
           <input type="checkbox" id="r6" onclick="selectSpot()" disabled />
           <label id="A06" class="viewmode col" for="r6"
-            ><div class="col2">A06</div></label
+            ><img
+              src="./car.png"
+              class="car"
+              alt="car"
+              height="80%"
+              width="80%"
+            />
+            <div class="col2">A06</div></label
           >
           <input type="checkbox" id="r7" onclick="selectSpot()" disabled />
           <label id="A07" class="viewmode col" for="r7"
-            ><div class="col2">A07</div></label
+            ><img
+              src="./car.png"
+              class="car"
+              alt="car"
+              height="80%"
+              width="80%"
+            />
+            <div class="col2">A07</div></label
           >
           <input type="checkbox" id="r8" onclick="selectSpot()" disabled />
           <label id="A08" class="viewmode col" for="r8"
-            ><div class="col2">A08</div></label
+            ><img
+              src="./car.png"
+              class="car"
+              alt="car"
+              height="80%"
+              width="80%"
+            />
+            <div class="col2">A08</div></label
           >
         </div>
       </div>
@@ -132,7 +171,17 @@
         </div> -->
       </div>
     </div>
-    <script type="text/javascript" src="for-node-red.js"></script>
-    <!-- <script>{{{payload.js}}}</script> -->
+    {{!--
+    <script type="text/javascript" src="parking.js"></script>
+    --}}
+    <script>
+      {
+        {
+          {
+            payload.js;
+          }
+        }
+      }
+    </script>
   </body>
 </html>

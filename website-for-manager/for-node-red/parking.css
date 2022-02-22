@@ -106,6 +106,7 @@ h1 {
   background-color: #d3d3d3;
   color: white;
   transition: all 0.2s ease-in-out;
+  text-align: center;
 }
 .content .row {
   margin-bottom: 3em;
@@ -136,6 +137,23 @@ h1 {
 .row input[type="checkbox"]:hover + .whatever {
   transition: all 0.2s ease-in-out;
   transform: scale(1.05);
+}
+
+.car {
+  visibility: hidden;
+  -webkit-user-drag: none;
+}
+
+.car.in {
+  visibility: visible;
+  animation: slidein 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.car.out {
+  visibility: visible;
+  animation: slideout 0.5s;
+  animation-fill-mode: forwards;
 }
 
 .scale-setting {
@@ -171,11 +189,6 @@ h1 {
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
-#snackbar.hide {
-  visibility: visible;
-  -webkit-animation: fadeout 0.5s;
-  animation: fadeout 0.5s;
-}
 
 .color-setting {
   cursor: pointer;
@@ -202,7 +215,6 @@ h1 {
   height: 40px;
   display: inline-block;
   border-radius: 100%;
-  /* padding: 5px; */
   text-align: center;
 }
 .color li:hover {
@@ -275,6 +287,28 @@ h1 {
   }
   to {
     top: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideout {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px);
     opacity: 0;
   }
 }
