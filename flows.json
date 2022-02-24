@@ -250,13 +250,6 @@
         "width": "6"
     },
     {
-        "id": "985ecbc7.67a138",
-        "type": "websocket-listener",
-        "z": "eba5cf6ce12ef8e4",
-        "path": "/ws/simple",
-        "wholemsg": "false"
-    },
-    {
         "id": "04180a8d3193a792",
         "type": "websocket-listener",
         "path": "/ws/manager",
@@ -281,737 +274,22 @@
         "hidden": false
     },
     {
+        "id": "e8a574382610dca5",
+        "type": "websocket-listener",
+        "path": "/ws/user",
+        "wholemsg": "false"
+    },
+    {
         "id": "209189385f38e806",
         "type": "serial in",
         "z": "4e61bceb49cf66cf",
         "name": "from uno",
         "serial": "dbeae5430b4bc5a3",
-        "x": 420,
-        "y": 1200,
+        "x": 260,
+        "y": 520,
         "wires": [
             [
-                "5c45a6b2b5085572",
-                "17ea38b4222e15df"
-            ]
-        ]
-    },
-    {
-        "id": "c260b62793d6a8a6",
-        "type": "debug",
-        "z": "4e61bceb49cf66cf",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 790,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "0bd0228ef45eeb68",
-        "type": "ui_dropdown",
-        "z": "4e61bceb49cf66cf",
-        "name": "A01",
-        "label": "",
-        "tooltip": "",
-        "place": "default",
-        "group": "6aeb6ccf14b443cd",
-        "order": 2,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "multiple": false,
-        "options": [
-            {
-                "label": "",
-                "value": "default",
-                "type": "str"
-            },
-            {
-                "label": "Student",
-                "value": "RED",
-                "type": "str"
-            },
-            {
-                "label": "Proffesor",
-                "value": "GREEN",
-                "type": "str"
-            },
-            {
-                "label": "Visitor",
-                "value": "BLUE",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "0",
-        "topicType": "str",
-        "className": "",
-        "x": 390,
-        "y": 380,
-        "wires": [
-            [
-                "22b06f50c2ce020d",
-                "8df4b1c4ae8faea6"
-            ]
-        ]
-    },
-    {
-        "id": "22b06f50c2ce020d",
-        "type": "ui_text",
-        "z": "4e61bceb49cf66cf",
-        "group": "6aeb6ccf14b443cd",
-        "order": 1,
-        "width": 2,
-        "height": 1,
-        "name": "A01",
-        "label": "",
-        "format": "A01",
-        "layout": "col-center",
-        "className": "",
-        "x": 650,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "cbd5c6904ddf5e44",
-        "type": "ui_text",
-        "z": "4e61bceb49cf66cf",
-        "group": "6aeb6ccf14b443cd",
-        "order": 3,
-        "width": 2,
-        "height": 1,
-        "name": "A02",
-        "label": "",
-        "format": "A02",
-        "layout": "col-center",
-        "className": "",
-        "x": 650,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "81a5eed2278c5c8f",
-        "type": "ui_text",
-        "z": "4e61bceb49cf66cf",
-        "group": "6aeb6ccf14b443cd",
-        "order": 5,
-        "width": 2,
-        "height": 1,
-        "name": "A03",
-        "label": "",
-        "format": "A03",
-        "layout": "col-center",
-        "className": "",
-        "x": 650,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "c60befd5dc251606",
-        "type": "ui_text",
-        "z": "4e61bceb49cf66cf",
-        "group": "6aeb6ccf14b443cd",
-        "order": 7,
-        "width": 2,
-        "height": 1,
-        "name": "A04",
-        "label": "",
-        "format": "A04",
-        "layout": "col-center",
-        "className": "",
-        "x": 650,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "298c58d6f39f02cf",
-        "type": "function",
-        "z": "4e61bceb49cf66cf",
-        "name": "Color Count",
-        "func": "var a = [];\nvar code = [];\nvar r = 0;\nvar g = 0;\nvar b = 0;\nvar d = 0;\n\nvar area = flow.get('area');\nfor(var i = 0; i<area.length; i++){\n    a[i] = area[i];\n}\n\nfor(var i = 0; i < a.length; i++){\n    if(a[i] == 'RED'){\n        r++;\n        code[i] = \"#ff0000\";\n    } else if (a[i] == 'BLUE') {\n        b++;\n        code[i] = \"#009dff\";\n    } else if (a[i] == 'GREEN') {\n        g++;\n        code[i] = \"#00c700\";\n    } else {\n        d++;\n        code[i] = \"#d3d3d3\";\n    }\n}\n\nmsg.red = r;\nmsg.green = g;\nmsg.blue = b;\nmsg.default = d;\n\nmsg.code = code;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 830,
-        "y": 280,
-        "wires": [
-            [
-                "35b2a21057e32846",
-                "d99a61bda16336fe"
-            ]
-        ]
-    },
-    {
-        "id": "35b2a21057e32846",
-        "type": "ui_template",
-        "z": "4e61bceb49cf66cf",
-        "group": "c77209e9eac23680",
-        "name": "Status",
-        "order": 1,
-        "width": 6,
-        "height": 12,
-        "format": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>\n      <meta charset=\"utf-8\" /> <meta name=\"viewport\"\n      content=\"width=device-width, initial-scale=1\" />\n    </title>\n    <style>\n      .dot {\n        height: 50px;\n        width: 50px;\n        border-radius: 50%;\n        display: inline-block;\n      }\n      .text {\n        font-size: 30px;\n        margin: 10px;\n        float: right;\n      }\n      .row {\n        vertical-align: middle;\n        margin: 10px;\n      }\n    </style>\n  </head>\n  <body>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #ff0000\"></span>\n      <span class=\"text\">Student {{msg.redFull}}/{{msg.red}}</span>\n    </div>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #00c700\"></span>\n      <span class=\"text\">Professor {{msg.greenFull}}/{{msg.green}}</span>\n    </div>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #009dff\"></span>\n      <span class=\"text\">Visitor {{msg.blueFull}}/{{msg.blue}}</span>\n    </div>\n    <div class=\"row\">\n      <span class=\"dot\" style=\"background-color: #d3d3d3\"></span>\n      <span class=\"text\"> No Section {{msg.defaultFull}}/{{msg.default}}</span>\n    </div>\n  </body>\n</html>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 1030,
-        "y": 300,
-        "wires": [
-            [
-                "0546112eb183f4a0"
-            ]
-        ]
-    },
-    {
-        "id": "16d7ac8258eada24",
-        "type": "ui_template",
-        "z": "4e61bceb49cf66cf",
-        "d": true,
-        "group": "63617354c4dfb6ed",
-        "name": "View",
-        "order": 1,
-        "width": 14,
-        "height": 12,
-        "format": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <title>Parking Management</title>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <link\n      rel=\"stylesheet\"\n      href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css\"\n    />\n    <script src=\"https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js\"></script>\n    <style>\n      .col {\n        margin: 10px;\n        padding: 10px;\n        border-radius: 15px;\n        height: 100%;\n      }\n\n      .col1 {\n        text-align: center;\n        font-size: 30px;\n      }\n\n      .col2 {\n        position: absolute;\n        left: 50%;\n        transform: translate(-50%, 0);\n        bottom: 15px;\n        font-size: 30px;\n      }\n    </style>\n  </head>\n  <body>\n    <div class=\"container-fluid\">\n      <div class=\"row\" style=\"margin-bottom: 3em; height: 15em\">\n        <div\n          id=\"A01\"\n          class=\"col border-bottom-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col1\">A01</div>\n        </div>\n        <div\n          id=\"A02\"\n          class=\"col border-bottom-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col1\">A02</div>\n        </div>\n        <div\n          id=\"A03\"\n          class=\"col border-bottom-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col1\">A03</div>\n        </div>\n        <div\n          id=\"A04\"\n          class=\"col border-bottom-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col1\">A04</div>\n        </div>\n      </div>\n      <div class=\"row\" style=\"margin-top: 8em; height: 15em\">\n        <div\n          id=\"A05\"\n          class=\"col border-top-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col2\">A05</div>\n        </div>\n        <div\n          id=\"A06\"\n          class=\"col border-top-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col2\">A06</div>\n        </div>\n        <div\n          id=\"A07\"\n          class=\"col border-top-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col2\">A07</div>\n        </div>\n        <div\n          id=\"A08\"\n          class=\"col border-top-0 border-secondary text-white\"\n          style=\"background-color: #d3d3d3\"\n        >\n          <div class=\"col2\">A08</div>\n        </div>\n      </div>\n    </div>\n    <script>\n      \n    (function(scope){ \n        scope.$watch('msg', function(msg) {\n            var areaCount = 8;\n            arr = msg.code;\n            \n            for (var i = 1; i <= areaCount; i++) {\n                var area = \"A0\" + i;\n                document.getElementById(area).style.backgroundColor = arr[i-1];\n            }\n        });\n    })(scope);\n    </script>\n  </body>\n</html>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 1030,
-        "y": 640,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d74001fe05ef9e2f",
-        "type": "ui_text",
-        "z": "4e61bceb49cf66cf",
-        "group": "6aeb6ccf14b443cd",
-        "order": 20,
-        "width": 5,
-        "height": 1,
-        "name": "",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 650,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "0546112eb183f4a0",
-        "type": "debug",
-        "z": "4e61bceb49cf66cf",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1150,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "04720c6607e23053",
-        "type": "ui_dropdown",
-        "z": "4e61bceb49cf66cf",
-        "name": "A02",
-        "label": "",
-        "tooltip": "",
-        "place": "default",
-        "group": "6aeb6ccf14b443cd",
-        "order": 4,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "multiple": false,
-        "options": [
-            {
-                "label": "",
-                "value": "default",
-                "type": "str"
-            },
-            {
-                "label": "Student",
-                "value": "RED",
-                "type": "str"
-            },
-            {
-                "label": "Proffesor",
-                "value": "GREEN",
-                "type": "str"
-            },
-            {
-                "label": "Visitor",
-                "value": "BLUE",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "1",
-        "topicType": "str",
-        "className": "",
-        "x": 390,
-        "y": 440,
-        "wires": [
-            [
-                "cbd5c6904ddf5e44",
-                "8df4b1c4ae8faea6"
-            ]
-        ]
-    },
-    {
-        "id": "5608158e2259970f",
-        "type": "ui_dropdown",
-        "z": "4e61bceb49cf66cf",
-        "name": "A03",
-        "label": "",
-        "tooltip": "",
-        "place": "default",
-        "group": "6aeb6ccf14b443cd",
-        "order": 6,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "multiple": false,
-        "options": [
-            {
-                "label": "",
-                "value": "default",
-                "type": "str"
-            },
-            {
-                "label": "Student",
-                "value": "RED",
-                "type": "str"
-            },
-            {
-                "label": "Proffesor",
-                "value": "GREEN",
-                "type": "str"
-            },
-            {
-                "label": "Visitor",
-                "value": "BLUE",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "2",
-        "topicType": "str",
-        "className": "",
-        "x": 390,
-        "y": 500,
-        "wires": [
-            [
-                "81a5eed2278c5c8f",
-                "8df4b1c4ae8faea6"
-            ]
-        ]
-    },
-    {
-        "id": "683e2c5345b15bea",
-        "type": "ui_dropdown",
-        "z": "4e61bceb49cf66cf",
-        "name": "A04",
-        "label": "",
-        "tooltip": "",
-        "place": "default",
-        "group": "6aeb6ccf14b443cd",
-        "order": 8,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "multiple": false,
-        "options": [
-            {
-                "label": "",
-                "value": "default",
-                "type": "str"
-            },
-            {
-                "label": "Student",
-                "value": "RED",
-                "type": "str"
-            },
-            {
-                "label": "Proffesor",
-                "value": "GREEN",
-                "type": "str"
-            },
-            {
-                "label": "Visitor",
-                "value": "BLUE",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "3",
-        "topicType": "str",
-        "className": "",
-        "x": 390,
-        "y": 560,
-        "wires": [
-            [
-                "c60befd5dc251606",
-                "8df4b1c4ae8faea6"
-            ]
-        ]
-    },
-    {
-        "id": "8df4b1c4ae8faea6",
-        "type": "function",
-        "z": "4e61bceb49cf66cf",
-        "name": "A02",
-        "func": "var current = msg.payload;\nvar topic = Number(msg.topic);\nvar area = flow.get(\"area\");\n\nvar prev = area[topic];\n\nvar current_count = flow.get(current) || 0;\n\nvar prev_count = flow.get(prev) || 0;\n\nflow.set(current, current_count + 1);\nif(prev != 'default') {\n    flow.set(prev, prev_count - 1);\n}\n\narea[topic] = current;\n\nflow.set(\"area\", area);\nmsg.area = area;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 320,
-        "wires": [
-            [
-                "298c58d6f39f02cf",
-                "e6de571f23a738d6"
-            ]
-        ]
-    },
-    {
-        "id": "6a368fea72f3fabc",
-        "type": "function",
-        "z": "4e61bceb49cf66cf",
-        "name": "init",
-        "func": "var arr = ['default', 'default', 'default', 'default', 'default', 'default', 'default', 'default']\nmsg.redFull = 0;\nmsg.greenFull = 0;\nmsg.blueFull = 0;\nmsg.defaultFull = 0;\nflow.set('area', arr);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 230,
-        "y": 280,
-        "wires": [
-            [
-                "0bd0228ef45eeb68",
-                "04720c6607e23053",
-                "5608158e2259970f",
-                "683e2c5345b15bea",
-                "298c58d6f39f02cf",
-                "725a73f1f2f33cc1",
-                "47810990648addd3",
-                "41981235ecb5c050",
-                "74795c73d12e239c"
-            ]
-        ]
-    },
-    {
-        "id": "16464f13b28e9e24",
-        "type": "inject",
-        "z": "4e61bceb49cf66cf",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "default",
-        "payloadType": "str",
-        "x": 100,
-        "y": 280,
-        "wires": [
-            [
-                "6a368fea72f3fabc"
-            ]
-        ]
-    },
-    {
-        "id": "725a73f1f2f33cc1",
-        "type": "ui_dropdown",
-        "z": "4e61bceb49cf66cf",
-        "name": "A05",
-        "label": "",
-        "tooltip": "",
-        "place": "default",
-        "group": "6aeb6ccf14b443cd",
-        "order": 10,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "multiple": false,
-        "options": [
-            {
-                "label": "",
-                "value": "default",
-                "type": "str"
-            },
-            {
-                "label": "Student",
-                "value": "RED",
-                "type": "str"
-            },
-            {
-                "label": "Proffesor",
-                "value": "GREEN",
-                "type": "str"
-            },
-            {
-                "label": "Visitor",
-                "value": "BLUE",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "4",
-        "topicType": "str",
-        "className": "",
-        "x": 390,
-        "y": 620,
-        "wires": [
-            [
-                "ee62abf366e3b6e6",
-                "8df4b1c4ae8faea6"
-            ]
-        ]
-    },
-    {
-        "id": "ee62abf366e3b6e6",
-        "type": "ui_text",
-        "z": "4e61bceb49cf66cf",
-        "group": "6aeb6ccf14b443cd",
-        "order": 9,
-        "width": 2,
-        "height": 1,
-        "name": "A05",
-        "label": "",
-        "format": "A05",
-        "layout": "col-center",
-        "className": "",
-        "x": 650,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "96a54d66708b1f22",
-        "type": "ui_text",
-        "z": "4e61bceb49cf66cf",
-        "group": "6aeb6ccf14b443cd",
-        "order": 11,
-        "width": 2,
-        "height": 1,
-        "name": "A06",
-        "label": "",
-        "format": "A06",
-        "layout": "col-center",
-        "className": "",
-        "x": 650,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "3b209f759d3d0e7a",
-        "type": "ui_text",
-        "z": "4e61bceb49cf66cf",
-        "group": "6aeb6ccf14b443cd",
-        "order": 13,
-        "width": 2,
-        "height": 1,
-        "name": "A07",
-        "label": "",
-        "format": "A07",
-        "layout": "col-center",
-        "className": "",
-        "x": 650,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "636f191b5f41c4ab",
-        "type": "ui_text",
-        "z": "4e61bceb49cf66cf",
-        "group": "6aeb6ccf14b443cd",
-        "order": 15,
-        "width": 2,
-        "height": 1,
-        "name": "A08",
-        "label": "",
-        "format": "A08",
-        "layout": "col-center",
-        "className": "",
-        "x": 650,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "47810990648addd3",
-        "type": "ui_dropdown",
-        "z": "4e61bceb49cf66cf",
-        "name": "A06",
-        "label": "",
-        "tooltip": "",
-        "place": "default",
-        "group": "6aeb6ccf14b443cd",
-        "order": 12,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "multiple": false,
-        "options": [
-            {
-                "label": "",
-                "value": "default",
-                "type": "str"
-            },
-            {
-                "label": "Student",
-                "value": "RED",
-                "type": "str"
-            },
-            {
-                "label": "Proffesor",
-                "value": "GREEN",
-                "type": "str"
-            },
-            {
-                "label": "Visitor",
-                "value": "BLUE",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "5",
-        "topicType": "str",
-        "className": "",
-        "x": 390,
-        "y": 680,
-        "wires": [
-            [
-                "96a54d66708b1f22",
-                "8df4b1c4ae8faea6"
-            ]
-        ]
-    },
-    {
-        "id": "41981235ecb5c050",
-        "type": "ui_dropdown",
-        "z": "4e61bceb49cf66cf",
-        "name": "A07",
-        "label": "",
-        "tooltip": "",
-        "place": "default",
-        "group": "6aeb6ccf14b443cd",
-        "order": 14,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "multiple": false,
-        "options": [
-            {
-                "label": "",
-                "value": "default",
-                "type": "str"
-            },
-            {
-                "label": "Student",
-                "value": "RED",
-                "type": "str"
-            },
-            {
-                "label": "Proffesor",
-                "value": "GREEN",
-                "type": "str"
-            },
-            {
-                "label": "Visitor",
-                "value": "BLUE",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "6",
-        "topicType": "str",
-        "className": "",
-        "x": 390,
-        "y": 740,
-        "wires": [
-            [
-                "3b209f759d3d0e7a",
-                "8df4b1c4ae8faea6"
-            ]
-        ]
-    },
-    {
-        "id": "74795c73d12e239c",
-        "type": "ui_dropdown",
-        "z": "4e61bceb49cf66cf",
-        "name": "A08",
-        "label": "",
-        "tooltip": "",
-        "place": "default",
-        "group": "6aeb6ccf14b443cd",
-        "order": 16,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "multiple": false,
-        "options": [
-            {
-                "label": "",
-                "value": "default",
-                "type": "str"
-            },
-            {
-                "label": "Student",
-                "value": "RED",
-                "type": "str"
-            },
-            {
-                "label": "Proffesor",
-                "value": "GREEN",
-                "type": "str"
-            },
-            {
-                "label": "Visitor",
-                "value": "BLUE",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "7",
-        "topicType": "str",
-        "className": "",
-        "x": 390,
-        "y": 800,
-        "wires": [
-            [
-                "636f191b5f41c4ab",
-                "8df4b1c4ae8faea6"
+                "5c45a6b2b5085572"
             ]
         ]
     },
@@ -1021,164 +299,21 @@
         "z": "4e61bceb49cf66cf",
         "name": "to uno",
         "serial": "dbeae5430b4bc5a3",
-        "x": 690,
-        "y": 1120,
+        "x": 610,
+        "y": 420,
         "wires": []
-    },
-    {
-        "id": "e6de571f23a738d6",
-        "type": "function",
-        "z": "4e61bceb49cf66cf",
-        "name": "",
-        "func": "var area = flow.get('area');\nvar number = [];\n\nfor(var i = 0; i<area.length; i++){\n    if(area[i] == 'RED'){\n        number[i] = 1;\n    } else if (area[i] == 'GREEN') {\n        number[i] = 2;\n    } else if (area[i] == 'BLUE') {\n        number[i] = 3;\n    } else {\n        number[i] = 0;\n    }\n}\n\nvar result = number.join(\" \");\n\nmsg.payload = result;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 850,
-        "y": 400,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9dd3f029fc78fd67",
-        "type": "http in",
-        "z": "4e61bceb49cf66cf",
-        "name": "",
-        "url": "/customer",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 400,
-        "y": 940,
-        "wires": [
-            [
-                "e23b679f95de48ad"
-            ]
-        ]
-    },
-    {
-        "id": "d85d51a3fa498142",
-        "type": "http response",
-        "z": "4e61bceb49cf66cf",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 930,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "23018ba38db562a9",
-        "type": "template",
-        "z": "4e61bceb49cf66cf",
-        "name": "HTML",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Dynamic Parking System</title>\n  <link href=\"https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500;600&family=Noto+Sans+KR&display=swap\" rel=\"stylesheet\">\n  <style>{{{payload.style}}}</style>\n</head>\n\n<body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n  <div id=\"container\">\n    <div id=\"startDiv\">\n      <img src=\".node-red/img/spider.png\">\n      <p id=\"title\">Dynamic Parking System</p>\n      <button id=\"startButton\" type=\"button\" name=\"button\">Start</button>\n    </div>\n    <div id=\"contents\">\n      <div id=\"row1\">\n        <div id=\"mapDiv\">\n          \n        </div>\n        <div id=\"parkingDiv\">\n          <ul id=\"inforOfPlace\">\n          </ul>\n          <p id=\"totalOfPlace\"></p>\n        </div>\n      </div>\n      <div id=\"row2\">\n        <button id=\"confirmButton\" type=\"button\" name=\"button\">OK</button>\n      </div>\n    </div>\n  </div>\n  <script>{{{payload.js}}}</script>\n</body>\n\n</html>\n",
-        "output": "str",
-        "x": 810,
-        "y": 940,
-        "wires": [
-            [
-                "d85d51a3fa498142"
-            ]
-        ]
-    },
-    {
-        "id": "93176b27a638a180",
-        "type": "template",
-        "z": "4e61bceb49cf66cf",
-        "name": "CSS",
-        "field": "payload.style",
-        "fieldType": "msg",
-        "format": "css",
-        "syntax": "mustache",
-        "template": "body {\n  background-color: #2c3e50;\n  font-family: 'Baloo Tammudu 2', 'Noto Sans KR', sans-serif;\n}\n\n#container {\n  text-align: center;\n}\n\n#contents {\n  display: none;\n}\n\n#startDiv {\n  text-align: center;\n  padding-top: 0;\n}\n\n#title {\n  line-height: 7vmin;\n  margin-top: 0px;\n  margin-bottom: 0px;\n  color: white;\n  font-size: 7vmin;\n}\n\n#totalOfPlace {\n  line-height: 7.2vmin;\n  font-weight: bold;\n  margin-top: 0px;\n  margin-bottom: 0px;\n  font-size: 7vmin;\n}\n\n#startDiv img {\n  width: 16vmin;\n  height: 16vmin;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n\n  to {\n    opacity: 1;\n  }\n}\n\n/*조정 필요*/\n.bgImage {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100vw;\n  height: 100vh;\n  z-index: -1;\n  animation: fadeIn 0.8s linear;\n  filter: brightness(60%);\n}\n\n#mapDiv {\n  margin-top: 3vmin;\n  width: 90vmin;\n  background-color: white;\n  border: solid #F5454C;\n  border-radius: 20px;\n  animation: fadeIn 1s linear;\n}\n\n#mapDiv img{\n  width: 85vmin;\n  height: 60vmin;\n  margin-top: 3vmin;\n}\n\n#startButton {\n  margin: auto;\n  width: 14vmin;\n  height: 7vmin;\n  border-radius: 30px;\n  border: none;\n  background-color: rgba(255, 255, 255, 0.4);\n  color: rgb(80, 80, 80);\n  font-size: 4vmin;\n  font-weight: 600;\n  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);\n  outline: none;\n  cursor: pointer;\n  transition: all, 0.4s;\n  animation: fadeIn 1s linear;\n}\n\n#startButton:hover, #confirmButton:hover {\n  background-color: rgba(255, 255, 255, 1);\n  color: rgb(50, 50, 50);\n}\n\n#confirmButton {\n  margin-top: 3vmin;\n  width: 14vmin;\n  height: 7vmin;\n  border-radius: 30px;\n  border: solid black;\n  background-color: #292726;\n  color: #FFFCFC;\n  font-size: 4vmin;\n  font-weight: 600;\n  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);\n  outline: none;\n  cursor: pointer;\n  transition: all, 0.4s;\n}\n\n#parkingDiv {\n  margin: auto;\n  text-align: center;\n  width: 90vmin;\n  background-color: white;\n  border: solid #F5454C;\n  border-radius: 20px;\n  animation: fadeIn 1s linear;\n}\n\n.colors{\n  border-radius: 20px;\n  float: left;\n  margin-top: 3vmin;\n  margin-right: 3vmin;\n  width: 6vmin;\n  height: 6vmin;\n}\n\n#inforOfPlace {\n  margin-top: 2vmin;\n  margin-bottom: 0px;\n  padding-left: 15vmin;\n  text-align: left;\n  list-style: none;\n  font-size: 7vmin;\n  font-weight: bold;\n}\n\n/*전체적인 case 고려해야 함, 비율 통일, 중복되는 쿼리 해결 고민*/\n\n/* PC , 테블릿 가로 (768px ~ 1023px)*/\n@media all and (min-width:1024px) {\n  #title {\n    font-size: 2vmax;\n  }\n\n  #startDiv{\n    padding-top: 1vmax;\n  }\n\n  #startDiv img {\n    width: 6vmax;\n    height: 6vmax;\n  }\n\n  #row1 {\n    display: inline-flex;\n  }\n\n  #mapDiv {\n    margin-top: 0px;\n    width: 45vmax;\n    height: 28vmax;\n  }\n\n/*vmin, vmax 일 때 정확한 비율 통일 필요*/\n  #mapDiv img{\n    margin-top: 0.5vmax;\n    width: 38vmax;\n    height: 27vmax;\n  }\n\n  #parkingDiv {\n    display: inline-flex;\n    width: 45vmax;\n    height: 28vmax;\n    margin-left: 3vmax;\n    margin-top: 0px;\n  }\n\n  .colors{\n    margin-top: 0.7vmax;\n    margin-right: 1vmax;\n    width: 2.5vmax;\n    height: 2.5vmax;\n  }\n\n  #confirmButton {\n    margin-top: 1vmax;\n    width: 7vmax;\n    height: 3vmax;\n    font-size: 2vmax;\n  }\n\n  #startButton{\n    width: 7vmax;\n    height: 3vmax;\n    font-size: 2vmax;\n  }\n\n  #inforOfPlace {\n    margin-top: 2vmax;\n    margin-left: 3vmax;\n    padding-left: 3vmax;\n    font-size: 2.2vmax;\n  }\n\n  #totalOfPlace {\n    margin-top: 13vmax;\n    margin-left: 6.5vmax;\n    font-size: 3vmax;\n  }\n}\n\n/* 테블릿 세로 (768px ~ 1023px)*/\n@media all and (min-width:768px) and (max-width:1023px) {\n  #row1 {\n    display: inline-block;\n  }\n\n  #parkingDiv {\n    margin-top: 4vmin;\n  }\n  \n}\n\n/* 모바일 가로, 테블릿 세로 (480px ~ 767px)*/\n  @media all and (min-width:480px) and (max-width:767px) {\n    #title {\n      font-size: 2vmax;\n    }\n\n    #startDiv{\n      padding-top: 1vmax;\n    }\n\n    #startDiv img {\n      width: 6vmax;\n      height: 6vmax;\n    }\n\n    #row1 {\n      display: inline-flex;\n    }\n\n    #mapDiv {\n      margin-top: 0px;\n      width: 45vmax;\n      height: 28vmax;\n    }\n\n  /*vmin, vmax 일 때 정확한 비율 통일 필요*/\n    #mapDiv img{\n      margin-top: 0.5vmax;\n      width: 38vmax;\n      height: 27vmax;\n    }\n\n    #parkingDiv {\n      display: inline-flex;\n      width: 45vmax;\n      height: 28vmax;\n      margin-left: 3vmax;\n      margin-top: 0px;\n    }\n\n    .colors{\n      margin-top: 0.7vmax;\n      margin-right: 1vmax;\n      width: 2.5vmax;\n      height: 2.5vmax;\n    }\n\n    #confirmButton {\n      margin-top: 1vmax;\n      width: 7vmax;\n      height: 3vmax;\n      font-size: 2vmax;\n    }\n\n    #startButton{\n      width: 7vmax;\n      height: 3vmax;\n      font-size: 2vmax;\n    }\n\n    #inforOfPlace {\n      margin-top: 2vmax;\n      margin-left: 3vmax;\n      padding-left: 3vmax;\n      font-size: 2.2vmax;\n    }\n\n    #totalOfPlace {\n      margin-top: 12vmax;\n      margin-left: 6.5vmax;\n      font-size: 3vmax;\n    }\n\n  }\n\n  /* 모바일 가로, 테블릿 세로 (~ 479px)*/\n  @media (max-width:479px) {\n    #row1 {\n      display: inline-block;\n    }\n\n    #parkingDiv {\n      margin-top: 4vmin;\n    }\n  }\n",
-        "output": "str",
-        "x": 690,
-        "y": 940,
-        "wires": [
-            [
-                "23018ba38db562a9"
-            ]
-        ]
-    },
-    {
-        "id": "e23b679f95de48ad",
-        "type": "template",
-        "z": "4e61bceb49cf66cf",
-        "name": "js",
-        "field": "payload.js",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "const parkingDiv = document.querySelector(\"#parkingDiv\");\nconst mapDiv = document.querySelector(\"#mapDiv\");\nconst contents = document.querySelector(\"#contents\");\nconst row1 = document.querySelector(\"#row1\");\nconst row2 = document.querySelector(\"#row2\");\nconst startButton = document.querySelector(\"#startButton\");\nconst confirmButton = document.querySelector(\"#confirmButton\");\nconst totalOfPlace = document.querySelector(\"#totalOfPlace\");\nlet inforOfPlace = document.querySelector(\"#inforOfPlace\");\n\nconst numberOfTotal = 300;\n\nlet nameOfPlace = new Array();\nlet numberOfPlace = new Array();\nlet colorOfPlace = new Array();\n\nstartButton.addEventListener('click', start);\nconfirmButton.addEventListener('click', confirm);\n\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location;\nconsole.log(loc);\nif (loc.protocol === \"https:\") {\n  wsUri = \"wss:\";\n}\n\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"customer\", \"ws/customer\");\n\nfunction wsConnect() {\n  console.log(\"connect\", wsUri);\n  ws = new WebSocket(wsUri);\n  ws.onmessage = function(msg) {\n    var data = JSON.parse(msg.data);\n    console.log(data);\n    //ws.send(JSON.stringify({data:data}));\n  }\n  ws.onopen = function() {\n    //ws.send(\"Open for data\");\n    console.log(\"connected\");\n  }\n  ws.onclose = function() {\n    setTimeout(wsConnect, 3000);\n  }\n}\n\nfunction doit(m) {\n  if (ws) {\n    ws.send(m);\n  }\n}\n\nfunction start() {\n  contents.style.display = \"inline-block\";\n  startButton.style.display = \"none\";\n  if(nameOfPlace.length == 0){\n    initialize();\n  }\n}\n\nfunction confirm() {\n  contents.style.display = \"none\";\n  startButton.style.display = \"block\";\n}\n\nfunction sum(){\n  var availablePlace = 0;\n  for(let i=0; i<nameOfPlace.length; i++){\n    availablePlace += numberOfPlace[nameOfPlace[i]];\n  }\n\n  return availablePlace + \" / \" + numberOfTotal;\n}\n\nfunction initialize() {\n  \n  nameOfPlace.push(\"Visitor\");\n  nameOfPlace.push(\"Student\");\n  nameOfPlace.push(\"President\");\n  nameOfPlace.push(\"Faculty\");\n  nameOfPlace.push(\"Patient\");\n  /*\n    for(let i = 0; i<nameOfPlace.length-1; i++){\n      numberOfPlace[nameOfPlace[0]] = 13\n    }\n  */\n  numberOfPlace[nameOfPlace[0]] = 50;\n  numberOfPlace[nameOfPlace[1]] = 23;\n  numberOfPlace[nameOfPlace[2]] = 17;\n  numberOfPlace[nameOfPlace[3]] = 13;\n  numberOfPlace[nameOfPlace[4]] = 77;\n\n  colorOfPlace[nameOfPlace[0]] = \"red\";\n  colorOfPlace[nameOfPlace[1]] = \"black\";\n  colorOfPlace[nameOfPlace[2]] = \"blue\";\n  colorOfPlace[nameOfPlace[3]] = \"green\";\n  colorOfPlace[nameOfPlace[4]] = \"skyblue\";\n\n  for (let i = 0; i < nameOfPlace.length; i++) {\n    let li = document.createElement(\"li\");\n    let colors = document.createElement(\"div\");\n    //let color = document.createTextNode(\"●  \");\n    let text = document.createTextNode(nameOfPlace[i] + \" : \" + numberOfPlace[nameOfPlace[i]]);\n    //colors.style.color = colorOfPlace[nameOfPlace[i]];\n    colors.classList.add(\"colors\");\n    colors.style.backgroundColor = colorOfPlace[nameOfPlace[i]];\n    //colors.appendChild(color);\n    li.appendChild(colors);\n    li.appendChild(text);\n    inforOfPlace.appendChild(li);\n  }\n  //추후 수정\n  let textOfTotal = sum();\n  totalOfPlace.appendChild(document.createTextNode(textOfTotal));\n}\n\nfunction changeInfor(){\n\n}\n",
-        "output": "str",
-        "x": 570,
-        "y": 940,
-        "wires": [
-            [
-                "93176b27a638a180"
-            ]
-        ]
-    },
-    {
-        "id": "1e16f1f48d48308e",
-        "type": "function",
-        "z": "4e61bceb49cf66cf",
-        "name": "",
-        "func": "var spot = msg.payload.split(\"\");\nvar area = flow.get(\"area\");\n\nvar redCount = 0;\nvar greenCount = 0;\nvar blueCount = 0;\nvar defaultCount = 0;\n\nfor(var i = 0; i < 8; i++){\n    if(spot[i] == \"0\"){\n        if(area[i] == \"RED\"){\n            redCount++;\n        } else if (area[i] == \"GREEN\"){\n            greenCount++;\n        } else if (area[i] == \"BLUE\"){\n            blueCount++;\n        } else {\n            defaultCount++;\n        }\n    }\n}\n\nmsg.redFull = redCount;\nmsg.greenFull = greenCount;\nmsg.blueFull = blueCount;\nmsg.defaultFull = defaultCount;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 560,
-        "y": 160,
-        "wires": [
-            [
-                "c260b62793d6a8a6",
-                "298c58d6f39f02cf"
-            ]
-        ]
-    },
-    {
-        "id": "d99a61bda16336fe",
-        "type": "ui_template",
-        "z": "4e61bceb49cf66cf",
-        "group": "f835c5eff995985c",
-        "name": "",
-        "order": 22,
-        "width": 0,
-        "height": 0,
-        "format": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <title>Parking Management</title>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <link\n      rel=\"stylesheet\"\n      href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css\"\n    />\n    <script src=\"https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js\"></script>\n    <style>\n      body {\n        margin: 0;\n        background: #eaedf1;\n        font-family: \"Lato\", sans-serif;\n      }\n      .view .col {\n        margin: 10px;\n        padding: 10px;\n        border-radius: 15px;\n        height: 100%;\n        background-color: #d3d3d3;\n        color: white;\n        transition: all 0.2s ease-in-out;\n      }\n\n      .col1 {\n        text-align: center;\n        font-size: 30px;\n      }\n\n      .col2 {\n        position: absolute;\n        left: 50%;\n        transform: translate(-50%, 0);\n        bottom: 15px;\n        font-size: 30px;\n      }\n\n      .row input[type=\"checkbox\"] {\n        display: none;\n      }\n\n      .row input[type=\"checkbox\"]:checked + .whatever {\n        box-shadow: 0 0 0 8px orange inset;\n        color: orange;\n      }\n\n      .row input[type=\"checkbox\"]:hover + .whatever {\n        transition: all 0.2s ease-in-out;\n        transform: scale(1.05);\n      }\n\n      #snackbar {\n        visibility: hidden;\n        /* min-width: 500px; */\n        /* margin-left: -255px; */\n        border: 2px solid #808080;\n        border-radius: 10px;\n        /* text-align: center; */\n        padding: 16px;\n        position: fixed;\n        z-index: 1;\n        left: 50%;\n        transform: translate(-50%, 0);\n        bottom: 30px;\n        /* font-size: 17px; */\n      }\n\n      #snackbar.show {\n        visibility: visible;\n        -webkit-animation: fadein 0.5s;\n        animation: fadein 0.5s;\n      }\n      #snackbar.hide {\n        visibility: visible;\n        -webkit-animation: fadeout 0.5s;\n        animation: fadeout 0.5s;\n      }\n      /* #snackbar .red {\n        height: 20px;\n        width: 20px;\n        border-radius: 50%;\n        background-color: #ff0000;\n      }\n      #snackbar .green {\n        height: 20px;\n        width: 20px;\n        border-radius: 50%;\n        background-color: #00c700;\n      }\n      #snackbar .blue {\n        height: 20px;\n        width: 20px;\n        border-radius: 50%;\n        background-color: #009dff;\n      }\n      #snackbar .default {\n        height: 20px;\n        width: 20px;\n        border-radius: 50%;\n        background-color: #d3d3d3;\n      } */\n      .color li {\n        margin: 15px;\n        width: 100px;\n        /* height: 30px; */\n        display: inline-block;\n        /* border-radius: 10px; */\n        color: white;\n        /* padding: 5px; */\n        text-align: center;\n      }\n      .color li:hover {\n        filter: brightness(80%);\n        color: white;\n      }\n      .color .red {\n        background: #ff0000;\n      }\n      .color .yellow {\n        background: #f0d264;\n      }\n      .color .green {\n        background: #00c700;\n      }\n      .color .cyan {\n        background: #7fccde;\n      }\n      .color .blue {\n        background: #009dff;\n      }\n      .color .purple {\n        background: #cb99c5;\n      }\n      .color .default {\n        background: #d3d3d3;\n      }\n      h3 {\n        color: #89867e;\n        text-align: center;\n        font-weight: 500;\n      }\n\n      @-webkit-keyframes fadein {\n        from {\n          bottom: 0;\n          opacity: 0;\n        }\n        to {\n          bottom: 30px;\n          opacity: 1;\n        }\n      }\n\n      @keyframes fadein {\n        from {\n          bottom: 0;\n          opacity: 0;\n        }\n        to {\n          bottom: 30px;\n          opacity: 1;\n        }\n      }\n\n      @-webkit-keyframes fadeout {\n        from {\n          bottom: 30px;\n          opacity: 1;\n        }\n        to {\n          bottom: 0;\n          opacity: 0;\n        }\n      }\n\n      @keyframes fadeout {\n        from {\n          bottom: 30px;\n          opacity: 1;\n        }\n        to {\n          bottom: 0;\n          opacity: 0;\n        }\n      }\n    </style>\n  </head>\n  <body>\n    <div class=\"container-fluid\">\n      <div class=\"view row\" style=\"margin-bottom: 3em; height: 15em\">\n        <input type=\"checkbox\" id=\"r1\" onclick=\"selectSpot()\" />\n        <label id=\"A01\" class=\"whatever col\" for=\"r1\"\n          ><div class=\"col1\">A01</div></label\n        >\n        <input\n          type=\"checkbox\"\n          name=\"rGroup\"\n          value=\"2\"\n          id=\"r2\"\n          onclick=\"selectSpot()\"\n        />\n        <label id=\"A02\" class=\"whatever col\" for=\"r2\"\n          ><div class=\"col1\">A02</div></label\n        >\n        <input\n          type=\"checkbox\"\n          name=\"rGroup\"\n          value=\"3\"\n          id=\"r3\"\n          onclick=\"selectSpot()\"\n        />\n        <label id=\"A03\" class=\"whatever col\" for=\"r3\"\n          ><div class=\"col1\">A03</div></label\n        >\n        <input\n          type=\"checkbox\"\n          name=\"rGroup\"\n          value=\"4\"\n          id=\"r4\"\n          onclick=\"selectSpot()\"\n        />\n        <label id=\"A04\" class=\"whatever col\" for=\"r4\"\n          ><div class=\"col1\">A04</div></label\n        >\n      </div>\n      <div class=\"view row\" style=\"margin-top: 8em; height: 15em\">\n        <input type=\"checkbox\" id=\"r5\" onclick=\"selectSpot()\" />\n        <label id=\"A05\" class=\"whatever col\" for=\"r5\"\n          ><div class=\"col2\">A05</div></label\n        >\n        <input\n          type=\"checkbox\"\n          name=\"rGroup\"\n          value=\"2\"\n          id=\"r6\"\n          onclick=\"selectSpot()\"\n        />\n        <label id=\"A06\" class=\"whatever col\" for=\"r6\"\n          ><div class=\"col2\">A06</div></label\n        >\n        <input\n          type=\"checkbox\"\n          name=\"rGroup\"\n          value=\"3\"\n          id=\"r7\"\n          onclick=\"selectSpot()\"\n        />\n        <label id=\"A07\" class=\"whatever col\" for=\"r7\"\n          ><div class=\"col2\">A07</div></label\n        >\n        <input\n          type=\"checkbox\"\n          name=\"rGroup\"\n          value=\"4\"\n          id=\"r8\"\n          onclick=\"selectSpot()\"\n        />\n        <label id=\"A08\" class=\"whatever col\" for=\"r8\"\n          ><div class=\"col2\">A08</div></label\n        >\n      </div>\n      <br />\n      <div id=\"snackbar\">\n        <h3>Change Color</h3>\n        <div class=\"color row\">\n          <li class=\"col btn red\" onclick=\"changeColor('#ff0000')\">Student</li>\n          <li class=\"col btn green\" onclick=\"changeColor('#00c700')\">\n            Professor\n          </li>\n          <li class=\"col btn blue\" onclick=\"changeColor('#009dff')\">Visitor</li>\n          <li class=\"col btn default\" onclick=\"changeColor('#d3d3d3')\">OFF</li>\n        </div>\n        <!-- <input type=\"text\" id=\"hihi\" />\n        <input type=\"button\" value=\"button\" onclick=\"changeColor()\" /> -->\n      </div>\n    </div>\n    <script>\n      var areaCount = 8;\n      function changeColor(color) {\n        for (var i = 1; i <= areaCount; i++) {\n          var id = \"r\" + i;\n          var area = \"A0\" + i;\n          if (document.getElementById(id).checked) {\n            document.getElementById(area).style.backgroundColor = color;\n            document.getElementById(id).checked = false;\n          }\n        }\n        var x = document.getElementById(\"snackbar\");\n        x.className = \"hide\";\n        setTimeout(function () {\n          x.className = x.className.replace(\"hide\", \"\");\n        }, 500);\n      }\n      function selectSpot() {\n        var check = 0;\n        var x = document.getElementById(\"snackbar\");\n        for (var i = 1; i <= areaCount; i++) {\n          var id = \"r\" + i;\n          if (document.getElementById(id).checked) {\n            check = 1;\n          }\n        }\n        if (check == 1) {\n          x.className = \"show\";\n        } else {\n          x.className = \"hide\";\n          setTimeout(function () {\n            x.className = x.className.replace(\"hide\", \"\");\n          }, 500);\n        }\n      }\n    </script>\n  </body>\n</html>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 1040,
-        "y": 360,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "3ac536cb37a80d52",
         "type": "http in",
         "z": "4e61bceb49cf66cf",
         "name": "",
-        "url": "/customer",
+        "url": "/user",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 400,
-        "y": 940,
+        "x": 240,
+        "y": 120,
         "wires": [
             [
                 "8485bd37b61b7263"
@@ -1192,8 +327,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 930,
-        "y": 940,
+        "x": 790,
+        "y": 120,
         "wires": []
     },
     {
@@ -1205,10 +340,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Dynamic Parking System</title>\n  <link href=\"https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500;600&family=Noto+Sans+KR&display=swap\" rel=\"stylesheet\">\n  <style>{{{payload.style}}}</style>\n</head>\n\n<body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n  <div id=\"container\">\n    <div id=\"startDiv\">\n      <img src=\".node-red/img/spider.png\">\n      <p id=\"title\">Dynamic Parking System</p>\n      <button id=\"startButton\" type=\"button\" name=\"button\">Start</button>\n    </div>\n    <div id=\"contents\">\n      <div id=\"row1\">\n        <div id=\"mapDiv\">\n          \n        </div>\n        <div id=\"parkingDiv\">\n          <ul id=\"inforOfPlace\">\n          </ul>\n          <p id=\"totalOfPlace\"></p>\n        </div>\n      </div>\n      <div id=\"row2\">\n        <button id=\"confirmButton\" type=\"button\" name=\"button\">OK</button>\n      </div>\n    </div>\n  </div>\n  <script>{{{payload.js}}}</script>\n</body>\n\n</html>\n",
+        "template": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>Smart Parking System</title>\n    <link\n      rel=\"stylesheet\"\n      href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css\"\n    />\n    <script src=\"https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js\"></script>\n    <link\n      rel=\"stylesheet\"\n      href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\"\n    />\n\n    {{!--<link rel=\"stylesheet\" href=\"customer.css\" />--}}\n    <style>{{{payload.css}}}</style>\n  </head>\n  <body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n    <h1>Smart Parking Lot</h1>\n    <div class=\"content\">\n      <div class=\"view row\">\n        <input type=\"checkbox\" id=\"r1\" onclick=\"selectSpot()\" disabled />\n        <label id=\"A01\" class=\"viewmode col\" for=\"r1\">\n          <div class=\"col1\">A01</div></label\n        >\n        <input type=\"checkbox\" id=\"r2\" onclick=\"selectSpot()\" disabled />\n        <label id=\"A02\" class=\"viewmode col\" for=\"r2\"\n          ><div class=\"col1\">A02</div></label\n        >\n          \n        <input type=\"checkbox\" id=\"r3\" onclick=\"selectSpot()\" disabled />\n        <label id=\"A03\" class=\"viewmode col\" for=\"r3\"\n          ><div class=\"col1\">A03</div></label\n        >\n          \n        <input type=\"checkbox\" id=\"r4\" onclick=\"selectSpot()\" disabled />\n        <label id=\"A04\" class=\"viewmode col\" for=\"r4\"\n          ><div class=\"col1\">A04</div></label\n        >\n          \n      </div>\n      <div class=\"view row\">\n        <input type=\"checkbox\" id=\"r5\" onclick=\"selectSpot()\" disabled />\n        <label id=\"A05\" class=\"viewmode col\" for=\"r5\"\n          >\n          <div class=\"col2\">A05</div></label\n        >\n        <input type=\"checkbox\" id=\"r6\" onclick=\"selectSpot()\" disabled />\n        <label id=\"A06\" class=\"viewmode col\" for=\"r6\"\n          >\n          <div class=\"col2\">A06</div></label\n        >\n        <input type=\"checkbox\" id=\"r7\" onclick=\"selectSpot()\" disabled />\n        <label id=\"A07\" class=\"viewmode col\" for=\"r7\"\n          >\n          <div class=\"col2\">A07</div></label\n        >\n        <input type=\"checkbox\" id=\"r8\" onclick=\"selectSpot()\" disabled />\n        <label id=\"A08\" class=\"viewmode col\" for=\"r8\"\n          >\n          <div class=\"col2\">A08</div></label\n        >\n      </div>\n    </div>\n    <div class=\"status\">\n        <div class=\"sidebar-menu\">\n            <div class=\"section-ti\">Section</div>\n            <div class=\"section-list\">\n            </div>\n          </div>\n        </ul>\n    </div>\n    <script>{{{payload.js}}}</script>\n    {{!--<script type=\"text/javascript\" src=\"customer.js\"></script>--}}\n  </body>\n</html>\n",
         "output": "str",
-        "x": 810,
-        "y": 940,
+        "x": 670,
+        "y": 120,
         "wires": [
             [
                 "ace9f9338c14336a"
@@ -1220,14 +355,14 @@
         "type": "template",
         "z": "4e61bceb49cf66cf",
         "name": "CSS",
-        "field": "payload.style",
+        "field": "payload.css",
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "body {\n  background-color: #2c3e50;\n  font-family: 'Baloo Tammudu 2', 'Noto Sans KR', sans-serif;\n}\n\n#container {\n  text-align: center;\n}\n\n#contents {\n  display: none;\n}\n\n#startDiv {\n  text-align: center;\n  padding-top: 0;\n}\n\n#title {\n  line-height: 7vmin;\n  margin-top: 0px;\n  margin-bottom: 0px;\n  color: white;\n  font-size: 7vmin;\n}\n\n#totalOfPlace {\n  line-height: 7.2vmin;\n  font-weight: bold;\n  margin-top: 0px;\n  margin-bottom: 0px;\n  font-size: 7vmin;\n}\n\n#startDiv img {\n  width: 16vmin;\n  height: 16vmin;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n\n  to {\n    opacity: 1;\n  }\n}\n\n/*조정 필요*/\n.bgImage {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100vw;\n  height: 100vh;\n  z-index: -1;\n  animation: fadeIn 0.8s linear;\n  filter: brightness(60%);\n}\n\n#mapDiv {\n  margin-top: 3vmin;\n  width: 90vmin;\n  background-color: white;\n  border: solid #F5454C;\n  border-radius: 20px;\n  animation: fadeIn 1s linear;\n}\n\n#mapDiv img{\n  width: 85vmin;\n  height: 60vmin;\n  margin-top: 3vmin;\n}\n\n#startButton {\n  margin: auto;\n  width: 14vmin;\n  height: 7vmin;\n  border-radius: 30px;\n  border: none;\n  background-color: rgba(255, 255, 255, 0.4);\n  color: rgb(80, 80, 80);\n  font-size: 4vmin;\n  font-weight: 600;\n  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);\n  outline: none;\n  cursor: pointer;\n  transition: all, 0.4s;\n  animation: fadeIn 1s linear;\n}\n\n#startButton:hover, #confirmButton:hover {\n  background-color: rgba(255, 255, 255, 1);\n  color: rgb(50, 50, 50);\n}\n\n#confirmButton {\n  margin-top: 3vmin;\n  width: 14vmin;\n  height: 7vmin;\n  border-radius: 30px;\n  border: solid black;\n  background-color: #292726;\n  color: #FFFCFC;\n  font-size: 4vmin;\n  font-weight: 600;\n  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);\n  outline: none;\n  cursor: pointer;\n  transition: all, 0.4s;\n}\n\n#parkingDiv {\n  margin: auto;\n  text-align: center;\n  width: 90vmin;\n  background-color: white;\n  border: solid #F5454C;\n  border-radius: 20px;\n  animation: fadeIn 1s linear;\n}\n\n.colors{\n  border-radius: 20px;\n  float: left;\n  margin-top: 3vmin;\n  margin-right: 3vmin;\n  width: 6vmin;\n  height: 6vmin;\n}\n\n#inforOfPlace {\n  margin-top: 2vmin;\n  margin-bottom: 0px;\n  padding-left: 15vmin;\n  text-align: left;\n  list-style: none;\n  font-size: 7vmin;\n  font-weight: bold;\n}\n\n/*전체적인 case 고려해야 함, 비율 통일, 중복되는 쿼리 해결 고민*/\n\n/* PC , 테블릿 가로 (768px ~ 1023px)*/\n@media all and (min-width:1024px) {\n  #title {\n    font-size: 2vmax;\n  }\n\n  #startDiv{\n    padding-top: 1vmax;\n  }\n\n  #startDiv img {\n    width: 6vmax;\n    height: 6vmax;\n  }\n\n  #row1 {\n    display: inline-flex;\n  }\n\n  #mapDiv {\n    margin-top: 0px;\n    width: 45vmax;\n    height: 28vmax;\n  }\n\n/*vmin, vmax 일 때 정확한 비율 통일 필요*/\n  #mapDiv img{\n    margin-top: 0.5vmax;\n    width: 38vmax;\n    height: 27vmax;\n  }\n\n  #parkingDiv {\n    display: inline-flex;\n    width: 45vmax;\n    height: 28vmax;\n    margin-left: 3vmax;\n    margin-top: 0px;\n  }\n\n  .colors{\n    margin-top: 0.7vmax;\n    margin-right: 1vmax;\n    width: 2.5vmax;\n    height: 2.5vmax;\n  }\n\n  #confirmButton {\n    margin-top: 1vmax;\n    width: 7vmax;\n    height: 3vmax;\n    font-size: 2vmax;\n  }\n\n  #startButton{\n    width: 7vmax;\n    height: 3vmax;\n    font-size: 2vmax;\n  }\n\n  #inforOfPlace {\n    margin-top: 2vmax;\n    margin-left: 3vmax;\n    padding-left: 3vmax;\n    font-size: 2.2vmax;\n  }\n\n  #totalOfPlace {\n    margin-top: 13vmax;\n    margin-left: 6.5vmax;\n    font-size: 3vmax;\n  }\n}\n\n/* 테블릿 세로 (768px ~ 1023px)*/\n@media all and (min-width:768px) and (max-width:1023px) {\n  #row1 {\n    display: inline-block;\n  }\n\n  #parkingDiv {\n    margin-top: 4vmin;\n  }\n  \n}\n\n/* 모바일 가로, 테블릿 세로 (480px ~ 767px)*/\n  @media all and (min-width:480px) and (max-width:767px) {\n    #title {\n      font-size: 2vmax;\n    }\n\n    #startDiv{\n      padding-top: 1vmax;\n    }\n\n    #startDiv img {\n      width: 6vmax;\n      height: 6vmax;\n    }\n\n    #row1 {\n      display: inline-flex;\n    }\n\n    #mapDiv {\n      margin-top: 0px;\n      width: 45vmax;\n      height: 28vmax;\n    }\n\n  /*vmin, vmax 일 때 정확한 비율 통일 필요*/\n    #mapDiv img{\n      margin-top: 0.5vmax;\n      width: 38vmax;\n      height: 27vmax;\n    }\n\n    #parkingDiv {\n      display: inline-flex;\n      width: 45vmax;\n      height: 28vmax;\n      margin-left: 3vmax;\n      margin-top: 0px;\n    }\n\n    .colors{\n      margin-top: 0.7vmax;\n      margin-right: 1vmax;\n      width: 2.5vmax;\n      height: 2.5vmax;\n    }\n\n    #confirmButton {\n      margin-top: 1vmax;\n      width: 7vmax;\n      height: 3vmax;\n      font-size: 2vmax;\n    }\n\n    #startButton{\n      width: 7vmax;\n      height: 3vmax;\n      font-size: 2vmax;\n    }\n\n    #inforOfPlace {\n      margin-top: 2vmax;\n      margin-left: 3vmax;\n      padding-left: 3vmax;\n      font-size: 2.2vmax;\n    }\n\n    #totalOfPlace {\n      margin-top: 12vmax;\n      margin-left: 6.5vmax;\n      font-size: 3vmax;\n    }\n\n  }\n\n  /* 모바일 가로, 테블릿 세로 (~ 479px)*/\n  @media (max-width:479px) {\n    #row1 {\n      display: inline-block;\n    }\n\n    #parkingDiv {\n      margin-top: 4vmin;\n    }\n  }\n",
+        "template": "h1 {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n\n  height: 75px;\n  padding: 1rem;\n  color: white;\n  background: #2b2b40;\n  font-weight: bold;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  z-index: 1;\n}\n.status {\n  list-style-type: none;\n  background-color: #151521;\n  width: 20%;\n  padding: 0;\n  margin: 0;\n  right: 0;\n  position: fixed;\n  height: 100%;\n  overflow: auto;\n  top: 75px;\n  display: block;\n  color: white;\n  z-index: 3;\n}\n.sidebar-menu {\n  padding-top: 15px;\n  padding-bottom: 15px;\n  padding-left: 20px;\n  padding-right: 20px;\n  font-weight: bold;\n  font-size: 30px;\n  /* border-bottom: white 1px dotted; */\n}\n.section-ti {\n  display: inline-block;\n}\n.section-item {\n  background-color: #1e1e2d;\n  border-radius: 10px;\n  padding: 8px 15px;\n  font-size: 20px;\n  margin: 15px;\n  display: flex;\n  align-items: center !important;\n  justify-content: space-between;\n}\n.section-information {\n  display: flex;\n  align-items: center !important;\n}\n.section-item .section-circle {\n  display: inline-block;\n  width: 35px;\n  height: 35px;\n  border-radius: 10px;\n}\n.section-circle.circle-red {\n  background-color: #ff0000;\n}\n.section-circle.circle-green {\n  background-color: #00c700;\n}\n.section-circle.circle-blue {\n  background-color: #009dff;\n}\n.section-circle.circle-cyan {\n  background-color: #7fccde;\n}\n.section-circle.circle-yellow {\n  background-color: #f0d264;\n}\n.section-circle.circle-purple {\n  background-color: #cb99c5;\n}\n.section-circle.circle-default {\n  background-color: #d3d3d3;\n}\n.section-item .section-name {\n  margin-left: 10px;\n}\n.section-number {\n  font-size: 30px;\n}\n\n.content {\n  padding: 20px 100px;\n  margin-top: 75px;\n  margin-right: 20%;\n}\n.view .col {\n  margin: 10px;\n  padding: 10px;\n  border-radius: 15px;\n  height: 100%;\n  background-color: #d3d3d3;\n  color: white;\n  transition: all 0.2s ease-in-out;\n  text-align: center;\n}\n.content .row {\n  margin-bottom: 3em;\n  height: 22em;\n}\n.col1 {\n  text-align: center;\n  font-size: 30px;\n}\n\n.col2 {\n  position: absolute;\n  left: 50%;\n  transform: translate(-50%, 0);\n  bottom: 15px;\n  font-size: 30px;\n}\n.row input[type=\"checkbox\"] {\n  display: none;\n}\n.car {\n  visibility: hidden;\n  -webkit-user-drag: none;\n}\n\n.car.in {\n  visibility: visible;\n  animation: slidein 0.5s;\n  animation-fill-mode: forwards;\n}\n\n.car.out {\n  visibility: visible;\n  animation: slideout 0.5s;\n  animation-fill-mode: forwards;\n}\n\n@media (max-width: 700px) {\n  .content .row {\n    height: 13em;\n  }\n  .status {\n    position: static;\n    width: 100%;\n  }\n  .content {\n    padding: 20px 20px;\n    margin-right: 0;\n  }\n}\n",
         "output": "str",
-        "x": 690,
-        "y": 940,
+        "x": 550,
+        "y": 120,
         "wires": [
             [
                 "7f728758c18e6d8e"
@@ -1243,10 +378,10 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "mustache",
-        "template": "const parkingDiv = document.querySelector(\"#parkingDiv\");\nconst mapDiv = document.querySelector(\"#mapDiv\");\nconst contents = document.querySelector(\"#contents\");\nconst row1 = document.querySelector(\"#row1\");\nconst row2 = document.querySelector(\"#row2\");\nconst startButton = document.querySelector(\"#startButton\");\nconst confirmButton = document.querySelector(\"#confirmButton\");\nconst totalOfPlace = document.querySelector(\"#totalOfPlace\");\nlet inforOfPlace = document.querySelector(\"#inforOfPlace\");\n\nconst numberOfTotal = 300;\n\nlet nameOfPlace = new Array();\nlet numberOfPlace = new Array();\nlet colorOfPlace = new Array();\n\nstartButton.addEventListener('click', start);\nconfirmButton.addEventListener('click', confirm);\n\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location;\nconsole.log(loc);\nif (loc.protocol === \"https:\") {\n  wsUri = \"wss:\";\n}\n\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"customer\", \"ws/customer\");\n\nfunction wsConnect() {\n  console.log(\"connect\", wsUri);\n  ws = new WebSocket(wsUri);\n  ws.onmessage = function(msg) {\n    var data = JSON.parse(msg.data);\n    console.log(data);\n    //ws.send(JSON.stringify({data:data}));\n  }\n  ws.onopen = function() {\n    //ws.send(\"Open for data\");\n    console.log(\"connected\");\n  }\n  ws.onclose = function() {\n    setTimeout(wsConnect, 3000);\n  }\n}\n\nfunction doit(m) {\n  if (ws) {\n    ws.send(m);\n  }\n}\n\nfunction start() {\n  contents.style.display = \"inline-block\";\n  startButton.style.display = \"none\";\n  if(nameOfPlace.length == 0){\n    initialize();\n  }\n}\n\nfunction confirm() {\n  contents.style.display = \"none\";\n  startButton.style.display = \"block\";\n}\n\nfunction sum(){\n  var availablePlace = 0;\n  for(let i=0; i<nameOfPlace.length; i++){\n    availablePlace += numberOfPlace[nameOfPlace[i]];\n  }\n\n  return availablePlace + \" / \" + numberOfTotal;\n}\n\nfunction initialize() {\n  \n  nameOfPlace.push(\"Visitor\");\n  nameOfPlace.push(\"Student\");\n  nameOfPlace.push(\"President\");\n  nameOfPlace.push(\"Faculty\");\n  nameOfPlace.push(\"Patient\");\n  /*\n    for(let i = 0; i<nameOfPlace.length-1; i++){\n      numberOfPlace[nameOfPlace[0]] = 13\n    }\n  */\n  numberOfPlace[nameOfPlace[0]] = 50;\n  numberOfPlace[nameOfPlace[1]] = 23;\n  numberOfPlace[nameOfPlace[2]] = 17;\n  numberOfPlace[nameOfPlace[3]] = 13;\n  numberOfPlace[nameOfPlace[4]] = 77;\n\n  colorOfPlace[nameOfPlace[0]] = \"red\";\n  colorOfPlace[nameOfPlace[1]] = \"black\";\n  colorOfPlace[nameOfPlace[2]] = \"blue\";\n  colorOfPlace[nameOfPlace[3]] = \"green\";\n  colorOfPlace[nameOfPlace[4]] = \"skyblue\";\n\n  for (let i = 0; i < nameOfPlace.length; i++) {\n    let li = document.createElement(\"li\");\n    let colors = document.createElement(\"div\");\n    //let color = document.createTextNode(\"●  \");\n    let text = document.createTextNode(nameOfPlace[i] + \" : \" + numberOfPlace[nameOfPlace[i]]);\n    //colors.style.color = colorOfPlace[nameOfPlace[i]];\n    colors.classList.add(\"colors\");\n    colors.style.backgroundColor = colorOfPlace[nameOfPlace[i]];\n    //colors.appendChild(color);\n    li.appendChild(colors);\n    li.appendChild(text);\n    inforOfPlace.appendChild(li);\n  }\n  //추후 수정\n  let textOfTotal = sum();\n  totalOfPlace.appendChild(document.createTextNode(textOfTotal));\n}\n\nfunction changeInfor(){\n\n}\n",
+        "template": "// For Node-Red Web Socket\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location;\nconsole.log(loc);\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"user\",\"ws/user\");\n        \nfunction wsConnect() {\n    console.log(\"connect\",wsUri);\n    ws = new WebSocket(wsUri);\n    //var line = \"\";    // either uncomment this for a building list of messages\n    ws.onmessage = function(msg) {\n        var line = \"\";  // or uncomment this to overwrite the existing message\n        // parse the incoming message as a JSON object\n        \n        var data = msg.data;\n        var json = JSON.parse(data);\n        var area = json.area;\n        var color = json.color.split(\",\");\n        var name = json.name.split(\",\");\n        colorSetting(area);\n        statusSetting(color, name);\n        updateSectionCount();\n        // build the output from the topic and payload parts of the object\n        line += \"<p>\"+data+\"</p>\";\n        // replace the messages div with the new \"line\"\n        // document.getElementById('messages').innerHTML = line;\n        //ws.send(JSON.stringify({data:data}));\n    }\n    ws.onopen = function() {\n        // update the status div with the connection status\n        // document.getElementById('status').innerHTML = \"connected\";\n        //ws.send(\"Open for data\");\n        console.log(\"connected\");\n    }\n    ws.onclose = function() {\n        // update the status div with the connection status\n        // document.getElementById('status').innerHTML = \"not connected\";\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect,3000);\n    }\n}\n////////\n\nvar areaCount = 8;\nvar redColor = \"#ff0000\";\nvar greenColor = \"#00c700\";\nvar blueColor = \"#009dff\";\nvar yellowColor = \"#f0d264\";\nvar purpleColor = \"#cb99c5\";\nvar cyanColor = \"#7fccde\";\nvar defaultColor = \"#d3d3d3\";\n\n\nfunction colorSetting(color) {\n  var arr = color.split(\"\");\n  for (var i = 0; i < areaCount; i++) {\n    var id = \"A0\" + (i + 1);\n    var areaStyle = document.getElementById(id).style;\n    if (arr[i] == 0) {\n      areaStyle.backgroundColor = defaultColor;\n    } else if (arr[i] == 1) {\n      areaStyle.backgroundColor = redColor;\n    } else if (arr[i] == 2) {\n      areaStyle.backgroundColor = greenColor;\n    } else if (arr[i] == 3) {\n      areaStyle.backgroundColor = blueColor;\n    } else if (arr[i] == 4) {\n      areaStyle.backgroundColor = yellowColor;\n    } else if (arr[i] == 5) {\n      areaStyle.backgroundColor = purpleColor;\n    } else if (arr[i] == 6) {\n      areaStyle.backgroundColor = cyanColor;\n    }\n  }\n}\n\nfunction statusSetting(colorArr, nameArr) {\n  var html = \"\";\n  var item = document.getElementsByClassName(\"section-list\");\n  for (var i = 0; i < colorArr.length; i++) {\n    html +=\n      '<div class=\"section-item\"><div class=\"section-information\"><div class=\"section-circle circle-' +\n      colorArr[i] +\n      '\"></div><div class=\"section-name\">' +\n      nameArr[i] +\n      '</div></div><div class=\"section-number number-'+\n      colorArr[i] +'\"></div></div>';\n  }\n  html +=\n    '<div class=\"section-item\"><div class=\"section-information\"><div class=\"section-circle circle-default\"></div><div class=\"section-name\">No Section</div></div><div class=\"section-number number-default\"></div></div><div class=\"section-item\"><div class=\"section-name\">Total</div><div class=\"section-number number-total\"></div></div>';\n  item[0].innerHTML = html;\n}\n\nfunction updateSectionCount() {\n  var countArr = [0, 0, 0, 0, 0, 0, 0];\n  for (var i = 1; i <= areaCount; i++) {\n    var area = \"A0\" + i;\n    var backgroundColor = document.getElementById(area).style.backgroundColor;\n    var hex = rgbToHex(backgroundColor);\n    if (hex == redColor) {\n      countArr[0]++;\n    } else if (hex == greenColor) {\n      countArr[1]++;\n    } else if (hex == blueColor) {\n      countArr[2]++;\n    } else if (hex == yellowColor) {\n      countArr[3]++;\n    } else if (hex == purpleColor) {\n      countArr[4]++;\n    } else if (hex == cyanColor) {\n      countArr[5]++;\n    } else {\n      countArr[6]++;\n    }\n  }\n  var sectionNumber = document.getElementsByClassName(\"section-number\");\n\n  for (let i = 0; i < sectionNumber.length; i++) {\n    var sectionNumberClass = sectionNumber[i].classList[1];\n\n    if (sectionNumberClass == \"number-red\") {\n      sectionNumber[i].innerHTML = countArr[0];\n    } else if (sectionNumberClass == \"number-green\") {\n      sectionNumber[i].innerHTML = countArr[1];\n    } else if (sectionNumberClass == \"number-blue\") {\n      sectionNumber[i].innerHTML = countArr[2];\n    } else if (sectionNumberClass == \"number-yellow\") {\n      sectionNumber[i].innerHTML = countArr[3];\n    } else if (sectionNumberClass == \"number-purple\") {\n      sectionNumber[i].innerHTML = countArr[4];\n    } else if (sectionNumberClass == \"number-cyan\") {\n      sectionNumber[i].innerHTML = countArr[5];\n    }\n  }\n  document.getElementsByClassName(\"number-default\")[0].innerHTML = countArr[6];\n  document.getElementsByClassName(\"number-total\")[0].innerHTML = areaCount;\n}\n\nfunction rgbToHex(rgbType) {\n  var rgb = rgbType.replace(/[^%,.\\d]/g, \"\").split(\",\");\n\n  rgb.forEach(function (str, x, arr) {\n    if (str.indexOf(\"%\") > -1) str = Math.round(parseFloat(str) * 2.55);\n    str = parseInt(str, 10).toString(16);\n    if (str.length === 1) str = \"0\" + str;\n    arr[x] = str;\n  });\n  return \"#\" + rgb.join(\"\");\n}\n",
         "output": "str",
-        "x": 570,
-        "y": 940,
+        "x": 430,
+        "y": 120,
         "wires": [
             [
                 "9fdb8eaa15249c5f"
@@ -1262,8 +397,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 400,
-        "y": 1000,
+        "x": 260,
+        "y": 220,
         "wires": [
             [
                 "00abf433adfdde7f"
@@ -1279,10 +414,10 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "mustache",
-        "template": "// For Node-Red Web Socket\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location;\nconsole.log(loc);\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"manager\",\"ws/manager\");\n        \nfunction wsConnect() {\n    console.log(\"connect\",wsUri);\n    ws = new WebSocket(wsUri);\n    //var line = \"\";    // either uncomment this for a building list of messages\n    ws.onmessage = function(msg) {\n        var line = \"\";  // or uncomment this to overwrite the existing message\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        parking(data);\n        console.log(data);\n        // build the output from the topic and payload parts of the object\n        line += \"<p>\"+data+\"</p>\";\n        // replace the messages div with the new \"line\"\n        // document.getElementById('messages').innerHTML = line;\n        //ws.send(JSON.stringify({data:data}));\n    }\n    ws.onopen = function() {\n        // update the status div with the connection status\n        // document.getElementById('status').innerHTML = \"connected\";\n        //ws.send(\"Open for data\");\n        console.log(\"connected\");\n    }\n    ws.onclose = function() {\n        // update the status div with the connection status\n        // document.getElementById('status').innerHTML = \"not connected\";\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect,3000);\n    }\n}\n////////\nvar areaCount = 8;\nvar redColor = \"#ff0000\";\nvar greenColor = \"#00c700\";\nvar blueColor = \"#009dff\";\nvar yellowColor = \"#f0d264\";\nvar purpleColor = \"#cb99c5\";\nvar cyanColor = \"#7fccde\";\nvar defaultColor = \"#d3d3d3\";\n\nvar allColorList = [\n  redColor,\n  greenColor,\n  blueColor,\n  yellowColor,\n  purpleColor,\n  cyanColor,\n];\nvar existColorList = [\"red\", \"green\", \"blue\"];\nvar existNameList = [\"Student\", \"Professor\", \"Visitor\"];\n\nupdateSectionCount();\nsendToNodered();\n\nfunction changeColor(color) {\n  for (var i = 1; i <= areaCount; i++) {\n    var id = \"r\" + i;\n    var area = \"A0\" + i;\n    if (document.getElementById(id).checked) {\n      document.getElementById(area).style.backgroundColor = color;\n      document.getElementById(id).checked = false;\n    }\n  }\n  //   var x = document.getElementById(\"snackbar\");\n  //   snackbar.className = \"hide\";\n  //   setTimeout(function () {\n  //     snackbar.className = snackbar.className.replace(\"hide\", \"\");\n  //   }, 500);\n  updateSectionCount();\n  sendToNodered()\n}\n\nfunction selectSpot() {\n  var check = 0;\n  var x = document.getElementById(\"snackbar\");\n  for (var i = 1; i <= areaCount; i++) {\n    var id = \"r\" + i;\n    if (document.getElementById(id).checked) {\n      check = 1;\n    }\n  }\n  //   if (check == 1) {\n  //     document.getElementsByClassName(\"choose-message\")[0].style.display = \"none\";\n  //     document.getElementsByClassName(\"color\")[0].style.display = \"block\";\n  //   } else {\n  //     document.getElementsByClassName(\"choose-message\")[0].style.display =\n  //       \"block\";\n  //     document.getElementsByClassName(\"color\")[0].style.display = \"none\";\n  //   }\n}\n\nfunction updateSectionCount() {\n  var countArr = [0, 0, 0, 0, 0, 0, 0];\n  for (var i = 1; i <= areaCount; i++) {\n    var area = \"A0\" + i;\n    var backgroundColor = document.getElementById(area).style.backgroundColor;\n    var hex = rgbToHex(backgroundColor);\n    if (hex == redColor) {\n      countArr[0]++;\n    } else if (hex == greenColor) {\n      countArr[1]++;\n    } else if (hex == blueColor) {\n      countArr[2]++;\n    } else if (hex == yellowColor) {\n      countArr[3]++;\n    } else if (hex == purpleColor) {\n      countArr[4]++;\n    } else if (hex == cyanColor) {\n      countArr[5]++;\n    } else {\n      countArr[6]++;\n    }\n  }\n  var sectionNumber = document.getElementsByClassName(\"section-number\");\n\n  for (let i = 0; i < sectionNumber.length; i++) {\n    var sectionNumberClass = sectionNumber[i].classList[1];\n\n    if (sectionNumberClass == \"number-red\") {\n      sectionNumber[i].innerHTML = countArr[0];\n    } else if (sectionNumberClass == \"number-green\") {\n      sectionNumber[i].innerHTML = countArr[1];\n    } else if (sectionNumberClass == \"number-blue\") {\n      sectionNumber[i].innerHTML = countArr[2];\n    } else if (sectionNumberClass == \"number-yellow\") {\n      sectionNumber[i].innerHTML = countArr[3];\n    } else if (sectionNumberClass == \"number-purple\") {\n      sectionNumber[i].innerHTML = countArr[4];\n    } else if (sectionNumberClass == \"number-cyan\") {\n      sectionNumber[i].innerHTML = countArr[5];\n    }\n  }\n  document.getElementsByClassName(\"number-default\")[0].innerHTML = countArr[6];\n  document.getElementsByClassName(\"number-total\")[0].innerHTML = areaCount;\n}\n\nfunction rgbToHex(rgbType) {\n  var rgb = rgbType.replace(/[^%,.\\d]/g, \"\").split(\",\");\n\n  rgb.forEach(function (str, x, arr) {\n    if (str.indexOf(\"%\") > -1) str = Math.round(parseFloat(str) * 2.55);\n    str = parseInt(str, 10).toString(16);\n    if (str.length === 1) str = \"0\" + str;\n    arr[x] = str;\n  });\n  return \"#\" + rgb.join(\"\");\n}\n\nfunction nameToHex(name) {\n  if (name === \"red\") {\n    return redColor;\n  } else if (name === \"green\") {\n    return greenColor;\n  } else if (name === \"blue\") {\n    return blueColor;\n  } else if (name === \"yellow\") {\n    return yellowColor;\n  } else if (name === \"purple\") {\n    return purpleColor;\n  } else if (name === \"cyan\") {\n    return cyanColor;\n  }\n}\n\nfunction rgbToName(rgb) {\n  if (rgb === \"rgb(255, 0, 0)\") {\n    return \"red\";\n  } else if (rgb === \"rgb(0, 199, 0)\") {\n    return \"green\";\n  } else if (rgb === \"rgb(0, 157, 255)\") {\n    return \"blue\";\n  } else if (rgb === \"rgb(240, 210, 100)\") {\n    return \"yellow\";\n  } else if (rgb === \"rgb(203, 153, 197)\") {\n    return \"purple\";\n  } else if (rgb === \"rgb(127, 204, 222)\") {\n    return \"cyan\";\n  }\n}\n\nfunction hexToName(hex) {\n  if (hex == redColor) {\n    return \"red\";\n  } else if (hex == greenColor) {\n    return \"green\";\n  } else if (hex == blueColor) {\n    return \"blue\";\n  } else if (hex == yellowColor) {\n    return \"yellow\";\n  } else if (hex == purpleColor) {\n    return \"purple\";\n  } else if (hex == cyanColor) {\n    return \"cyan\";\n  }\n}\n\nfunction openPalette() {\n  var paletteStyle = document.getElementsByClassName(\"color-palette\")[0].style;\n  var snackbar = document.getElementById(\"snackbar\");\n  var modeIcon = document.getElementById(\"mode-icon\");\n\n  if (paletteStyle.maxHeight) {\n    paletteStyle.maxHeight = null;\n    for (var i = 1; i <= areaCount; i++) {\n      var inputId = \"r\" + i;\n      var labelId = \"A0\" + i;\n      document.getElementById(inputId).disabled = true;\n      document.getElementById(inputId).checked = false;\n      document.getElementById(labelId).className = \"viewmode col\";\n    }\n    document.getElementsByClassName(\"snackbar-item\")[0].innerHTML =\n      \"<i class='fa fa-eye'></i> View Mode\";\n    snackbar.className = \"show\";\n    setTimeout(function () {\n      snackbar.className = snackbar.className.replace(\"show\", \"\");\n    }, 3000);\n    modeIcon.className = \"fa fa-eye\";\n  } else {\n    paletteStyle.maxHeight =\n      document.getElementsByClassName(\"color-palette\")[0].scrollHeight + \"px\";\n    for (var i = 1; i <= areaCount; i++) {\n      var inputId = \"r\" + i;\n      var labelId = \"A0\" + i;\n      document.getElementById(inputId).disabled = false;\n      document.getElementById(labelId).className = \"whatever col\";\n    }\n    document.getElementsByClassName(\"snackbar-item\")[0].innerHTML =\n      \"<i class='fa fa-edit'></i> Color Setting Mode\";\n    snackbar.className = \"show\";\n    setTimeout(function () {\n      snackbar.className = snackbar.className.replace(\"show\", \"\");\n    }, 3000);\n    modeIcon.className = \"fa fa-edit\";\n  }\n}\n\nfunction reset() {\n  for (var i = 1; i <= areaCount; i++) {\n    var id = \"r\" + i;\n    var area = \"A0\" + i;\n    document.getElementById(area).style.backgroundColor = \"#d3d3d3\";\n    document.getElementById(id).checked = false;\n  }\n  sendToNodered();\n  updateSectionCount();\n}\n\nfunction parking(receive) {\n  var car = document.getElementsByClassName(\"car\");\n  var area = receive.split(\"\");\n  for (var i = 0; i < areaCount; i++) {\n    var car = document.getElementsByClassName(\"car\")[i];\n    if (area[i] == 1 && car.className == \"car in\") {\n      car.className = \"car out\";\n    } else if (area[i] == 0) {\n      car.className = \"car in\";\n    }\n  }\n}\n\nfunction addSection() {\n  var sectionPopMenu = document.getElementsByClassName(\n    \"sectionList-add-popmenu\"\n  )[0];\n  var sectionAdd = document.getElementById(\"section-add\");\n  // alert(sectionPopMenu.className == \"sectionList-add-popmenu show\");\n  if (sectionPopMenu.className == \"sectionList-add-popmenu show\") {\n    sectionAdd.innerHTML =\n      '<i class=\"fa fa-plus-square-o\" aria-hidden=\"true\"></i>';\n    sectionPopMenu.className = \"sectionList-add-popmenu hide\";\n    setTimeout(function () {\n      sectionPopMenu.className = sectionPopMenu.className.replace(\n        \"sectionList-add-popmenu hide\",\n        \"sectionList-add-popmenu\"\n      );\n    }, 500);\n  } else {\n    sectionPopMenu.className = \"sectionList-add-popmenu show\";\n    sectionAdd.innerHTML =\n      '<i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>';\n  }\n}\n\nfunction modifySection() {\n  var sectionList = document.getElementsByClassName(\"section-list\")[0];\n  var sectionItem = document.getElementsByClassName(\"section-item\");\n  var sectionCircle = document.getElementsByClassName(\"section-circle\");\n  var sectionName = document.getElementsByClassName(\"section-name\");\n  var edit = document.getElementsByClassName(\"edit\")[0].style;\n  var sectionModify = document.getElementById(\"section-modify\");\n\n  if (edit.maxHeight) {\n    edit.maxHeight = null;\n    sectionModify.innerHTML = '<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>';\n  } else {\n    edit.maxHeight =\n      document.getElementsByClassName(\"edit\")[0].scrollHeight + \"px\";\n    for (let i = 0; i < sectionItem.length - 2; i++) {\n      sectionCircle[i].style.cursor = \"pointer\";\n      sectionCircle[i].setAttribute(\"onClick\", \"changeSection(event)\");\n      sectionName[i].innerHTML =\n        '<input type=\"text\" class = \"editName\" value=\"' +\n        sectionName[i].innerHTML +\n        '\">';\n      var button = document.createElement(\"div\");\n      button.classList.add(\"removeButton\");\n      button.innerHTML = '<i class=\"fa fa-trash\" aria-hidden=\"true\"></i>';\n      button.setAttribute(\"onClick\", \"removeSection(event)\");\n      button.setAttribute(\"style\", \"cursor: pointer; margin-right : 15px\");\n      // sectionItem[i].appendChild(button);\n      sectionItem[i].insertBefore(button, sectionItem[i].childNodes[2]);\n    }\n    sectionModify.setAttribute(\"onClick\", \"\");\n    sectionModify.style.cursor = \"default\";\n    sectionModify.innerHTML =\n      '<i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i>';\n  }\n  // var button = document.createElement(\"button\");\n  // button.id = \"sectionListChangeButton\";\n  // button.innerHTML = '<i class=\"fa fa-check\" aria-hidden=\"true\"></i>';\n  // button.setAttribute(\"onClick\", \"confirmSectionListModify()\");\n  // sectionList.appendChild(button);\n}\n\nfunction changeSection(event) {\n  var targetColor = getComputedStyle(event.target).backgroundColor;\n\n  for (let i = 0; i < allColorList.length; i++) {\n    if (allColorList[i] == rgbToHex(targetColor)) {\n      for (let j = 0; j < existColorList.length; j++) {\n        if (nameToHex(existColorList[j]) == allColorList[(i + 1) % 6]) {\n          i++;\n        }\n      }\n      event.target.style.backgroundColor = allColorList[(i + 1) % 6];\n      return;\n    }\n  }\n  sendToNodered();\n}\n\nfunction removeSection(event) {\n  var sectionList = document.getElementsByClassName(\"section-list\")[0];\n  var color = document.getElementsByClassName(\"color\")[0];\n  var targetNode = event.target;\n  var parentNode = event.target.parentNode.parentNode;\n  var targetColor = getComputedStyle(\n    parentNode.children[0].children[0]\n  ).backgroundColor;\n\n  for (let i = 0; i < existColorList.length; i++) {\n    if (rgbToName(targetColor) === existColorList[i]) {\n      sectionList.removeChild(parentNode);\n      color.removeChild(color.children[i]);\n      existColorList.splice(i, 1);\n      existNameList.splice(i, 1);\n    }\n  }\n\n  for (var i = 1; i <= areaCount; i++) {\n    var id = \"r\" + i;\n    var area = \"A0\" + i;\n    var removedColor = document.getElementById(area).style.backgroundColor;\n    if (removedColor == targetColor) {\n      document.getElementById(area).style.backgroundColor = defaultColor;\n      document.getElementById(id).checked = false;\n    }\n  }\n  updateSectionCount();\n}\n\nfunction confirmSectionListModify() {\n  var color = document.getElementsByClassName(\"color\")[0].children;\n  var sectionList = document.getElementsByClassName(\"section-list\")[0];\n  var sectionItem = document.getElementsByClassName(\"section-item\");\n  var sectionCircle = document.getElementsByClassName(\"section-circle\");\n  var sectionName = document.getElementsByClassName(\"section-name\");\n  var sectionNumber = document.getElementsByClassName(\"section-number\");\n  var edit = document.getElementsByClassName(\"edit\")[0].style;\n  var sectionModify = document.getElementById(\"section-modify\");\n\n  var previousColorList = existColorList;\n  existColorList = [];\n  existNameList = [];\n  for (let i = 0; i < sectionName.length - 2; i++) {\n    sectionCircle[i].style.cursor = \"default\";\n    sectionCircle[i].removeAttribute(\"onClick\");\n    var sectionColor = getComputedStyle(sectionCircle[i]).backgroundColor;\n    sectionColor = rgbToName(sectionColor);\n\n    sectionCircle[i].classList.remove(sectionCircle[i].classList[1]);\n    sectionNumber[i].classList.remove(sectionNumber[i].classList[1]);\n    sectionCircle[i].classList.add(\"circle-\" + sectionColor);\n    sectionNumber[i].classList.add(\"number-\" + sectionColor);\n\n    existColorList.push(sectionColor);\n    existNameList.push(sectionName[i].children[0].value);\n\n    color[i].classList.remove(color[i].classList[0]);\n    color[i].classList.add(sectionColor);\n    color[i].setAttribute(\n      \"onClick\",\n      'changeColor(\"' + nameToHex(sectionColor) + '\")'\n    );\n    color[i].style.backgroundColor = getComputedStyle(\n      sectionCircle[i]\n    ).backgroundColor;\n\n    sectionName[i].innerHTML = sectionName[i].children[0].value;\n    sectionItem[i].removeChild(sectionItem[i].childNodes[2]);\n\n    for (var j = 1; j <= areaCount; j++) {\n      var id = \"r\" + j;\n      var area = \"A0\" + j;\n      var areaColor = document.getElementById(area).style.backgroundColor;\n      if (rgbToHex(areaColor) == nameToHex(previousColorList[i])) {\n        document.getElementById(area).style.backgroundColor =\n          nameToHex(sectionColor);\n      }\n    }\n  }\n  sectionModify.setAttribute(\"onClick\", \"modifySection()\");\n  sectionModify.style.cursor = \"pointer\";\n  sectionModify.innerHTML = '<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>';\n  edit.maxHeight = null;\n  // sectionList.removeChild(sectionList.lastChild);\n}\n\nfunction confirmSectionListAdd() {\n  var colorList = document.getElementsByClassName(\n    \"sectionList-add-popmenu-color\"\n  )[0].children;\n  var sectionPopMenu = document.getElementsByClassName(\n    \"sectionList-add-popmenu\"\n  )[0];\n  var sectionList = document.getElementsByClassName(\"section-list\")[0];\n\n  var newSectionInput = document.getElementById(\"newSectionName\").value;\n  var newSectionColor =\n    document.getElementsByClassName(\"selectedColor\")[0].style.backgroundColor;\n  var colorCheck = document.getElementsByClassName(\"color-check\");\n  var sectionAdd = document.getElementById(\"section-add\");\n  for (let i = 0; i < existNameList.length; i++) {\n    if (existNameList[i] == newSectionInput) {\n      return alert(\"Name is duplicated!\");\n    }\n    if (existColorList[i] == rgbToName(newSectionColor)) {\n      return alert(\"Color is duplicated!\");\n    }\n  }\n\n  var newSectionItem =\n    sectionList.children[sectionList.children.length - 2].cloneNode(true);\n  newSectionItem.children[0].children[0].classList.remove(\"circle-default\");\n  newSectionItem.children[1].classList.remove(\"number-default\");\n  newSectionItem.children[0].children[0].classList.add(\n    \"circle-\" + rgbToName(newSectionColor)\n  );\n  newSectionItem.children[1].classList.add(\n    \"number-\" + rgbToName(newSectionColor)\n  );\n  newSectionItem.children[1].innerHTML = 0;\n  newSectionItem.children[0].children[1].childNodes[0].data = newSectionInput;\n  newSectionItem.children[0].children[0].style.backgroundColor =\n    newSectionColor;\n\n  existColorList.push(rgbToName(newSectionColor));\n  existNameList.push(newSectionInput);\n  sectionList.insertBefore(\n    newSectionItem,\n    sectionList.children[sectionList.children.length - 2]\n  );\n\n  var color = document.getElementsByClassName(\"color\")[0];\n  var li = color.children[0].cloneNode(true);\n  li.style.backgroundColor = newSectionColor;\n  li.classList.remove(li.classList[0]);\n  li.classList.add(rgbToName(newSectionColor));\n  li.attributes[1].nodeValue =\n    \"changeColor('\" + rgbToHex(newSectionColor) + \"')\";\n  color.insertBefore(li, color.children[color.children.length - 1]);\n\n  for (let i = 0; i < colorList.length; i++) {\n    colorList[i].classList.remove(\"selectedColor\");\n    colorCheck[i].style.display = \"none\";\n  }\n  sectionPopMenu.className = \"sectionList-add-popmenu hide\";\n  setTimeout(function () {\n    sectionPopMenu.className = sectionPopMenu.className.replace(\n      \"sectionList-add-popmenu hide\",\n      \"sectionList-add-popmenu\"\n    );\n  }, 500);\n  document.getElementById(\"newSectionName\").value = \"\";\n  sectionAdd.innerHTML =\n    '<i class=\"fa fa-plus-square-o\" aria-hidden=\"true\"></i>';\n}\n\nfunction newColorSelect(event) {\n  var colorList = document.getElementsByClassName(\n    \"sectionList-add-popmenu-color\"\n  )[0].children;\n  var colorCheck = document.getElementsByClassName(\"color-check\");\n  var target = event.target;\n\n  for (let i = 0; i < colorCheck.length; i++) {\n    if (colorCheck[i].style.display == \"block\") {\n      colorList[i].classList.remove(\"selectedColor\");\n      colorCheck[i].style.display = \"none\";\n      break;\n    }\n  }\n  target.children[0].style.display = \"block\";\n  target.className = \"selectedColor\";\n}\n\nfunction closeAddPopMenu() {\n  var sectionAdd = document.getElementById(\"section-add\");\n  var colorList = document.getElementsByClassName(\n    \"sectionList-add-popmenu-color\"\n  )[0].children;\n  var colorCheck = document.getElementsByClassName(\"color-check\");\n  var sectionPopMenu = document.getElementsByClassName(\n    \"sectionList-add-popmenu\"\n  )[0];\n  sectionPopMenu.className = \"sectionList-add-popmenu hide\";\n  setTimeout(function () {\n    sectionPopMenu.className = sectionPopMenu.className.replace(\n      \"sectionList-add-popmenu hide\",\n      \"sectionList-add-popmenu\"\n    );\n  }, 500);\n  for (let i = 0; i < colorList.length; i++) {\n    colorList[i].classList.remove(\"selectedColor\");\n    colorCheck[i].style.display = \"none\";\n  }\n  document.getElementById(\"newSectionName\").value = \"\";\n  sectionAdd.innerHTML =\n    '<i class=\"fa fa-plus-square-o\" aria-hidden=\"true\"></i>';\n}\n\n\nfunction sendToNodered() {\n  var areaArr = [];\n  for (var i = 1; i <= areaCount; i++) {\n    var area = \"A0\" + i;\n    var backgroundColor = document.getElementById(area).style.backgroundColor;\n    var hex = rgbToHex(backgroundColor);\n    if (hex == redColor) {\n      areaArr[i - 1] = 1;\n    } else if (hex == greenColor) {\n      areaArr[i - 1] = 2;\n    } else if (hex == blueColor) {\n      areaArr[i - 1] = 3;\n    } else if (hex == yellowColor) {\n      areaArr[i - 1] = 4;\n    } else if (hex == purpleColor) {\n      areaArr[i - 1] = 5;\n    } else if (hex == cyanColor) {\n      areaArr[i - 1] = 6;\n    } else {\n      areaArr[i - 1] = 0;\n    }\n  }\n  var sendmsg = areaArr.join(\" \");\n  if (ws) {\n    ws.send(sendmsg);\n  }\n}\n",
+        "template": "// For Node-Red Web Socket\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location;\nconsole.log(loc);\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"manager\",\"ws/manager\");\n        \nfunction wsConnect() {\n    console.log(\"connect\",wsUri);\n    ws = new WebSocket(wsUri);\n    //var line = \"\";    // either uncomment this for a building list of messages\n    ws.onmessage = function(msg) {\n        var line = \"\";  // or uncomment this to overwrite the existing message\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        parking(data);\n        console.log(data);\n        // build the output from the topic and payload parts of the object\n        line += \"<p>\"+data+\"</p>\";\n        // replace the messages div with the new \"line\"\n        // document.getElementById('messages').innerHTML = line;\n        //ws.send(JSON.stringify({data:data}));\n    }\n    ws.onopen = function() {\n        // update the status div with the connection status\n        // document.getElementById('status').innerHTML = \"connected\";\n        //ws.send(\"Open for data\");\n        console.log(\"connected\");\n        sendToNodered();\nsendToUser()\n    }\n    ws.onclose = function() {\n        // update the status div with the connection status\n        // document.getElementById('status').innerHTML = \"not connected\";\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect,3000);\n    }\n}\n////////\nvar areaCount = 8;\nvar redColor = \"#ff0000\";\nvar greenColor = \"#00c700\";\nvar blueColor = \"#009dff\";\nvar yellowColor = \"#f0d264\";\nvar purpleColor = \"#cb99c5\";\nvar cyanColor = \"#7fccde\";\nvar defaultColor = \"#d3d3d3\";\n\nvar allColorList = [\n  redColor,\n  greenColor,\n  blueColor,\n  yellowColor,\n  purpleColor,\n  cyanColor,\n];\nvar existColorList = [\"red\", \"green\", \"blue\"];\nvar existNameList = [\"Student\", \"Professor\", \"Visitor\"];\n\nupdateSectionCount();\nsendToNodered();\nsendToUser();\n\nfunction changeColor(color) {\n  for (var i = 1; i <= areaCount; i++) {\n    var id = \"r\" + i;\n    var area = \"A0\" + i;\n    if (document.getElementById(id).checked) {\n      document.getElementById(area).style.backgroundColor = color;\n      document.getElementById(id).checked = false;\n    }\n  }\n  //   var x = document.getElementById(\"snackbar\");\n  //   snackbar.className = \"hide\";\n  //   setTimeout(function () {\n  //     snackbar.className = snackbar.className.replace(\"hide\", \"\");\n  //   }, 500);\n  updateSectionCount();\n  sendToNodered();\nsendToUser()\n}\n\nfunction selectSpot() {\n  var check = 0;\n  var x = document.getElementById(\"snackbar\");\n  for (var i = 1; i <= areaCount; i++) {\n    var id = \"r\" + i;\n    if (document.getElementById(id).checked) {\n      check = 1;\n    }\n  }\n  //   if (check == 1) {\n  //     document.getElementsByClassName(\"choose-message\")[0].style.display = \"none\";\n  //     document.getElementsByClassName(\"color\")[0].style.display = \"block\";\n  //   } else {\n  //     document.getElementsByClassName(\"choose-message\")[0].style.display =\n  //       \"block\";\n  //     document.getElementsByClassName(\"color\")[0].style.display = \"none\";\n  //   }\n}\n\nfunction updateSectionCount() {\n  var countArr = [0, 0, 0, 0, 0, 0, 0];\n  for (var i = 1; i <= areaCount; i++) {\n    var area = \"A0\" + i;\n    var backgroundColor = document.getElementById(area).style.backgroundColor;\n    var hex = rgbToHex(backgroundColor);\n    if (hex == redColor) {\n      countArr[0]++;\n    } else if (hex == greenColor) {\n      countArr[1]++;\n    } else if (hex == blueColor) {\n      countArr[2]++;\n    } else if (hex == yellowColor) {\n      countArr[3]++;\n    } else if (hex == purpleColor) {\n      countArr[4]++;\n    } else if (hex == cyanColor) {\n      countArr[5]++;\n    } else {\n      countArr[6]++;\n    }\n  }\n  var sectionNumber = document.getElementsByClassName(\"section-number\");\n\n  for (let i = 0; i < sectionNumber.length; i++) {\n    var sectionNumberClass = sectionNumber[i].classList[1];\n\n    if (sectionNumberClass == \"number-red\") {\n      sectionNumber[i].innerHTML = countArr[0];\n    } else if (sectionNumberClass == \"number-green\") {\n      sectionNumber[i].innerHTML = countArr[1];\n    } else if (sectionNumberClass == \"number-blue\") {\n      sectionNumber[i].innerHTML = countArr[2];\n    } else if (sectionNumberClass == \"number-yellow\") {\n      sectionNumber[i].innerHTML = countArr[3];\n    } else if (sectionNumberClass == \"number-purple\") {\n      sectionNumber[i].innerHTML = countArr[4];\n    } else if (sectionNumberClass == \"number-cyan\") {\n      sectionNumber[i].innerHTML = countArr[5];\n    }\n  }\n  document.getElementsByClassName(\"number-default\")[0].innerHTML = countArr[6];\n  document.getElementsByClassName(\"number-total\")[0].innerHTML = areaCount;\n}\n\nfunction rgbToHex(rgbType) {\n  var rgb = rgbType.replace(/[^%,.\\d]/g, \"\").split(\",\");\n\n  rgb.forEach(function (str, x, arr) {\n    if (str.indexOf(\"%\") > -1) str = Math.round(parseFloat(str) * 2.55);\n    str = parseInt(str, 10).toString(16);\n    if (str.length === 1) str = \"0\" + str;\n    arr[x] = str;\n  });\n  return \"#\" + rgb.join(\"\");\n}\n\nfunction nameToHex(name) {\n  if (name === \"red\") {\n    return redColor;\n  } else if (name === \"green\") {\n    return greenColor;\n  } else if (name === \"blue\") {\n    return blueColor;\n  } else if (name === \"yellow\") {\n    return yellowColor;\n  } else if (name === \"purple\") {\n    return purpleColor;\n  } else if (name === \"cyan\") {\n    return cyanColor;\n  }\n}\n\nfunction rgbToName(rgb) {\n  if (rgb === \"rgb(255, 0, 0)\") {\n    return \"red\";\n  } else if (rgb === \"rgb(0, 199, 0)\") {\n    return \"green\";\n  } else if (rgb === \"rgb(0, 157, 255)\") {\n    return \"blue\";\n  } else if (rgb === \"rgb(240, 210, 100)\") {\n    return \"yellow\";\n  } else if (rgb === \"rgb(203, 153, 197)\") {\n    return \"purple\";\n  } else if (rgb === \"rgb(127, 204, 222)\") {\n    return \"cyan\";\n  }\n}\n\nfunction hexToName(hex) {\n  if (hex == redColor) {\n    return \"red\";\n  } else if (hex == greenColor) {\n    return \"green\";\n  } else if (hex == blueColor) {\n    return \"blue\";\n  } else if (hex == yellowColor) {\n    return \"yellow\";\n  } else if (hex == purpleColor) {\n    return \"purple\";\n  } else if (hex == cyanColor) {\n    return \"cyan\";\n  }\n}\n\nfunction openPalette() {\n  var paletteStyle = document.getElementsByClassName(\"color-palette\")[0].style;\n  var snackbar = document.getElementById(\"snackbar\");\n  var modeIcon = document.getElementById(\"mode-icon\");\n\n  if (paletteStyle.maxHeight) {\n    paletteStyle.maxHeight = null;\n    for (var i = 1; i <= areaCount; i++) {\n      var inputId = \"r\" + i;\n      var labelId = \"A0\" + i;\n      document.getElementById(inputId).disabled = true;\n      document.getElementById(inputId).checked = false;\n      document.getElementById(labelId).className = \"viewmode col\";\n    }\n    document.getElementsByClassName(\"snackbar-item\")[0].innerHTML =\n      \"<i class='fa fa-eye'></i> View Mode\";\n    snackbar.className = \"show\";\n    setTimeout(function () {\n      snackbar.className = snackbar.className.replace(\"show\", \"\");\n    }, 3000);\n    modeIcon.className = \"fa fa-eye\";\n  } else {\n    paletteStyle.maxHeight =\n      document.getElementsByClassName(\"color-palette\")[0].scrollHeight + \"px\";\n    for (var i = 1; i <= areaCount; i++) {\n      var inputId = \"r\" + i;\n      var labelId = \"A0\" + i;\n      document.getElementById(inputId).disabled = false;\n      document.getElementById(labelId).className = \"whatever col\";\n    }\n    document.getElementsByClassName(\"snackbar-item\")[0].innerHTML =\n      \"<i class='fa fa-edit'></i> Color Setting Mode\";\n    snackbar.className = \"show\";\n    setTimeout(function () {\n      snackbar.className = snackbar.className.replace(\"show\", \"\");\n    }, 3000);\n    modeIcon.className = \"fa fa-edit\";\n  }\n  sendToUser();\n}\n\nfunction reset() {\n  for (var i = 1; i <= areaCount; i++) {\n    var id = \"r\" + i;\n    var area = \"A0\" + i;\n    document.getElementById(area).style.backgroundColor = \"#d3d3d3\";\n    document.getElementById(id).checked = false;\n  }\n  sendToNodered();\n  updateSectionCount();\n  sendToUser();\n}\n\nfunction parking(receive) {\n  var car = document.getElementsByClassName(\"car\");\n  var area = receive.split(\"\");\n  for (var i = 0; i < areaCount; i++) {\n    var car = document.getElementsByClassName(\"car\")[i];\n    if (area[i] == 1 && car.className == \"car in\") {\n      car.className = \"car out\";\n    } else if (area[i] == 0) {\n      car.className = \"car in\";\n    }\n  }\n}\n\nfunction addSection() {\n  var sectionPopMenu = document.getElementsByClassName(\n    \"sectionList-add-popmenu\"\n  )[0];\n  var sectionAdd = document.getElementById(\"section-add\");\n  // alert(sectionPopMenu.className == \"sectionList-add-popmenu show\");\n  if (sectionPopMenu.className == \"sectionList-add-popmenu show\") {\n    sectionAdd.innerHTML =\n      '<i class=\"fa fa-plus-square-o\" aria-hidden=\"true\"></i>';\n    sectionPopMenu.className = \"sectionList-add-popmenu hide\";\n    setTimeout(function () {\n      sectionPopMenu.className = sectionPopMenu.className.replace(\n        \"sectionList-add-popmenu hide\",\n        \"sectionList-add-popmenu\"\n      );\n    }, 500);\n  } else {\n    sectionPopMenu.className = \"sectionList-add-popmenu show\";\n    sectionAdd.innerHTML =\n      '<i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>';\n  }\n}\n\nfunction modifySection() {\n  var sectionList = document.getElementsByClassName(\"section-list\")[0];\n  var sectionItem = document.getElementsByClassName(\"section-item\");\n  var sectionCircle = document.getElementsByClassName(\"section-circle\");\n  var sectionName = document.getElementsByClassName(\"section-name\");\n  var edit = document.getElementsByClassName(\"edit\")[0].style;\n  var sectionModify = document.getElementById(\"section-modify\");\n\n  if (edit.maxHeight) {\n    edit.maxHeight = null;\n    sectionModify.innerHTML = '<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>';\n  } else {\n    edit.maxHeight =\n      document.getElementsByClassName(\"edit\")[0].scrollHeight + \"px\";\n    for (let i = 0; i < sectionItem.length - 2; i++) {\n      sectionCircle[i].style.cursor = \"pointer\";\n      sectionCircle[i].setAttribute(\"onClick\", \"changeSection(event)\");\n      sectionName[i].innerHTML =\n        '<input type=\"text\" class = \"editName\" value=\"' +\n        sectionName[i].innerHTML +\n        '\">';\n      var button = document.createElement(\"div\");\n      button.classList.add(\"removeButton\");\n      button.innerHTML = '<i class=\"fa fa-trash\" aria-hidden=\"true\"></i>';\n      button.setAttribute(\"onClick\", \"removeSection(event)\");\n      button.setAttribute(\"style\", \"cursor: pointer; margin-right : 15px\");\n      // sectionItem[i].appendChild(button);\n      sectionItem[i].insertBefore(button, sectionItem[i].childNodes[2]);\n    }\n    sectionModify.setAttribute(\"onClick\", \"\");\n    sectionModify.style.cursor = \"default\";\n    sectionModify.innerHTML =\n      '<i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i>';\n  }\n  // var button = document.createElement(\"button\");\n  // button.id = \"sectionListChangeButton\";\n  // button.innerHTML = '<i class=\"fa fa-check\" aria-hidden=\"true\"></i>';\n  // button.setAttribute(\"onClick\", \"confirmSectionListModify()\");\n  // sectionList.appendChild(button);\n}\n\nfunction changeSection(event) {\n  var targetColor = getComputedStyle(event.target).backgroundColor;\n\n  for (let i = 0; i < allColorList.length; i++) {\n    if (allColorList[i] == rgbToHex(targetColor)) {\n      for (let j = 0; j < existColorList.length; j++) {\n        if (nameToHex(existColorList[j]) == allColorList[(i + 1) % 6]) {\n          i++;\n        }\n      }\n      event.target.style.backgroundColor = allColorList[(i + 1) % 6];\n      return;\n    }\n  }\n  sendToNodered();\n  sendToUser();\n}\n\nfunction removeSection(event) {\n  var sectionList = document.getElementsByClassName(\"section-list\")[0];\n  var color = document.getElementsByClassName(\"color\")[0];\n  var targetNode = event.target;\n  var parentNode = event.target.parentNode.parentNode;\n  var targetColor = getComputedStyle(\n    parentNode.children[0].children[0]\n  ).backgroundColor;\n\n  for (let i = 0; i < existColorList.length; i++) {\n    if (rgbToName(targetColor) === existColorList[i]) {\n      sectionList.removeChild(parentNode);\n      color.removeChild(color.children[i]);\n      existColorList.splice(i, 1);\n      existNameList.splice(i, 1);\n    }\n  }\n\n  for (var i = 1; i <= areaCount; i++) {\n    var id = \"r\" + i;\n    var area = \"A0\" + i;\n    var removedColor = document.getElementById(area).style.backgroundColor;\n    if (removedColor == targetColor) {\n      document.getElementById(area).style.backgroundColor = defaultColor;\n      document.getElementById(id).checked = false;\n    }\n  }\n  sendToNodered();\n  updateSectionCount();\n  sendToUser();\n}\n\nfunction confirmSectionListModify() {\n  var color = document.getElementsByClassName(\"color\")[0].children;\n  var sectionList = document.getElementsByClassName(\"section-list\")[0];\n  var sectionItem = document.getElementsByClassName(\"section-item\");\n  var sectionCircle = document.getElementsByClassName(\"section-circle\");\n  var sectionName = document.getElementsByClassName(\"section-name\");\n  var sectionNumber = document.getElementsByClassName(\"section-number\");\n  var edit = document.getElementsByClassName(\"edit\")[0].style;\n  var sectionModify = document.getElementById(\"section-modify\");\n\n  var previousColorList = existColorList;\n  existColorList = [];\n  existNameList = [];\n  for (let i = 0; i < sectionName.length - 2; i++) {\n    sectionCircle[i].style.cursor = \"default\";\n    sectionCircle[i].removeAttribute(\"onClick\");\n    var sectionColor = getComputedStyle(sectionCircle[i]).backgroundColor;\n    sectionColor = rgbToName(sectionColor);\n\n    sectionCircle[i].classList.remove(sectionCircle[i].classList[1]);\n    sectionNumber[i].classList.remove(sectionNumber[i].classList[1]);\n    sectionCircle[i].classList.add(\"circle-\" + sectionColor);\n    sectionNumber[i].classList.add(\"number-\" + sectionColor);\n\n    existColorList.push(sectionColor);\n    existNameList.push(sectionName[i].children[0].value);\n\n    color[i].classList.remove(color[i].classList[0]);\n    color[i].classList.add(sectionColor);\n    color[i].setAttribute(\n      \"onClick\",\n      'changeColor(\"' + nameToHex(sectionColor) + '\")'\n    );\n    color[i].style.backgroundColor = getComputedStyle(\n      sectionCircle[i]\n    ).backgroundColor;\n\n    sectionName[i].innerHTML = sectionName[i].children[0].value;\n    sectionItem[i].removeChild(sectionItem[i].childNodes[2]);\n\n    for (var j = 1; j <= areaCount; j++) {\n      var id = \"r\" + j;\n      var area = \"A0\" + j;\n      var areaColor = document.getElementById(area).style.backgroundColor;\n      if (rgbToHex(areaColor) == nameToHex(previousColorList[i])) {\n        document.getElementById(area).style.backgroundColor =\n          nameToHex(sectionColor);\n      }\n    }\n  }\n  sectionModify.setAttribute(\"onClick\", \"modifySection()\");\n  sectionModify.style.cursor = \"pointer\";\n  sectionModify.innerHTML = '<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>';\n  edit.maxHeight = null;\n  // sectionList.removeChild(sectionList.lastChild);\n  sendToNodered();\n  sendToUser();\n}\n\nfunction confirmSectionListAdd() {\n  var colorList = document.getElementsByClassName(\n    \"sectionList-add-popmenu-color\"\n  )[0].children;\n  var sectionPopMenu = document.getElementsByClassName(\n    \"sectionList-add-popmenu\"\n  )[0];\n  var sectionList = document.getElementsByClassName(\"section-list\")[0];\n\n  var newSectionInput = document.getElementById(\"newSectionName\").value;\n  var newSectionColor =\n    document.getElementsByClassName(\"selectedColor\")[0].style.backgroundColor;\n  var colorCheck = document.getElementsByClassName(\"color-check\");\n  var sectionAdd = document.getElementById(\"section-add\");\n  for (let i = 0; i < existNameList.length; i++) {\n    if (existNameList[i] == newSectionInput) {\n      return alert(\"Name is duplicated!\");\n    }\n    if (existColorList[i] == rgbToName(newSectionColor)) {\n      return alert(\"Color is duplicated!\");\n    }\n  }\n\n  var newSectionItem =\n    sectionList.children[sectionList.children.length - 2].cloneNode(true);\n  newSectionItem.children[0].children[0].classList.remove(\"circle-default\");\n  newSectionItem.children[1].classList.remove(\"number-default\");\n  newSectionItem.children[0].children[0].classList.add(\n    \"circle-\" + rgbToName(newSectionColor)\n  );\n  newSectionItem.children[1].classList.add(\n    \"number-\" + rgbToName(newSectionColor)\n  );\n  newSectionItem.children[1].innerHTML = 0;\n  newSectionItem.children[0].children[1].childNodes[0].data = newSectionInput;\n  newSectionItem.children[0].children[0].style.backgroundColor =\n    newSectionColor;\n\n  existColorList.push(rgbToName(newSectionColor));\n  existNameList.push(newSectionInput);\n  sectionList.insertBefore(\n    newSectionItem,\n    sectionList.children[sectionList.children.length - 2]\n  );\n\n  var color = document.getElementsByClassName(\"color\")[0];\n  var li = color.children[0].cloneNode(true);\n  li.style.backgroundColor = newSectionColor;\n  li.classList.remove(li.classList[0]);\n  li.classList.add(rgbToName(newSectionColor));\n  li.attributes[1].nodeValue =\n    \"changeColor('\" + rgbToHex(newSectionColor) + \"')\";\n  color.insertBefore(li, color.children[color.children.length - 1]);\n\n  for (let i = 0; i < colorList.length; i++) {\n    colorList[i].classList.remove(\"selectedColor\");\n    colorCheck[i].style.display = \"none\";\n  }\n  sectionPopMenu.className = \"sectionList-add-popmenu hide\";\n  setTimeout(function () {\n    sectionPopMenu.className = sectionPopMenu.className.replace(\n      \"sectionList-add-popmenu hide\",\n      \"sectionList-add-popmenu\"\n    );\n  }, 500);\n  document.getElementById(\"newSectionName\").value = \"\";\n  sectionAdd.innerHTML =\n    '<i class=\"fa fa-plus-square-o\" aria-hidden=\"true\"></i>';\n\n    sendToUser();\n}\n\nfunction newColorSelect(event) {\n  var colorList = document.getElementsByClassName(\n    \"sectionList-add-popmenu-color\"\n  )[0].children;\n  var colorCheck = document.getElementsByClassName(\"color-check\");\n  var target = event.target;\n\n  for (let i = 0; i < colorCheck.length; i++) {\n    if (colorCheck[i].style.display == \"block\") {\n      colorList[i].classList.remove(\"selectedColor\");\n      colorCheck[i].style.display = \"none\";\n      break;\n    }\n  }\n  target.children[0].style.display = \"block\";\n  target.className = \"selectedColor\";\n}\n\nfunction closeAddPopMenu() {\n  var sectionAdd = document.getElementById(\"section-add\");\n  var colorList = document.getElementsByClassName(\n    \"sectionList-add-popmenu-color\"\n  )[0].children;\n  var colorCheck = document.getElementsByClassName(\"color-check\");\n  var sectionPopMenu = document.getElementsByClassName(\n    \"sectionList-add-popmenu\"\n  )[0];\n  sectionPopMenu.className = \"sectionList-add-popmenu hide\";\n  setTimeout(function () {\n    sectionPopMenu.className = sectionPopMenu.className.replace(\n      \"sectionList-add-popmenu hide\",\n      \"sectionList-add-popmenu\"\n    );\n  }, 500);\n  for (let i = 0; i < colorList.length; i++) {\n    colorList[i].classList.remove(\"selectedColor\");\n    colorCheck[i].style.display = \"none\";\n  }\n  document.getElementById(\"newSectionName\").value = \"\";\n  sectionAdd.innerHTML =\n    '<i class=\"fa fa-plus-square-o\" aria-hidden=\"true\"></i>';\n}\n\n\nfunction sendToNodered() {\n  var areaArr = [];\n  for (var i = 1; i <= areaCount; i++) {\n    var area = \"A0\" + i;\n    var backgroundColor = document.getElementById(area).style.backgroundColor;\n    var hex = rgbToHex(backgroundColor);\n    if (hex == redColor) {\n      areaArr[i - 1] = 1;\n    } else if (hex == greenColor) {\n      areaArr[i - 1] = 2;\n    } else if (hex == blueColor) {\n      areaArr[i - 1] = 3;\n    } else if (hex == yellowColor) {\n      areaArr[i - 1] = 4;\n    } else if (hex == purpleColor) {\n      areaArr[i - 1] = 5;\n    } else if (hex == cyanColor) {\n      areaArr[i - 1] = 6;\n    } else {\n      areaArr[i - 1] = 0;\n    }\n  }\n  var sendmsg = areaArr.join(\" \");\n  if (ws) {\n    ws.send(sendmsg);\n  }\n}\n\nfunction sendToUser() {\n  var areaArr = [];\n  for (var i = 1; i <= areaCount; i++) {\n    var area = \"A0\" + i;\n    var backgroundColor = document.getElementById(area).style.backgroundColor;\n    var hex = rgbToHex(backgroundColor);\n    if (hex == redColor) {\n      areaArr[i - 1] = 1;\n    } else if (hex == greenColor) {\n      areaArr[i - 1] = 2;\n    } else if (hex == blueColor) {\n      areaArr[i - 1] = 3;\n    } else if (hex == yellowColor) {\n      areaArr[i - 1] = 4;\n    } else if (hex == purpleColor) {\n      areaArr[i - 1] = 5;\n    } else if (hex == cyanColor) {\n      areaArr[i - 1] = 6;\n    } else {\n      areaArr[i - 1] = 0;\n    }\n  }\n  var area = areaArr.join(\"\");\n  var text = '{\"area\":\"'+area+'\", \"color\":\"'+existColorList+'\", \"name\":\"'+existNameList+'\"}';\n  if (ws) {\n    ws.send(text);\n  }\n}",
         "output": "str",
-        "x": 570,
-        "y": 1000,
+        "x": 430,
+        "y": 220,
         "wires": [
             [
                 "93c6a41c60057bcc"
@@ -1300,8 +435,8 @@
         "syntax": "mustache",
         "template": "body {\n  margin: 0;\n  background: #eaedf1;\n  font-family: \"Lato\", sans-serif;\n}\n.sidebar {\n  list-style-type: none;\n  background-color: #151521;\n  width: 20%;\n  padding: 0;\n  margin: 0;\n  position: fixed;\n  height: 100%;\n  overflow: auto;\n  top: 0;\n  display: block;\n  color: white;\n  z-index: 3;\n}\n.sidebar-menu {\n  padding-top: 15px;\n  padding-bottom: 15px;\n  padding-left: 20px;\n  padding-right: 20px;\n  font-weight: bold;\n  font-size: 30px;\n  /* border-bottom: white 1px dotted; */\n}\n.separator {\n  display: block;\n  height: 0;\n  border-bottom: 1px solid #2b2b40;\n}\n.section-ti {\n  display: inline-block;\n}\n.sectionList-change {\n  float: right;\n  display: inline-block;\n}\n\n#section-add,\n#section-modify {\n  display: inline-block;\n  border: 0;\n  cursor: pointer;\n  width: 1.8vw;\n  height: 1.5vw;\n  font-size: 25px;\n}\n\n.sectionList-add-popmenu {\n  display: none;\n  position: fixed;\n  width: 400px;\n  height: 200px;\n  left: 21%;\n  top: 1%;\n  border-radius: 10px;\n  text-align: center;\n  background: #151521;\n  z-index: 2;\n  color: white;\n}\n\n.sectionList-add-popmenu.show {\n  display: block;\n  animation: popin 0.5s;\n}\n\n.sectionList-add-popmenu.hide {\n  display: block;\n  animation: popout 0.5s;\n}\n\n.sectionList-add-popup-header {\n  margin: 15px 20px 5px 20px;\n  display: flex;\n  justify-content: space-between;\n}\n.sectionList-add-popup-title {\n  font-size: 20px;\n  display: inline-block;\n}\n.close-button {\n  display: inline-block;\n  cursor: pointer;\n}\n\n.sectionList-add-popmenu-color {\n  list-style: none;\n  margin: 0;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  padding-left: 0;\n  display: flex;\n  justify-content: center;\n  background-color: #1e1e2d;\n  border-radius: 10px;\n}\n.sectionList-add-popmenu-color li {\n  transition: all 0.2s;\n  cursor: pointer;\n  border: white 10px soild;\n  margin: 10px;\n  width: 40px;\n  height: 40px;\n  border-radius: 100%;\n  text-align: center;\n}\n\n.sectionList-add-popmenu-color li:hover {\n  filter: brightness(70%);\n}\n\n.color-check {\n  display: none;\n}\n\n.sectionList-add-confirm {\n  margin-top: 15px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n#newSectionName {\n  width: 200px;\n  height: 32px;\n  font-size: 15px;\n  border: 0;\n  border-radius: 15px;\n  outline: none;\n  padding-left: 10px;\n  background-color: #1e1e2d;\n  color: white;\n}\n#sectionListAddButton {\n  border-radius: 20%;\n  margin-left: 10px;\n  cursor: pointer;\n}\n.removeButton {\n  border-radius: 10px;\n  margin-left: 6px;\n}\n\n.editName {\n  width: 100px;\n  height: 32px;\n  font-size: 20px;\n  border: 0;\n  border-radius: 10px;\n  outline: none;\n  padding-left: 10px;\n  background-color: rgb(233, 233, 233);\n}\n\n.edit {\n  margin-bottom: 20px;\n  text-align: center;\n  max-height: 0;\n  transition: max-height 0.2s ease-out;\n  overflow: hidden;\n}\n.editButton {\n  cursor: pointer;\n  padding: 5px;\n  border: white 1px solid;\n  border-radius: 10px;\n}\n\n.section-item {\n  background-color: #1e1e2d;\n  border-radius: 10px;\n  padding: 8px 15px;\n  font-size: 20px;\n  margin: 15px;\n  display: flex;\n  align-items: center !important;\n  justify-content: space-between;\n}\n.section-information {\n  display: flex;\n  align-items: center !important;\n}\n.section-item .section-circle {\n  display: inline-block;\n  width: 35px;\n  height: 35px;\n  border-radius: 10px;\n}\n.section-circle.circle-red {\n  background-color: #ff0000;\n}\n.section-circle.circle-green {\n  background-color: #00c700;\n}\n.section-circle.circle-blue {\n  background-color: #009dff;\n}\n.section-circle.circle-cyan {\n  background-color: #7fccde;\n}\n.section-circle.circle-yellow {\n  background-color: #f0d264;\n}\n.section-circle.circle-purple {\n  background-color: #cb99c5;\n}\n.section-circle.circle-default {\n  background-color: #d3d3d3;\n}\n.section-item .section-name {\n  margin-left: 10px;\n}\n.section-number {\n  font-size: 30px;\n}\nh1 {\n  position: fixed;\n  top: 0;\n  left: 20%;\n  right: 0;\n\n  height: 75px;\n  padding: 1rem;\n  color: white;\n  background: teal;\n  font-weight: bold;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  z-index: 1;\n}\n#mode-icon {\n  position: fixed;\n  top: 90px;\n  right: 20px;\n  font-size: 50px;\n  color: #5f5e5e;\n}\n\n.content {\n  padding: 20px 100px;\n  margin-top: 75px;\n  margin-left: 20%;\n}\n.view .col {\n  margin: 10px;\n  padding: 10px;\n  border-radius: 15px;\n  height: 100%;\n  background-color: #d3d3d3;\n  color: white;\n  transition: all 0.2s ease-in-out;\n  text-align: center;\n}\n.content .row {\n  margin-bottom: 3em;\n  height: 22em;\n}\n.col1 {\n  text-align: center;\n  font-size: 30px;\n}\n\n.col2 {\n  position: absolute;\n  left: 50%;\n  transform: translate(-50%, 0);\n  bottom: 15px;\n  font-size: 30px;\n}\n\n.row input[type=\"checkbox\"] {\n  display: none;\n}\n\n.row input[type=\"checkbox\"]:checked + .whatever {\n  box-shadow: 0 0 0 8px orange inset;\n  color: orange;\n}\n\n.row input[type=\"checkbox\"]:hover + .whatever {\n  transition: all 0.2s ease-in-out;\n  transform: scale(1.05);\n}\n\n.car {\n  visibility: hidden;\n  -webkit-user-drag: none;\n}\n\n.car.in {\n  visibility: visible;\n  animation: slidein 0.5s;\n  animation-fill-mode: forwards;\n}\n\n.car.out {\n  visibility: visible;\n  animation: slideout 0.5s;\n  animation-fill-mode: forwards;\n}\n\n.scale-setting {\n  cursor: pointer;\n}\n\n.reset {\n  cursor: pointer;\n}\n#snackbar {\n  visibility: hidden;\n  border: 2px solid #151521;\n  border-radius: 10px;\n  /* text-align: center; */\n  padding: 15px;\n  position: fixed;\n  z-index: 1;\n  left: 60%;\n  transform: translate(-50%, 0);\n  top: 20px;\n  background-color: white;\n  /* font-size: px; */\n  display: flex;\n  align-items: center !important;\n  color: #151521;\n  text-align: center;\n  font-weight: 500;\n  font-size: 30px;\n}\n\n#snackbar.show {\n  visibility: visible;\n  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\n  animation: fadein 0.5s, fadeout 0.5s 2.5s;\n}\n\n.color-setting {\n  cursor: pointer;\n}\n\n.color-palette {\n  max-height: 0;\n  transition: max-height 0.2s ease-out;\n  overflow: hidden;\n}\n.choose-message {\n  position: relative;\n  text-align: center;\n  color: #5a5a88;\n}\n.color {\n  position: relative;\n  text-align: center;\n}\n.color li {\n  border: white 10px soild;\n  margin: 10px;\n  width: 40px;\n  height: 40px;\n  display: inline-block;\n  border-radius: 100%;\n  text-align: center;\n}\n.color li:hover {\n  filter: brightness(80%);\n  color: white;\n}\n.color li:active {\n  transition: all 0.05s ease-in-out;\n  transform: scale(0.8);\n}\n.color .red {\n  background: #ff0000;\n}\n.color .yellow {\n  background: #f0d264;\n}\n.color .green {\n  background: #00c700;\n}\n.color .cyan {\n  background: #7fccde;\n}\n.color .blue {\n  background: #009dff;\n}\n.color .purple {\n  background: #cb99c5;\n}\n.color .default {\n  background: #d3d3d3;\n}\n\n@-webkit-keyframes fadein {\n  from {\n    top: 0;\n    opacity: 0;\n  }\n  to {\n    top: 20px;\n    opacity: 1;\n  }\n}\n\n@keyframes fadein {\n  from {\n    top: 0;\n    opacity: 0;\n  }\n  to {\n    top: 20px;\n    opacity: 1;\n  }\n}\n\n@-webkit-keyframes fadeout {\n  from {\n    top: 20px;\n    opacity: 1;\n  }\n  to {\n    top: 0;\n    opacity: 0;\n  }\n}\n\n@keyframes fadeout {\n  from {\n    top: 20px;\n    opacity: 1;\n  }\n  to {\n    top: 0;\n    opacity: 0;\n  }\n}\n\n@keyframes slidein {\n  0% {\n    transform: translateY(100px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateY(0);\n    opacity: 1;\n  }\n}\n\n@keyframes slideout {\n  0% {\n    transform: translateY(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateY(100px);\n    opacity: 0;\n  }\n}\n\n@keyframes popin {\n  from {\n    left: -500px;\n    opacity: 0;\n  }\n\n  to {\n    left: 21%;\n    opacity: 1;\n  }\n}\n\n@keyframes popout {\n  from {\n    left: 21%;\n    opacity: 1;\n  }\n\n  to {\n    left: -500px;\n    opacity: 0;\n  }\n}\n",
         "output": "str",
-        "x": 690,
-        "y": 1000,
+        "x": 550,
+        "y": 220,
         "wires": [
             [
                 "eb1caf9b997869ac"
@@ -1319,8 +454,8 @@
         "syntax": "mustache",
         "template": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <title>Parking Management</title>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <link\n      rel=\"stylesheet\"\n      href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css\"\n    />\n    <script src=\"https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js\"></script>\n    <link\n      rel=\"stylesheet\"\n      href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\"\n    />\n    <style>{{{payload.css}}}</style>\n    {{!--<link rel=\"stylesheet\" href=\"parking.css\" />--}}\n  </head>\n  <body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n    <div class=\"\">\n      <ul class=\"sidebar\">\n        <div class=\"sidebar-menu\">\n          <div class=\"section-ti\">Section</div>\n          <!---->\n          <div class=\"sectionList-change\">\n            <div id=\"section-add\" onclick=\"addSection()\">\n              <i class=\"fa fa-plus-square-o\" aria-hidden=\"true\"></i>\n            </div>\n            <div id=\"section-modify\" onclick=\"modifySection()\">\n              <i class=\"fa fa-edit\" aria-hidden=\"true\"></i>\n            </div>\n          </div>\n          <!---->\n          <div class=\"section-list\">\n            <div class=\"section-item\">\n              <div class=\"section-information\">\n                <div class=\"section-circle circle-red\"></div>\n                <div class=\"section-name\">Student</div>\n              </div>\n              <div class=\"section-number number-red\">0</div>\n            </div>\n            <div class=\"section-item\">\n              <div class=\"section-information\">\n                <div class=\"section-circle circle-green\"></div>\n                <div class=\"section-name\">Professor</div>\n              </div>\n              <div class=\"section-number number-green\">0</div>\n            </div>\n            <div class=\"section-item\">\n              <div class=\"section-information\">\n                <div class=\"section-circle circle-blue\"></div>\n                <div class=\"section-name\">Visitor</div>\n              </div>\n              <div class=\"section-number number-blue\">0</div>\n            </div>\n            <div class=\"section-item\">\n              <div class=\"section-information\">\n                <div class=\"section-circle circle-default\"></div>\n                <div class=\"section-name\">No Section</div>\n              </div>\n              <div class=\"section-number number-default\">0</div>\n            </div>\n            <div class=\"section-item\">\n              <div class=\"section-name\">Total</div>\n              <div class=\"section-number number-total\">0</div>\n            </div>\n          </div>\n        </div>\n        <div\n          class=\"edit\"\n          id=\"sectionListChangeButton\"\n          onclick=\"confirmSectionListModify()\"\n        >\n          <i class=\"fa fa-check fa-2x editButton\" aria-hidden=\"true\"></i>\n        </div>\n        <div class=\"separator\"></div>\n        <div class=\"sidebar-menu color-setting\" onclick=\"openPalette()\">\n          Color Setting\n        </div>\n        <div class=\"color-palette\">\n          <div class=\"color\">\n            <li class=\"red\" onclick=\"changeColor('#ff0000')\"></li>\n            <li class=\"green\" onclick=\"changeColor('#00c700')\"></li>\n            <li class=\"blue\" onclick=\"changeColor('#009dff')\"></li>\n            <li class=\"default\" onclick=\"changeColor('#d3d3d3')\"></li>\n          </div>\n          <div class=\"choose-message\">\n            <p>Choose the parking spot first, <br />before choosing a color!</p>\n          </div>\n        </div>\n        <div class=\"separator\"></div>\n        <div class=\"sidebar-menu reset\" onclick=\"reset()\">Reset</div>\n        <div class=\"separator\"></div>\n      </ul>\n\n      <div class=\"sectionList-add-popmenu\">\n        <div class=\"sectionList-add-popup-header\">\n          <div class=\"sectionList-add-popup-title\">Add Section</div>\n          <div class=\"close-button\" onclick=\"closeAddPopMenu()\">\n            <i class=\"fa fa-times\" aria-hidden=\"true\"></i>\n          </div>\n        </div>\n        <ul class=\"sectionList-add-popmenu-color\">\n          <li\n            id=\"redSectionAdd\"\n            style=\"background-color: #ff0000\"\n            onclick=\"newColorSelect(event)\"\n          >\n            <i class=\"fa fa-check fa-2x color-check\" aria-hidden=\"true\"></i>\n          </li>\n          <li\n            id=\"greenSectionAdd\"\n            style=\"background-color: #00c700\"\n            onclick=\"newColorSelect(event)\"\n          >\n            <i class=\"fa fa-check fa-2x color-check\" aria-hidden=\"true\"></i>\n          </li>\n          <li\n            id=\"blueSectionAdd\"\n            style=\"background-color: #009dff\"\n            onclick=\"newColorSelect(event)\"\n          >\n            <i class=\"fa fa-check fa-2x color-check\" aria-hidden=\"true\"></i>\n          </li>\n          <li\n            id=\"yellowSectionAdd\"\n            style=\"background-color: #f0d264\"\n            onclick=\"newColorSelect(event)\"\n          >\n            <i class=\"fa fa-check fa-2x color-check\" aria-hidden=\"true\"></i>\n          </li>\n          <li\n            id=\"magentaSectionAdd\"\n            style=\"background-color: #cb99c5\"\n            onclick=\"newColorSelect(event)\"\n          >\n            <i class=\"fa fa-check fa-2x color-check\" aria-hidden=\"true\"></i>\n          </li>\n          <li\n            id=\"cyanSectionAdd\"\n            style=\"background-color: #7fccde\"\n            onclick=\"newColorSelect(event)\"\n          >\n            <i class=\"fa fa-check fa-2x color-check\" aria-hidden=\"true\"></i>\n          </li>\n        </ul>\n        <div class=\"sectionList-add-confirm\">\n          <input type=\"text\" id=\"newSectionName\" placeholder=\"Section Name\" />\n          <div id=\"sectionListAddButton\" onclick=\"confirmSectionListAdd()\">\n            <i class=\"fa fa-check fa-lg\" aria-hidden=\"true\"></i>\n          </div>\n        </div>\n      </div>\n\n      <h1>Smart Parking Lot <i id=\"title-icon\" class=\"fa fa-car\"></i></h1>\n      <div class=\"content\">\n        <i id=\"mode-icon\" class=\"fa fa-eye\"></i>\n        <div class=\"view row\">\n          <input type=\"checkbox\" id=\"r1\" onclick=\"selectSpot()\" disabled />\n          <label id=\"A01\" class=\"viewmode col\" for=\"r1\">\n            <div class=\"col1\">A01</div>\n            <img\n              src=\"./car.png\"\n              class=\"car\"\n              alt=\"car\"\n              height=\"80%\"\n              width=\"80%\"\n          /></label>\n          <input type=\"checkbox\" id=\"r2\" onclick=\"selectSpot()\" disabled />\n          <label id=\"A02\" class=\"viewmode col\" for=\"r2\"\n            ><div class=\"col1\">A02</div>\n            <img\n              src=\"./car.png\"\n              class=\"car\"\n              alt=\"car\"\n              height=\"80%\"\n              width=\"80%\"\n          /></label>\n          <input type=\"checkbox\" id=\"r3\" onclick=\"selectSpot()\" disabled />\n          <label id=\"A03\" class=\"viewmode col\" for=\"r3\"\n            ><div class=\"col1\">A03</div>\n            <img\n              src=\"./car.png\"\n              class=\"car\"\n              alt=\"car\"\n              height=\"80%\"\n              width=\"80%\"\n          /></label>\n          <input type=\"checkbox\" id=\"r4\" onclick=\"selectSpot()\" disabled />\n          <label id=\"A04\" class=\"viewmode col\" for=\"r4\"\n            ><div class=\"col1\">A04</div>\n            <img\n              src=\"./car.png\"\n              class=\"car\"\n              alt=\"car\"\n              height=\"80%\"\n              width=\"80%\"\n          /></label>\n        </div>\n        <div class=\"view row\">\n          <input type=\"checkbox\" id=\"r5\" onclick=\"selectSpot()\" disabled />\n          <label id=\"A05\" class=\"viewmode col\" for=\"r5\"\n            ><img\n              src=\"./car.png\"\n              class=\"car\"\n              alt=\"car\"\n              height=\"80%\"\n              width=\"80%\"\n            />\n            <div class=\"col2\">A05</div></label\n          >\n          <input type=\"checkbox\" id=\"r6\" onclick=\"selectSpot()\" disabled />\n          <label id=\"A06\" class=\"viewmode col\" for=\"r6\"\n            ><img\n              src=\"./car.png\"\n              class=\"car\"\n              alt=\"car\"\n              height=\"80%\"\n              width=\"80%\"\n            />\n            <div class=\"col2\">A06</div></label\n          >\n          <input type=\"checkbox\" id=\"r7\" onclick=\"selectSpot()\" disabled />\n          <label id=\"A07\" class=\"viewmode col\" for=\"r7\"\n            ><img\n              src=\"./car.png\"\n              class=\"car\"\n              alt=\"car\"\n              height=\"80%\"\n              width=\"80%\"\n            />\n            <div class=\"col2\">A07</div></label\n          >\n          <input type=\"checkbox\" id=\"r8\" onclick=\"selectSpot()\" disabled />\n          <label id=\"A08\" class=\"viewmode col\" for=\"r8\"\n            ><img\n              src=\"./car.png\"\n              class=\"car\"\n              alt=\"car\"\n              height=\"80%\"\n              width=\"80%\"\n            />\n            <div class=\"col2\">A08</div></label\n          >\n        </div>\n      </div>\n      <div id=\"snackbar\">\n        <div class=\"snackbar-item\">\n          <i id=\"snackbar-icon\" class=\"fa fa-edit\"></i> Color Setting Mode\n        </div>\n        <!-- <div class=\"color row\">\n          <li class=\"col btn red\" onclick=\"changeColor('#ff0000')\"></li>\n          <li class=\"col btn green\" onclick=\"changeColor('#00c700')\"></li>\n          <li class=\"col btn blue\" onclick=\"changeColor('#009dff')\"></li>\n          <li class=\"col btn default\" onclick=\"changeColor('#d3d3d3')\"></li>\n        </div> -->\n      </div>\n    </div>\n    <script>{{{payload.js}}}</script>\n    {{!--<script type=\"text/javascript\" src=\"parking.js\"></script>--}}\n  </body>\n</html>\n",
         "output": "str",
-        "x": 810,
-        "y": 1000,
+        "x": 670,
+        "y": 220,
         "wires": [
             [
                 "9b82adb60c0a7b63"
@@ -1334,8 +469,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 930,
-        "y": 1000,
+        "x": 790,
+        "y": 220,
         "wires": []
     },
     {
@@ -1345,12 +480,11 @@
         "name": "",
         "server": "04180a8d3193a792",
         "client": "",
-        "x": 420,
-        "y": 1120,
+        "x": 280,
+        "y": 340,
         "wires": [
             [
-                "963160b2ac865a44",
-                "d5b10b6b30c87c22"
+                "ad8082b89cc2f30a"
             ]
         ]
     },
@@ -1361,40 +495,139 @@
         "name": "",
         "server": "04180a8d3193a792",
         "client": "",
+        "x": 530,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "ad8082b89cc2f30a",
+        "type": "switch",
+        "z": "4e61bceb49cf66cf",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "area",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 470,
+        "y": 340,
+        "wires": [
+            [
+                "073e298aff6ceb79"
+            ],
+            [
+                "963160b2ac865a44"
+            ]
+        ]
+    },
+    {
+        "id": "5774fbe07170897a",
+        "type": "websocket out",
+        "z": "4e61bceb49cf66cf",
+        "name": "",
+        "server": "e8a574382610dca5",
+        "client": "",
+        "x": 810,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "073e298aff6ceb79",
+        "type": "function",
+        "z": "4e61bceb49cf66cf",
+        "name": "receive data",
+        "func": " return {payload: msg.payload};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 320,
+        "wires": [
+            [
+                "5774fbe07170897a"
+            ]
+        ]
+    },
+    {
+        "id": "cc45c503c9a9cb74",
+        "type": "comment",
+        "z": "4e61bceb49cf66cf",
+        "name": "http node and template(html, css, js) node for user",
+        "info": "http node and template(html, css, js) node for user",
+        "x": 370,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "a69325625e1ca2fb",
+        "type": "comment",
+        "z": "4e61bceb49cf66cf",
+        "name": "http node and template(html, css, js) node for manager",
+        "info": "http node and template(html, css, js) node for manager",
+        "x": 380,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "fe64902b8835ef57",
+        "type": "comment",
+        "z": "4e61bceb49cf66cf",
+        "name": "web socket node (from manager web)",
+        "info": "",
+        "x": 330,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6afafc1d10b14e27",
+        "type": "comment",
+        "z": "4e61bceb49cf66cf",
+        "name": "web socket node (to manager web)",
+        "info": "",
+        "x": 580,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "446d2b88bea124a0",
+        "type": "comment",
+        "z": "4e61bceb49cf66cf",
+        "name": "web socket node (to user web)",
+        "info": "",
+        "x": 870,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "a38db0c526ba0eeb",
+        "type": "comment",
+        "z": "4e61bceb49cf66cf",
+        "name": "serial node (from arduino)",
+        "info": "",
+        "x": 310,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "4ca733660a3ddc63",
+        "type": "comment",
+        "z": "4e61bceb49cf66cf",
+        "name": "serial node (from arduino)",
+        "info": "",
         "x": 670,
-        "y": 1200,
-        "wires": []
-    },
-    {
-        "id": "17ea38b4222e15df",
-        "type": "debug",
-        "z": "4e61bceb49cf66cf",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 680,
-        "y": 1300,
-        "wires": []
-    },
-    {
-        "id": "d5b10b6b30c87c22",
-        "type": "debug",
-        "z": "4e61bceb49cf66cf",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 1080,
+        "y": 380,
         "wires": []
     },
     {
@@ -1518,323 +751,6 @@
         "wires": []
     },
     {
-        "id": "fd6546df.632a18",
-        "type": "inject",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "Tick every 5 secs",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "5",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "",
-        "topic": "test",
-        "payload": "",
-        "payloadType": "date",
-        "x": 310,
-        "y": 540,
-        "wires": [
-            [
-                "6525495f.1eecd8"
-            ]
-        ]
-    },
-    {
-        "id": "370263af.e0203c",
-        "type": "websocket out",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "",
-        "server": "985ecbc7.67a138",
-        "client": "",
-        "x": 700,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "6525495f.1eecd8",
-        "type": "function",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "format time nicely",
-        "func": "msg.payload = Date(msg.payload).toString();\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 540,
-        "wires": [
-            [
-                "370263af.e0203c"
-            ]
-        ]
-    },
-    {
-        "id": "734ecc43.6050a4",
-        "type": "websocket in",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "",
-        "server": "985ecbc7.67a138",
-        "client": "",
-        "x": 500,
-        "y": 640,
-        "wires": [
-            [
-                "340e1c45.9716c4"
-            ]
-        ]
-    },
-    {
-        "id": "340e1c45.9716c4",
-        "type": "debug",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 710,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "286f978b.ef2a18",
-        "type": "comment",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "https://flows.nodered.org/flow/8666510f94ad422e4765",
-        "info": "",
-        "x": 560,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "9b1de891.a8df68",
-        "type": "comment",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "웹소켙",
-        "info": "",
-        "x": 290,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "80d75e74.6d99a",
-        "type": "inject",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "테스트",
-        "payloadType": "str",
-        "x": 510,
-        "y": 580,
-        "wires": [
-            [
-                "370263af.e0203c"
-            ]
-        ]
-    },
-    {
-        "id": "68eef96b.216138",
-        "type": "template",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "Simple Web Page",
-        "field": "payload.scriptSocket",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "        var ws;\n        var wsUri = \"ws:\";\n        var loc = window.location;\n        console.log(loc);\n        if (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n        // This needs to point to the web socket in the Node-RED flow\n        // ... in this case it's ws/simple\n        wsUri += \"//\" + loc.host + loc.pathname.replace(\"simple\",\"ws/simple\");\n\n        function wsConnect() {\n            console.log(\"connect\",wsUri);\n            ws = new WebSocket(wsUri);\n            //var line = \"\";    // either uncomment this for a building list of messages\n            ws.onmessage = function(msg) {\n                var line = \"\";  // or uncomment this to overwrite the existing message\n                // parse the incoming message as a JSON object\n                var data = msg.data;\n                console.log(data);\n                // build the output from the topic and payload parts of the object\n                line += \"<p>\"+data+\"</p>\";\n                // replace the messages div with the new \"line\"\n                document.getElementById('messages').innerHTML = line;\n                //ws.send(JSON.stringify({data:data}));\n            }\n            ws.onopen = function() {\n                // update the status div with the connection status\n                document.getElementById('status').innerHTML = \"connected\";\n                //ws.send(\"Open for data\");\n                console.log(\"connected\");\n            }\n            ws.onclose = function() {\n                // update the status div with the connection status\n                document.getElementById('status').innerHTML = \"not connected\";\n                // in case of lost connection tries to reconnect every 3 secs\n                setTimeout(wsConnect,3000);\n            }\n        }\n        \n        function doit(m) {\n            if (ws) { ws.send(m); }\n        }",
-        "x": 490,
-        "y": 480,
-        "wires": [
-            [
-                "2ee6d3d5.235dec"
-            ]
-        ]
-    },
-    {
-        "id": "2ee6d3d5.235dec",
-        "type": "template",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "Main html",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!DOCTYPE HTML>\n<html>\n<head>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <script type=\"text/javascript\"> {{{payload.scriptSocket}}} </script>\n</head>\n    <body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n        <h1>웹소켙</h1>\n        <div id=\"messages\"></div>\n        <div id=\"status\">unknown</div>\n        <hr/>\n        <button type=\"button\" onclick='doit(\"누름\");'>Click to send message</button>\n    </body>\n</html>\n\n",
-        "x": 660,
-        "y": 480,
-        "wires": [
-            [
-                "42a28745.bd5d78"
-            ]
-        ]
-    },
-    {
-        "id": "42a28745.bd5d78",
-        "type": "http response",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "",
-        "x": 790,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "1787be40.e87842",
-        "type": "http in",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "",
-        "url": "/simple",
-        "method": "get",
-        "swaggerDoc": "",
-        "x": 301,
-        "y": 480,
-        "wires": [
-            [
-                "68eef96b.216138"
-            ]
-        ]
-    },
-    {
-        "id": "7c30fb48.99cd2c",
-        "type": "http in",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "",
-        "url": "/simple2",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 270,
-        "y": 820,
-        "wires": [
-            [
-                "3153fbd3.203a64"
-            ]
-        ]
-    },
-    {
-        "id": "3153fbd3.203a64",
-        "type": "template",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "html",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<h1>Upload a file here:</h1>\n\n<form action=\"/upload\" method=\"POST\" enctype=\"multipart/form-data\">\n    <input type=\"file\" name=\"myFile\" />\n    <input type=\"submit\" value=\"Submit\">\n</form>",
-        "output": "str",
-        "x": 610,
-        "y": 820,
-        "wires": [
-            [
-                "737e44d2.373a64"
-            ]
-        ]
-    },
-    {
-        "id": "737e44d2.373a64",
-        "type": "http response",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "",
-        "x": 750,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "46e01eea.4a46a",
-        "type": "comment",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "Simple",
-        "info": "",
-        "x": 250,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "7d8e179a.283e4",
-        "type": "http response",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "",
-        "x": 750,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "25859a94.7d9976",
-        "type": "http in",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "",
-        "url": "/upload",
-        "method": "post",
-        "upload": true,
-        "swaggerDoc": "",
-        "x": 270,
-        "y": 880,
-        "wires": [
-            [
-                "d7e5df8b.97a4e8"
-            ]
-        ]
-    },
-    {
-        "id": "e1643981.20d7c8",
-        "type": "template",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "html",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<p></p>File {{name}} uploaded !</p>\n\n<h2>Contents:</h2>\n\n<pre>\n{{{payload}}}\n</pre>",
-        "output": "str",
-        "x": 610,
-        "y": 880,
-        "wires": [
-            [
-                "7d8e179a.283e4"
-            ]
-        ]
-    },
-    {
-        "id": "d7e5df8b.97a4e8",
-        "type": "function",
-        "z": "eba5cf6ce12ef8e4",
-        "name": "toBase64",
-        "func": "msg.name = msg.req.files[0].originalname;\n\nif (msg.req.files[0].mimetype.includes('image')) {\n    msg.payload = `<img src=\"data:image/gif;base64,${msg.req.files[0].buffer.toString('base64')}\">`;\n} else {\n    msg.payload = msg.req.files[0].buffer.toString();\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 460,
-        "y": 880,
-        "wires": [
-            [
-                "e1643981.20d7c8"
-            ]
-        ]
-    },
-    {
         "id": "266aa7d2.820848",
         "type": "change",
         "z": "eba5cf6ce12ef8e4",
@@ -1903,8 +819,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 1200,
+        "x": 710,
+        "y": 1060,
         "wires": []
     },
     {
