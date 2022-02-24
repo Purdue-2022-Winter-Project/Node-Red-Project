@@ -15,6 +15,7 @@ body {
   top: 0;
   display: block;
   color: white;
+  z-index: 3;
 }
 .sidebar-menu {
   padding-top: 15px;
@@ -29,6 +30,144 @@ body {
   display: block;
   height: 0;
   border-bottom: 1px solid #2b2b40;
+}
+.section-ti {
+  display: inline-block;
+}
+.sectionList-change {
+  float: right;
+  display: inline-block;
+}
+
+#section-add,
+#section-modify {
+  display: inline-block;
+  border: 0;
+  cursor: pointer;
+  width: 1.8vw;
+  height: 1.5vw;
+  font-size: 25px;
+}
+
+.sectionList-add-popmenu {
+  display: none;
+  position: fixed;
+  width: 400px;
+  height: 200px;
+  left: 21%;
+  top: 1%;
+  border-radius: 10px;
+  text-align: center;
+  background: #151521;
+  z-index: 2;
+  color: white;
+}
+
+.sectionList-add-popmenu.show {
+  display: block;
+  animation: popin 0.5s;
+}
+
+.sectionList-add-popmenu.hide {
+  display: block;
+  animation: popout 0.5s;
+}
+
+.sectionList-add-popup-header {
+  margin: 15px 20px 5px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.sectionList-add-popup-title {
+  font-size: 20px;
+  display: inline-block;
+}
+.close-button {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.sectionList-add-popmenu-color {
+  list-style: none;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #1e1e2d;
+  border-radius: 10px;
+}
+.sectionList-add-popmenu-color li {
+  transition: all 0.2s;
+  cursor: pointer;
+  border: white 10px soild;
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  text-align: center;
+}
+
+.sectionList-add-popmenu-color li:hover {
+  filter: brightness(70%);
+}
+
+.color-check {
+  display: none;
+}
+
+.sectionList-add-confirm {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#newSectionName {
+  width: 200px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: #1e1e2d;
+  color: white;
+}
+#sectionListAddButton {
+  border-radius: 20%;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.removeButton {
+  border-radius: 10px;
+  margin-left: 6px;
+}
+
+.editName {
+  width: 100px;
+  height: 32px;
+  font-size: 20px;
+  border: 0;
+  border-radius: 10px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+.edit {
+  margin-bottom: 20px;
+  text-align: center;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  overflow: hidden;
+}
+.editButton {
+  cursor: pointer;
+  padding: 5px;
+  border: white 1px solid;
+  border-radius: 10px;
 }
 
 .section-item {
@@ -59,6 +198,15 @@ body {
 }
 .section-circle.circle-blue {
   background-color: #009dff;
+}
+.section-circle.circle-cyan {
+  background-color: #7fccde;
+}
+.section-circle.circle-yellow {
+  background-color: #f0d264;
+}
+.section-circle.circle-purple {
+  background-color: #cb99c5;
 }
 .section-circle.circle-default {
   background-color: #d3d3d3;
@@ -309,6 +457,30 @@ h1 {
   }
   100% {
     transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes popin {
+  from {
+    left: -500px;
+    opacity: 0;
+  }
+
+  to {
+    left: 21%;
+    opacity: 1;
+  }
+}
+
+@keyframes popout {
+  from {
+    left: 21%;
+    opacity: 1;
+  }
+
+  to {
+    left: -500px;
     opacity: 0;
   }
 }

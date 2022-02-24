@@ -304,10 +304,6 @@ h1 {
   animation-fill-mode: forwards;
 }
 
-.scale-setting {
-  cursor: pointer;
-}
-
 .reset {
   cursor: pointer;
 }
